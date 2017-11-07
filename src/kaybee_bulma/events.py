@@ -23,10 +23,6 @@ def builder_init(app):
     importscan.scan(widgets)
     dectate.commit(registry)
 
-    # Once config is setup, use it to drive various Sphinx registrations
-    # (nodes, directives)
-    # widgets.setup(app)
-
     # Add the root of this theme
     template_bridge = app.builder.templates
     f = os.path.join(os.path.dirname(inspect.getfile(kaybee_bulma)),
