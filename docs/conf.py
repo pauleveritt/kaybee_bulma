@@ -10,7 +10,7 @@ import kaybee_bulma
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-from kaybee.core.site_config import SiteConfig
+from kaybee.site_config import SiteConfig
 
 extensions = ['sphinx.ext.intersphinx',
               kaybee.__title__,

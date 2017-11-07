@@ -1,6 +1,6 @@
 import os
 
-from kaybee_bulma.events import add_templates_paths, register
+from kaybee_bulma.events import builder_init
 
 __version__ = "0.0.1"
 
@@ -25,8 +25,7 @@ def get_path():
 
 
 def setup(app):
-    app.connect('builder-inited', register)
-    app.connect('builder-inited', add_templates_paths)
+    app.connect('builder-inited', builder_init)
 
     return dict(
         version=__version__,
