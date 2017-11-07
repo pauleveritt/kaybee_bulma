@@ -1,0 +1,33 @@
+{
+  "name": "kaybee_bulma",
+  "version": "0.0.1",
+  "description": "Kaybee theme based on Bulma CSS",
+  "main": "src/kaybee_bulma/index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "dist": "webpack",
+    "scss": "node-sass src/kaybee_bulma/scss/kaybee.scss src/kaybee_bulma/static/kaybee.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pauleveritt/kaybee.git"
+  },
+  "author": "Paul Everitt <pauleveritt@me.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/pauleveritt/kaybee/issues"
+  },
+  "homepage": "https://github.com/pauleveritt/kaybee#readme",
+  "dependencies": {
+    "bulma": "^0.4.2"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "html-webpack-plugin": "^2.29.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
+  }
+}
