@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
-from kaybee.core.core_type import CoreQueryModel
-from kaybee.core.registry import registry
+from kaybee.base_types import CoreQueryModel
+from kaybee.registry import registry
 from kaybee.widgets.base import BaseWidget
 
 

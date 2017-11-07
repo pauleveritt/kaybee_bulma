@@ -1,4 +1,4 @@
-from kaybee.core.registry import registry
+from kaybee.registry import registry
 from kaybee.resources.directive import BaseResourceDirective
 
 

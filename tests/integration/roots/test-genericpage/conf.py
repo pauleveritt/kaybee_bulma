@@ -2,7 +2,7 @@
 
 import kaybee
 import kaybee_bulma
-from kaybee.core.site_config import SiteConfig
+from kaybee.site_config import SiteConfig
 
 extensions = [
     kaybee.__title__,

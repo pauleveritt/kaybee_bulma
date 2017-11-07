@@ -4,7 +4,7 @@ from sphinx.application import Sphinx
 from sphinx.builders.html import StandaloneHTMLBuilder
 from sphinx.environment import BuildEnvironment
 
-from kaybee.core.site import Site
+from kaybee.site import Site
 from kaybee_bulma.widgets.kbtoctree import KbToctree
 from kaybee.widgets.node import widget
 

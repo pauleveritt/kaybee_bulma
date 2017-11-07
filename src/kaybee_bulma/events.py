@@ -4,7 +4,7 @@ import os
 import dectate
 import importscan
 from kaybee_bulma import resources, widgets
-from kaybee.core.registry import registry
+from kaybee.registry import registry
 from sphinx.jinja2glue import SphinxFileSystemLoader
 
 import kaybee_bulma
@@ -18,7 +18,7 @@ def register(app):
     project.
     """
 
-    # First, scan for decorators in kaybee core and commit
+    # First, scan for decorators in kaybee.and commit
     importscan.scan(resources)
     importscan.scan(widgets)
     dectate.commit(registry)

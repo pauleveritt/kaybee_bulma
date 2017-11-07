@@ -1,6 +1,6 @@
 from typing import List, Tuple
 
-from kaybee.core.registry import registry
+from kaybee.registry import registry
 
 
 @registry.widget('kbtoctree')
