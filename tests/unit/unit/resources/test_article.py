@@ -1,6 +1,6 @@
 import pytest
 
-from kaybee.resources.article import Article
+from kaybee_bulma.resources.article import Article
 
 
 @pytest.fixture()

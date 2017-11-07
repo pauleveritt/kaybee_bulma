@@ -1,6 +1,6 @@
 import pytest
 
-from kaybee.resources.section import Section
+from kaybee_bulma.resources.section import Section
 
 
 @pytest.fixture()

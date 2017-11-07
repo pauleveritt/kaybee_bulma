@@ -1,6 +1,6 @@
 import pytest
 
-from kaybee.resources.category import Category
+from kaybee_bulma.resources.category import Category
 
 
 @pytest.fixture()

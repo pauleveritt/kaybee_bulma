@@ -1,6 +1,6 @@
 import pytest
 
-from kaybee.resources.homepage import Homepage
+from kaybee_bulma.resources.homepage import Homepage
 
 
 @pytest.fixture()

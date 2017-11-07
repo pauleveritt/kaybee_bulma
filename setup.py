@@ -28,7 +28,8 @@ INSTALL_REQUIRES = [
     'sphinx',
     'dectate',
     'importscan',
-    'livereload'
+    'livereload',
+    'pytest'
 ]
 
 ENTRY_POINTS = {
