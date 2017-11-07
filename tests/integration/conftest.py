@@ -48,7 +48,7 @@ def page(content, request):
     pagename = request.param
     c = (content.outdir / pagename).text()
 
-    yield BeautifulSoup(c, 'html5lib')
+    yield BeautifulSoup(c, 'html.parser')
 
 
 @pytest.fixture()

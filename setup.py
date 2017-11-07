@@ -29,7 +29,9 @@ INSTALL_REQUIRES = [
     'dectate',
     'importscan',
     'livereload',
-    'pytest'
+    'pytest',
+    'pytest-mock',
+    'beautifulsoup4'
 ]
 
 ENTRY_POINTS = {

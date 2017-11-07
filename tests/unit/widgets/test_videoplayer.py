@@ -1,6 +1,6 @@
 import pytest
 
-from kaybee.widgets.videoplayer import VideoPlayer
+from kaybee_bulma.widgets.videoplayer import VideoPlayer
 
 
 @pytest.fixture()

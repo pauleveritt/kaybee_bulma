@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
 
 import kaybee
+import kaybee_bulma
 from kaybee.core.site_config import SiteConfig
 
-extensions = [kaybee.__title__]
+extensions = [
+    kaybee.__title__,
+    kaybee_bulma.__title__
+]
 
 master_doc = 'index'
-html_theme = 'kaybee'
+html_theme = 'kaybee_bulma'
 exclude_patterns = ['_build']
-
 
 kaybee_config = SiteConfig(
     logo=dict(

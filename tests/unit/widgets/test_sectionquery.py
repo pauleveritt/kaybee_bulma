@@ -1,6 +1,6 @@
 import pytest
 
-from kaybee.widgets.sectionquery import SectionQuery
+from kaybee_bulma.widgets.sectionquery import SectionQuery
 
 
 class DummySite:

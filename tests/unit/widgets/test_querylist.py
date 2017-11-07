@@ -1,6 +1,6 @@
 import pytest
 
-from kaybee.widgets.querylist import QueryList
+from kaybee_bulma.widgets.querylist import QueryList
 
 
 class DummySite:
