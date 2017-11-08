@@ -33,7 +33,7 @@ class TestReferringPage:
         heading = categories.find(class_='menu-label').string.strip()
         assert 'Categories' == heading
         first_link = categories.find_all('a')[0]
-        assert 'category1.html' == first_link.attrs['href']
+        assert '/category1.html' == first_link.attrs['href']
         pd = first_link.find(class_='tag').contents[0].strip()
         assert 'category1' == pd
 
