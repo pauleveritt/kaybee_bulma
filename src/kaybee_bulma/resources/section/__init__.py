@@ -1,9 +1,8 @@
-from kaybee.base_types import CoreContainerModel
 from kaybee.registry import registry
-from kaybee.resources import BaseResource
+from kaybee.resources.base import BaseResource, BaseContainerModel
 
 
-class SectionModel(CoreContainerModel):
+class SectionModel(BaseContainerModel):
     subheading: str = None
 
 

@@ -1,11 +1,10 @@
 from typing import Mapping
 
-from kaybee.base_types import CoreResourceModel
 from kaybee.registry import registry
-from kaybee.resources import BaseResource
+from kaybee.resources.base import BaseResource, BaseResourceModel
 
 
-class HomepageModel(CoreResourceModel):
+class HomepageModel(BaseResourceModel):
     logo: str = None
     style = 'header-image is-medium'
     heading: str = None
