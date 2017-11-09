@@ -121,7 +121,7 @@ class TestArticle5:
         # No props
         node = page.find(id=f'kb-debug-lineage-{propname}')
         value = node.contents[0].strip()
-        assert value == propvalue
+        assert propvalue == value
 
     def test_custom_template(self, page):
         node = page.find(id='kb-debug-resource-template')
