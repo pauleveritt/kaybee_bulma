@@ -25,13 +25,7 @@ CLASSIFIERS = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 INSTALL_REQUIRES = [
-    'sphinx',
-    'dectate',
-    'importscan',
-    'livereload',
-    'pytest',
-    'pytest-mock',
-    'beautifulsoup4'
+    'kaybee'
 ]
 
 ENTRY_POINTS = {
