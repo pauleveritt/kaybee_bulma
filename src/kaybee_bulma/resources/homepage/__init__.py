@@ -10,6 +10,7 @@ class HomepageModel(BaseResourceModel):
     heading: str = None
     subheading: str = None
     overrides: Mapping[str, Mapping[str, str]] = None
+    hero_image: str = None
 
 
 @registry.resource('homepage')

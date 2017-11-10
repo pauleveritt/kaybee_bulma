@@ -1,4 +1,11 @@
 {% extends "layout.html" %}
+{% block hero_image %}
+    {% if resource.props.hero_image %}
+        background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0,
+        0.4)),
+        url('/_static/{{ resource.props.hero_image }}');
+    {% endif %}
+{% endblock %}
 {% block hero %}
     <div class="hero-body">
         <div class="container">

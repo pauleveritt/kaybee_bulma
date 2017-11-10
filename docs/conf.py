@@ -143,10 +143,5 @@ kaybee_config = SiteConfig(
         alt='Kaybee Logo Alt'
     ),
     copyright='2017, All Rights Reserved',
-    social_media=dict(
-        twitter='kbtest',
-        github='kbtest'
-    ),
-    favicon='kaybee_logo.png',
-    is_debug=True
+    favicon='kaybee_logo.png'
 )

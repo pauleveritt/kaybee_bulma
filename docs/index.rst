@@ -6,7 +6,8 @@ Kaybee: Knowledge Base for Static Sites
     in_nav: False
     published: 2009-10-21 12:23
     heading: Kaybee
-    subheading: Knowledge Base for Static Sites
+    subheading: Extensible Knowledge Base for Static Sites
+    hero_image: library.jpg
 
 Write and organize content with pleasure. Kaybee is a static site generator
 based on Sphinx that emphasizes good looks, rich interconnections, and

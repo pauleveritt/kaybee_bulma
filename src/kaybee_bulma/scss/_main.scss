@@ -49,10 +49,6 @@
   border-bottom: 2px solid $info-invert;
 }
 
-.kb-header.header-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.49), rgba(0, 0, 0, 0.89)), url('https://images.unsplash.com/1/iphone-4-closeup.jpg?dpr=1&auto=format&crop=middle&fit=crop&w=2000&h=700&q=80');
-}
-
 // Portlets
 .kb-portlet {
   .panel-block {
@@ -180,7 +176,7 @@
 
 #kb-homepage-body {
   p:not(.panel-heading) {
-    margin: 2rem 10%;
+    margin: -1rem 10% 2rem 10%;
     font-size: $size-large;
   }
 }
