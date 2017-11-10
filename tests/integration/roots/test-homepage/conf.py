@@ -2,7 +2,7 @@
 
 import kaybee
 import kaybee_bulma
-from kaybee.site_config import SiteConfig
+from kaybee_bulma.siteconfig import SiteConfig
 
 extensions = [
     kaybee.__title__,
@@ -23,5 +23,6 @@ kaybee_config = SiteConfig(
         twitter='kbtest',
         github='kbtest'
     ),
+    favicon='xyz.png',
     is_debug=True
 )

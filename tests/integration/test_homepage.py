@@ -17,6 +17,10 @@ class TestHomepage:
         div = page.find_all(class_='hero-body')
         assert len(div) == 1
 
+    def test_has_favicon(self, page):
+        div = page.find_all(rel='icon')
+        assert len(div) == 1
+
 
 @pytest.mark.parametrize('json_page', ['debug_dump.json', ], indirect=True)
 class TestDebugpage:
