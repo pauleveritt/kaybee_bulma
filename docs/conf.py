@@ -1,7 +1,7 @@
 import kaybee
 import kaybee_bulma
 
-from kaybee.siteconfig import SiteConfig
+from kaybee_bulma.siteconfig import SiteConfig
 
 # -- General configuration ------------------------------------------------
 
@@ -147,5 +147,6 @@ kaybee_config = SiteConfig(
         twitter='kbtest',
         github='kbtest'
     ),
+    favicon='kaybee_logo.png',
     is_debug=True
 )

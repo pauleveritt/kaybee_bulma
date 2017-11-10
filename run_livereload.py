@@ -30,12 +30,12 @@ server.watch('docs/**', shell(sphinx),
              ignore=lambda s: '_build' in s)
 # server.watch('docs/*.rst', shell(sphinx))
 # server.watch('docs/*/*.rst', shell(sphinx))
-server.watch('src/kaybee/**/*.html', shell(sphinx))
-server.watch('src/kaybee/**.py', shell(sphinx))
-server.watch('src/kaybee/**/index.js',
+server.watch('src/kaybee_bulma/**/*.html', shell(sphinx))
+server.watch('src/kaybee_bulma/**.py', shell(sphinx))
+server.watch('src/kaybee_bulma/**/index.js',
              shell(both, shell="/usr/local/bin/bash"),
              )
-server.watch('src/kaybee/**/*.scss',
+server.watch('src/kaybee_bulma/**/*.scss',
              shell(both, shell="/usr/local/bin/bash"),
              )
 server.serve(root='docs/_build', live_css=False)
