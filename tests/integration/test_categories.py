@@ -18,7 +18,7 @@ class TestCategoryPage:
         published = page.find(id='kb-sidenav-published-heading')
         heading = published.find(class_='menu-label').string.strip()
         assert 'Published' == heading
-        pd = published.find_all('p')[1].contents[0].strip()
+        pd = published.find_all('li')[1].contents[0].strip()
         assert '2015-04-25' in pd
 
 
