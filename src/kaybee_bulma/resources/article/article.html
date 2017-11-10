@@ -5,26 +5,7 @@
             <div class="column sb_body">
                 <div class="title is-1">{{ resource.title }}</div>
                 {{ body }}
-                <section class="section">
-                    <div class="columns">
-                        <div class="column has-text-centered">
-                            <div>Previous</div>
-                            <div>
-                                <a href="{{ _('previous chapter') }}">
-                                    {{ prev.title }}
-                                </a>
-                            </div>
-                        </div>
-                        <div class="column has-text-centered">
-                            <div>Next</div>
-                            <div>
-                                <a href="{{ _('next chapter') }}">
-                                    {{ next.title }}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                {%  include "prevnext.html" %}
 
                 <section class="section kb-listing">
                     <h1 class="title kb-section-heading">This Series</h1>

@@ -1,0 +1,22 @@
+<section class="section kb-prevnext">
+    <div class="columns">
+        <div class="column has-text-centered">
+            <div>Previous</div>
+            <div>
+                <a href="{{ prev.link|e }}"
+                   title="{{ _('previous chapter') }}">
+                    {{ prev.title }}
+                </a>
+            </div>
+        </div>
+        <div class="column has-text-centered">
+            <div>Next</div>
+            <div>
+                <a href="{{ next.link|e }}"
+                   title="{{ _('next chapter') }}">
+                    {{ next.title }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
