@@ -1,7 +1,7 @@
 # Next
 
-- Favicon support
+- Previous/next doesn't show if not published
 
 # Later
 
-- Redo sidebar blocks as widgets
+- Redo sidebar blocks as widgets included via inherited YAML

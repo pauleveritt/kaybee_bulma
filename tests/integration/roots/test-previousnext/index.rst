@@ -9,6 +9,8 @@ Test PreviousNext
 
 Content after YAML.
 
-.. previousnext::
+.. toctree::
 
-And more after that.
+    article1
+    article2
+    article3
