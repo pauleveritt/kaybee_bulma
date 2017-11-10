@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "dist": "webpack",
-    "scss": "node-sass src/kaybee_bulma/scss/kaybee.scss src/kaybee_bulma/static/kaybee.css"
+    "scss": "node-sass src/kaybee_bulma/scss/kaybee_bulma.scss src/kaybee_bulma/static/kaybee_bulma.css"
   },
   "repository": {
     "type": "git",

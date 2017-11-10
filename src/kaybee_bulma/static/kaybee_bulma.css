@@ -5186,7 +5186,7 @@ label.panel-block {
   border-bottom: 1px solid gray; }
 
 .section .section {
-  padding-top: 0; }
+  padding: 0.75rem 0; }
 
 .sb_body table.highlighttable {
   width: auto; }
@@ -5201,17 +5201,9 @@ label.panel-block {
     list-style: none;
     margin: 0; }
 
-.sb_body .section:first-of-type h1:first-of-type p:not(.panel-heading),
 #kb-homepage-body p:not(.panel-heading) {
   margin: 2rem 10%;
   font-size: 1.5rem; }
 
-.sb_body .section:first-of-type h1:first-of-type h1:first-of-type,
-#kb-homepage-body h1:first-of-type {
+.section > h1:first-of-type {
   display: none; }
-
-.kb-body h1:first-of-type {
-  display: none; }
-
-.section .section {
-  padding: 0.75rem 0; }

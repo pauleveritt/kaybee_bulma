@@ -156,7 +156,7 @@
 .section .section {
   // Sphinx generates "section" class which matches Bulma which
   // adds a bunch of extra space.
-  padding-top: 0;
+  padding: 0.75rem 0;
 }
 
 .sb_body table.highlighttable {
@@ -178,24 +178,19 @@
   }
 }
 
-// Hide the first heading, where Sphinx inserts the page title
-// into the generated body
-.sb_body .section:first-of-type h1:first-of-type,
 #kb-homepage-body {
   p:not(.panel-heading) {
     margin: 2rem 10%;
     font-size: $size-large;
   }
-  h1:first-of-type {
-    display: none;
-  }
 }
 
-.kb-body h1:first-of-type {
+// Hide the first heading, where Sphinx inserts the page title
+// into the generated body
+.section > h1:first-of-type {
   display: none;
 }
 
-.section .section {
-  // Sphinx sticks in class="section" which triggers Bulma's extra padding
-  padding: 0.75rem 0;
-}
+//.kb-body h1:first-of-type {
+//  display: none;
+//}
