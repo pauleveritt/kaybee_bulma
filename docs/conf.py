@@ -1,6 +1,8 @@
 import kaybee
 import kaybee_bulma
 
+from kaybee.siteconfig import SiteConfig
+
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -10,7 +12,6 @@ import kaybee_bulma
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-from kaybee.site_config import SiteConfig
 
 extensions = ['sphinx.ext.intersphinx',
               kaybee.__title__,
