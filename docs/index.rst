@@ -39,7 +39,3 @@ creating your own kinds of documents.
           query:
               kbtype: article
               limit: 5
-        - label: All Recent
-          style: warning
-          query:
-              limit: 10
