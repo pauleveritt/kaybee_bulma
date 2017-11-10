@@ -5,17 +5,28 @@
             <p class="menu-label">
                 Published
             </p>
-            <p>
-                Published on
-                {{ resource.props.published.strftime('%Y-%m-%d') }}
-                at
-                {{ resource.props.published.strftime('%H:%M') }}.
-            </p>
+            <ul class="menu-list">
+                <li>
+                    <a href="#">
+                        Published on
+                        {{ resource.props.published.strftime('%Y-%m-%d') }}
+                        at
+                        {{ resource.props.published.strftime('%H:%M') }}.
+                    </a>
+                </li>
+            </ul>
         {% else %}
             <p class="menu-label">
                 Draft
             </p>
-            <p>This article does not have a published date in the past.</p>
+            <ul class="menu-list">
+                <li>
+                    <a href="#">
+                        This article does not have a
+                        current published date.
+                    </a>
+                </li>
+            </ul>
         {% endif %}
     </div>
 
