@@ -10,6 +10,7 @@ Articles
     in_nav: True
     weight: 20
     published: 2009-10-21 12:23
+    featured_docname: articles/customizing/layout
     overrides:
         all:
             style: is-bold is-primary

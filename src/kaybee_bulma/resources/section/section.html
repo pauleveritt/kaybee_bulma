@@ -13,27 +13,31 @@
                         </p>
                     {% endif %}
                 </div>
-                <div class="column is-one-third is-hidden-mobile">
-                    <div class="card kb-featured">
-                        <header class="card-header">
-                            <p class="card-header-title">
-                                Featured
-                            </p>
-                        </header>
+                {% set feature = resource.featured_resource(site) %}
+                {% if feature %}
+                    <div class="column is-one-third is-hidden-mobile">
+                        <div class="card kb-featured">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Featured
+                                </p>
+                            </header>
 
-                        <div class="card-content">
-                            <div class="content is-small">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Phasellus nec iaculis
-                                mauris.
-                                <div>
-                                    <a href="#">read...</a>
-                                    <small>11:09 PM - 1 Jan 2016</small>
+                            <div class="card-content">
+                                <div class="content">
+                                    <a href="{{ pathto(feature.docname, 1) }}">{{ feature.title }}</a>
+                                </div>
+                                <div class="content is-small">
+                                    {{ feature.props.synopsis }}
+                                    <div>
+                                        <a href="{{ pathto(feature.docname, 1) }}">read...</a>
+                                        <small>{{ feature.props.published }}</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                {% endif %}
             </div>
         </div>
     </div>
