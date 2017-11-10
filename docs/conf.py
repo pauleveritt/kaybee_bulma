@@ -145,7 +145,7 @@ kaybee_config = SiteConfig(
     copyright='2017, All Rights Reserved',
     social_media=dict(
         twitter='kbtest',
-        github='kbtest'
+        # github='kbtest'
     ),
     favicon='kaybee_logo.png',
     is_debug=True
