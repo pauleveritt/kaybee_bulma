@@ -14,9 +14,9 @@
                             <div class="kb-listing-title">
                                 <a href="{{ '/' + r.docname + '.html' }}">{{ r.title }}</a>
                             </div>
-                            {% if r.synopsis %}
-                                <div class="kb-listing-synopsis">
-                                    {{ r.synopsis }}
+                            {% if r.excerpt %}
+                                <div class="kb-listing-excerpt">
+                                    {{ r.excerpt }}
                                 </div>
                             {% endif %}
                         </p>

@@ -18,12 +18,12 @@ class Article(BaseResource):
             if resource:
                 # We might have a non-resource page in the toctree,
                 # so skip it if true
-                synopsis = getattr(resource.props, 'synopsis', False)
+                excerpt = getattr(resource.props, 'excerpt', False)
                 results.append(
                     dict(
                         docname=docname,
                         title=resource.title,
-                        synopsis=synopsis
+                        excerpt=excerpt
                     )
                 )
         return results

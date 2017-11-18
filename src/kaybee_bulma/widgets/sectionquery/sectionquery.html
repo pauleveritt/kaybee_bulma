@@ -26,9 +26,9 @@
                                 <a class="kb-debug-result"
                                    href="{{ '/' + result.name + '.html' }}">{{ result.title }}</a>
                             </div>
-                            {% if result.props.synopsis %}
-                                <p class="kb-listing-synopsis">
-                                    {{ result.props.synopsis }}
+                            {% if result.excerpt %}
+                                <p class="kb-listing-excerpt">
+                                    {{ result.excerpt }}
                                 </p>
                             {% endif %}
                         </td>
