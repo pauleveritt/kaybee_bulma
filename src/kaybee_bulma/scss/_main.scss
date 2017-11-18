@@ -180,13 +180,3 @@
     font-size: $size-large;
   }
 }
-
-// Hide the first heading, where Sphinx inserts the page title
-// into the generated body
-.section > h1:first-of-type {
-  display: none;
-}
-
-//.kb-body h1:first-of-type {
-//  display: none;
-//}
