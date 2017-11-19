@@ -2,7 +2,7 @@ import os
 
 from kaybee_bulma.events import builder_init
 
-__version__ = "0.0.1"
+__version__ = "0.1.0"
 
 __title__ = "kaybee_bulma"
 __description__ = "Bulma-based theme for Kaybee"
