@@ -1,0 +1,9 @@
+include *.rst *.txt LICENSE tox.ini .travis.yml docs/Makefile
+recursive-include src/kaybee_bulma *
+recursive-include src/kaybee_bulma/resources *
+recursive-include src/kaybee_bulma/widgets *
+prune docs/_build
+
+# Extraneous files.
+global-exclude .DS_Store
+global-exclude *.pyc
