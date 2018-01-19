@@ -1,6 +1,6 @@
 import os
 
-from kaybee_bulma.events import builder_init
+# from kaybee_bulma.events import builder_init
 
 __version__ = "0.1.0"
 
@@ -25,7 +25,7 @@ def get_path():
 
 
 def setup(app):
-    app.connect('builder-inited', builder_init)
+    # app.connect('builder-inited', builder_init)
 
     return dict(
         version=__version__,
