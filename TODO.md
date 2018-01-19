@@ -1,3 +1,9 @@
+# Now
+
+- Update to latest kaybee
+
+- Make run_livereload use the core thing
+
 # Next
 
 - Get rid of "tags" in sidebar
