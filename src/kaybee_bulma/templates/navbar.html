@@ -7,9 +7,9 @@
             <img src="{{ logo_src }}"
                  alt="{{ site_config.logo.alt }}"/>
         </a>
-        {% for nav in site.navmenu %}
-            <a class="nav-item is-hidden-mobile{{ ' is-active' if resource and resource.is_active_section(site, nav.name) }}"
-               href="/{{ nav.navmenu_href }}">{{ nav.title }}
+        {% for nav in navmenu %}
+            <a class="nav-item is-hidden-mobile{{ ' is-active' if resource and resource.in_navitem(sphinx_app.resources, nav.docname) }}"
+               href="{{ pathto(nav.docname, 1) + '.html' }}">{{ nav.title }}
             </a>
         {% endfor %}
     </div>
@@ -20,7 +20,7 @@
     </span>
     <div id="navCollapseTarget" class="nav-right nav-menu">
         <a class="nav-item is-hidden-tablet is-active">Home</a>
-        {% for nav in site.navmenu %}
+        {% for nav in navmenu %}
             <a class="nav-item is-hidden-tablet"
                href="{{ nav.href }}">{{ nav.title }}</a>
         {% endfor %}

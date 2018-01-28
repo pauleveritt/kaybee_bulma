@@ -2,10 +2,6 @@ from typing import List
 
 from pydantic.main import BaseModel
 
-from kaybee.base_types import CoreQueryModel
-from kaybee.registry import registry
-from kaybee.widgets.base import BaseWidget
-
 
 class QuerySectionModel(BaseModel):
     label: str
@@ -18,7 +14,7 @@ class QueryListModel(BaseModel):
     queries: List[QuerySectionModel]
 
 
-@registry.widget('querylist')
+@kb.widget('querylist')
 class QueryList(BaseWidget):
     model = QueryListModel
 

@@ -1,7 +1,3 @@
-=============
-First Article
-=============
-
 .. article::
     published: 2015-01-02 12:01
     weight: 20
@@ -10,6 +6,11 @@ First Article
     synopsis:
         A fine article, about all kinds of things. One can never tell
         the kinds of things that it is about.
+
+=============
+First Article
+=============
+
 
 The article body is here.
 
@@ -23,5 +24,5 @@ Video Player
 ============
 
 .. videoplayer::
-
+    name: vp1
     src: https://www.youtube.com/embed/yzC2TwhER0c

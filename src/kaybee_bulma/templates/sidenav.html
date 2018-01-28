@@ -1,7 +1,7 @@
 <aside id="sidebarCollapseTarget" class="menu sb_sidenav">
 
     <div id="kb-sidenav-published-heading">
-        {% if resource.is_published() %}
+        {% if resource.is_published %}
             <p class="menu-label">
                 Published
             </p>
@@ -37,7 +37,7 @@
 
         {%- for parent in parents|reverse %}
             <li>
-                <a href="{{ pathto(parent.name, 1) }}">
+                <a href="{{ pathto(parent.link, 1) }}">
                     {% for arrow in range(loop.index) %}
                         <span class="kb-breadcrumb-separator">></span>
                     {% endfor %}
@@ -62,7 +62,7 @@
            title="{{ _('next chapter') }}">{{ next.title }}</a>
     </ul>
 
-    {% set toc_entries = resource.extract_toc(toc) %}
+    {% set toc_entries = resource.toctree %}
     {% if toc_entries %}
         <p class="menu-label">
             Contents
@@ -82,8 +82,8 @@
                 Categories
             </p>
             <p>
-                {% for category in resource.references(site)['category'] %}
-                    <a href="/{{ pathto(category.name, 1) + '.html' }}">
+                {% for category in sphinx_app.references.resource_references(resource)['category'] %}
+                    <a href="/{{ pathto(category.docname, 1) + '.html' }}">
                         <span class="tag">{{ category.props.label }}</span>
                     </a>
                 {% endfor %}
