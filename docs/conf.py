@@ -2,7 +2,6 @@ import kaybee
 import kaybee_bulma
 
 from kaybee_bulma.siteconfig import SiteConfig
-from kaybee_bulma.settings import LayoutSettings
 
 # -- General configuration ------------------------------------------------
 
@@ -137,7 +136,7 @@ texinfo_documents = [
 # intersphinx_mapping = {'https://docs.python.org/': None}
 
 # kaybee config
-kaybee_bulma_settings = LayoutSettings(
+kaybee_bulma_siteconfig = SiteConfig(
     logo=dict(
         # img_url='http://bulma.io/images/bulma-logo.png',
         img_file='kaybee_logo.png',

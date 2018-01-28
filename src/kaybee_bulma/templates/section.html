@@ -13,7 +13,7 @@
                         </p>
                     {% endif %}
                 </div>
-                {% set feature = resource.featured_resource(site) %}
+                {% set feature = resource.featured_resource(sphinx_app.resources) %}
                 {% if feature %}
                     <div class="column is-one-third is-hidden-mobile">
                         <div class="card kb-featured">
