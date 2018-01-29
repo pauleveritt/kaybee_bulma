@@ -9,7 +9,7 @@
 
                 <section class="section kb-listing">
                     <h2 class="title kb-section-heading">This Series</h2>
-                    {% for r in resource.series(sphinx_app.resources) %}
+                    {% for r in resource.series(resources) %}
                         <p>
                             <div class="kb-listing-title">
                                 <a href="{{ '/' + r.docname + '.html' }}">{{ r.title }}</a>

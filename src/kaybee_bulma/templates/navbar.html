@@ -8,7 +8,7 @@
                  alt="{{ siteconfig.logo.alt }}"/>
         </a>
         {% for nav in navmenu %}
-            <a class="nav-item is-hidden-mobile{{ ' is-active' if resource and resource.in_navitem(sphinx_app.resources, nav.docname) }}"
+            <a class="nav-item is-hidden-mobile{{ ' is-active' if resource and resource.in_navitem(resources, nav.docname) }}"
                href="{{ pathto(nav.docname, 1) + '.html' }}">{{ nav.title }}
             </a>
         {% endfor %}

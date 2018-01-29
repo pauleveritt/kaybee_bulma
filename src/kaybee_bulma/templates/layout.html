@@ -22,7 +22,7 @@
 <body>
 <section
         class="kb-header hero
-            {{ resource.acquire(sphinx_app.resources, 'style') if resource else '' }}"
+            {{ resource.acquire(resources, 'style') if resource else '' }}"
         style="{% block hero_image %}{% endblock %}">
     <div class="hero-head">
         {% include "navbar.html" %}

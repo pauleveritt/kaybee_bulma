@@ -41,7 +41,7 @@ def resource_into_html_context(
 
     context['siteconfig'] = sphinx_app.config.kaybee_bulma_siteconfig
 
-    resources = sphinx_app.resources
+    resources = sphinx_app.env.resources
     resources = [r for r in resources.values() if
                  getattr(r.props, 'in_nav', False) and
                  r.props.in_nav and r.is_published]

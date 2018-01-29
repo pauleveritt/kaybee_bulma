@@ -35,7 +35,7 @@
     </p>
     <ul class="menu-list">
 
-        {%- for parent in resource.parents(sphinx_app.resources)[:-1]|reverse %}
+        {%- for parent in resource.parents(resources)[:-1]|reverse %}
             <li>
                 <a href="{{ pathto(parent.docname) }}">
                     {% for arrow in range(loop.index) %}
@@ -82,7 +82,7 @@
                 Categories
             </p>
             <p>
-                {% for category in sphinx_app.references.resource_references(resource)['category'] %}
+                {% for category in references.resource_references(resource)['category'] %}
                     <a href="/{{ pathto(category.docname, 1) + '.html' }}">
                         <span class="tag">{{ category.props.label }}</span>
                     </a>
