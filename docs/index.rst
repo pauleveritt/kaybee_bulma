@@ -32,10 +32,10 @@ creating your own kinds of documents.
         - label: Recent Blog Posts
           style: primary
           query:
-              kbtype: section
+              rtype: section
               limit: 5
         - label: Recent Articles
           style: info
           query:
-              kbtype: article
+              rtype: article
               limit: 5

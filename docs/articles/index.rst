@@ -11,11 +11,18 @@ Articles
     weight: 20
     published: 2009-10-21 12:23
     featured_resource: articles/customizing/layout
-    overrides:
+    acquireds:
         all:
             style: is-bold is-primary
 
 A list of articles is here.
+
+.. sectionquery::
+    name: sq1
+    template: sectionquery
+    query:
+        parent_name: articles/index
+        rtype: article
 
 .. toctree::
 
