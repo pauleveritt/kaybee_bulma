@@ -8,4 +8,4 @@ Customizing Layout
         Change the look of a single page, a class of pages,
         a part of the site, or the entire site.
 
-...
+Layout content stuff here.

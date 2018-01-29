@@ -5124,9 +5124,6 @@ label.panel-block {
 .kb-header.hero.is-info .hero-head .nav-item.is-active {
   border-bottom: 2px solid #fff; }
 
-.kb-header.header-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.49), rgba(0, 0, 0, 0.89)), url("https://images.unsplash.com/1/iphone-4-closeup.jpg?dpr=1&auto=format&crop=middle&fit=crop&w=2000&h=700&q=80"); }
-
 .kb-portlet .panel-block {
   font-size: 0.75rem; }
 
@@ -5202,8 +5199,8 @@ label.panel-block {
     margin: 0; }
 
 #kb-homepage-body p:not(.panel-heading) {
-  margin: 2rem 10%;
+  margin: -1rem 10% 2rem 10%;
   font-size: 1.5rem; }
 
-.section > h1:first-of-type {
+#kbb-sphinx-body {
   display: none; }
