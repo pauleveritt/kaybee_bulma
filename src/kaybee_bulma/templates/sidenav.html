@@ -35,9 +35,9 @@
     </p>
     <ul class="menu-list">
 
-        {%- for parent in parents|reverse %}
+        {%- for parent in resource.parents(sphinx_app.resources)[:-1]|reverse %}
             <li>
-                <a href="{{ pathto(parent.link, 1) }}">
+                <a href="{{ pathto(parent.docname) }}">
                     {% for arrow in range(loop.index) %}
                         <span class="kb-breadcrumb-separator">></span>
                     {% endfor %}
