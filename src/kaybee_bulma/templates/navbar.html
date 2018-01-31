@@ -7,13 +7,13 @@
             <img src="{{ logo_src }}"
                  alt="{{ siteconfig.logo.alt }}">
         </a>
-        <button class="button navbar-burger">
+        <button class="button navbar-burger" data-target="navMenu">
             <span></span>
             <span></span>
             <span></span>
         </button>
     </div>
-    <div class="navbar-menu">
+    <div class="navbar-menu" id="navMenu">
         <div class="navbar-start">
             {% for nav in navmenu %}
                 <a class="navbar-item{{ ' is-active' if resource and resource.in_navitem(resources, nav.docname) }}"
@@ -36,7 +36,7 @@
             {% if siteconfig.social_media.twitter %}
                 <a class="navbar-item" id="kbb-config-twitter"
                    href="https://twitter.com/{{ siteconfig.social_media.twitter }}">
-                <span class="icon has-text-info">
+                <span class="icon {{ 'has-text-info' if style not in ['info', 'link'] else 'danger' }}">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </span>
                 </a>
@@ -44,24 +44,3 @@
         </div>
     </div>
 </nav>
-{#<nav class="nav">#}
-{#    <div class="nav-left">#}
-{#        {% for nav in navmenu %}#}
-{#            <a class="nav-item is-hidden-mobile{{ ' is-active' if resource and resource.in_navitem(resources, nav.docname) }}"#}
-{#               href="{{ pathto(nav.docname, 1) + '.html' }}">{{ nav.title }}#}
-{#            </a>#}
-{#        {% endfor %}#}
-{#    </div>#}
-{#    <span class="nav-toggle" data-target="navCollapseTarget">#}
-{#          <span></span>#}
-{#          <span></span>#}
-{#          <span></span>#}
-{#    </span>#}
-{#    <div id="navCollapseTarget" class="nav-right nav-menu">#}
-{#        <a class="nav-item is-hidden-tablet is-active">Home</a>#}
-{#        {% for nav in navmenu %}#}
-{#            <a class="nav-item is-hidden-tablet"#}
-{#               href="{{ nav.href }}">{{ nav.title }}</a>#}
-{#        {% endfor %}#}
-{#    </div>#}
-{#</nav>#}
