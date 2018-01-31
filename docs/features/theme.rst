@@ -4,7 +4,7 @@ Theme Features
 
 .. article::
     published: 2017-10-01 00:00
-    synopsis:
+    excerpt:
         The templating and CSS features for Kaybee, in detail.
 
 

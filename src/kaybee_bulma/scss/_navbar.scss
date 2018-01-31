@@ -1,0 +1,7 @@
+@import "../../../node_modules/bulma/sass/utilities/derived-variables";
+
+#kbb-navbar {
+  .navbar-item.is-active {
+    //border-bottom: 2px solid $primary-invert;
+  }
+}

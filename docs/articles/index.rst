@@ -6,14 +6,14 @@ Articles
     subheading:
        Standalone articles and some in a series, with code examples
        and diagrams.
-    style: is-bold is-primary
+    style: primary
     in_nav: True
     weight: 20
     published: 2009-10-21 12:23
     featured_resource: articles/customizing/layout
     acquireds:
         all:
-            style: is-bold is-primary
+            style: primary
 
 A list of articles is here.
 

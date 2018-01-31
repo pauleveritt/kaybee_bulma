@@ -6,5 +6,7 @@
 @import "../../../node_modules/bulma/sass/utilities/_all";
 
 @import "../../../node_modules/bulma/bulma";
-@import "_main";
-
+@import "_navbar.scss";
+@import "_hero.scss";
+@import "_content.scss";
+@import "_homepage.scss";

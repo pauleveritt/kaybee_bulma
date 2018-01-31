@@ -7,6 +7,7 @@ About
     in_nav: True
     weight: 100
     published: 2017-10-01 00:00
+    style: warning
 
 Changing the Site Title
 =======================

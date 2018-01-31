@@ -5,6 +5,7 @@
     heading: Kaybee
     subheading: Extensible Knowledge Base for Static Sites
     hero_image: library.jpg
+    style: dark
 
 Kaybee: Knowledge Base for Static Sites
 =======================================

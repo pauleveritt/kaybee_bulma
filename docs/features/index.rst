@@ -5,11 +5,11 @@ Features
 .. section::
     in_nav: 10
     published: 2017-10-01 00:00
-    style: 'is-bold is-info'
+    style: info
     subheading: Brief survey of what Kaybee is good for
     acquireds:
         all:
-            style: 'is-bold is-info'
+            style: info
 
 Lots of choices out there for generating static sites. What makes Kaybee
 different? As an author or a customizer, Kaybee has a number of compelling

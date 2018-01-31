@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     {% if siteconfig.favicon %}
         <link rel="icon"
               href="{{ pathto('_static/' + siteconfig.favicon, 1) }}"/>
     {% endif %}
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+          rel="stylesheet">
     <script src="{{ pathto('_static/jquery.js', 1) }}"></script>
     <script src="{{ pathto('_static/underscore.js', 1) }}"></script>
     <script src="{{ pathto('_static/doctools.js', 1) }}"></script>
@@ -20,12 +20,14 @@
     <script src="{{ pathto('_static/app.bundle.js', 1) }}"></script>
 </head>
 <body>
+{% set style = resource.acquire(resources, 'style') if resource else None %}
+<section class="{{ 'is-' + style if style else '' }}">
+    {% include "navbar.html" %}
+</section>
 <section
-        class="kb-header hero
-            {{ resource.acquire(resources, 'style') if resource else '' }}"
+        class="hero {{ 'is-' + style if style else '' }}"
         style="{% block hero_image %}{% endblock %}">
     <div class="hero-head">
-        {% include "navbar.html" %}
     </div>
     {% block hero %}{% endblock %}
 </section>

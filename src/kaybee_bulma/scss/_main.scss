@@ -1,4 +1,4 @@
-@import "../../../node_modules/bulma/sass/utilities/variables";
+@import "../../../node_modules/bulma/sass/utilities/derived-variables";
 
 // All nav elements should get a grey border when hovered
 .kb-header.hero .hero-head .nav-item {
@@ -17,6 +17,10 @@
 }
 
 // For each color scheme, make "active" the invert
+.is-active {
+  border-bottom: 2px solid $primary;
+}
+
 .kb-header.hero.is-primary .hero-head .nav-item.is-active {
   border-bottom: 2px solid $primary-invert;
 }
