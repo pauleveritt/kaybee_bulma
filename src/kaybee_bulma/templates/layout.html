@@ -21,7 +21,7 @@
 </head>
 <body>
 {% set style = resource.acquire(resources, 'style') if resource else None %}
-<section class="{{ 'is-' + style if style else '' }}">
+<section>
     {% include "navbar.html" %}
 </section>
 <section
