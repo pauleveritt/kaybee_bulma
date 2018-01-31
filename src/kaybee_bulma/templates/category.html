@@ -7,14 +7,18 @@
                 <div id="kbb-sphinx-body">{{ body }}</div>
 
                 <h2>Resources</h2>
-                <ul id="kb-reference-listing">
-                    {% for resource in resource.get_targets(resources) %}
-                        <li><a
-                                class="kb-reference-item"
-                                href="{{ pathto(resource.docname, 1) + '.html'}}">{{ resource.title }}</a></li>
-                    {% endfor %}
-                </ul>
-
+                {% for resource in resource.get_targets(resources) %}
+                    <p>
+                    <div class="kbb-listing-title">
+                        <a href="{{ pathto(resource.docname, 1) + '.html' }}">{{ resource.title }}</a>
+                    </div>
+                    {% if resource.excerpt %}
+                        <div class="kb-listing-excerpt">
+                            {{ resource.excerpt }}
+                        </div>
+                    {% endif %}
+                    </p>
+                {% endfor %}
                 {% include "prevnext.html" %}
             </div>
 

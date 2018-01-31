@@ -85,66 +85,6 @@
   }
 }
 
-.panel-heading {
-  margin-bottom: 0 !important;
-}
-
-.kb-portlet-primary {
-  .panel-heading {
-    background-color: $primary;
-    color: $primary-invert;
-  }
-}
-
-.kb-portlet-info {
-  .panel-heading {
-    background-color: $info;
-    color: $info-invert;
-  }
-}
-
-.kb-portlet-success {
-  .panel-heading {
-    background-color: $success;
-    color: $success-invert;
-  }
-}
-
-.kb-portlet-warning {
-  .panel-heading {
-    background-color: $warning;
-    color: $warning-invert;
-  }
-}
-
-.kb-portlet-danger {
-  .panel-heading {
-    background-color: $danger;
-    color: $danger-invert;
-  }
-}
-
-.kb-portlet-light {
-  .panel-heading {
-    background-color: $light;
-    color: $light-invert;
-  }
-}
-
-.kb-portlet-dark {
-  .panel-heading {
-    background-color: $dark;
-    color: $dark-invert;
-  }
-}
-
-.kb-portlet-info {
-  .panel-heading {
-    background-color: $info;
-    color: $info-invert;
-  }
-}
-
 .kb-section-heading {
   border-bottom: 1px solid gray;
 }
@@ -153,11 +93,6 @@
   //margin-bottom: 1rem;
 }
 
-.section .section {
-  // Sphinx generates "section" class which matches Bulma which
-  // adds a bunch of extra space.
-  padding: 0.75rem 0;
-}
 
 .sb_body table.highlighttable {
   // Fix the Pygments/Bulma clash on <td> and <pre>
@@ -168,23 +103,4 @@
   td {
     padding: 0;
   }
-}
-
-.sb_sidenav {
-  font-size: $size-small;
-  ul {
-    list-style: none;
-    margin: 0;
-  }
-}
-
-#kb-homepage-body {
-  p:not(.panel-heading) {
-    margin: -1rem 10% 2rem 10%;
-    font-size: $size-large;
-  }
-}
-
-#kbb-sphinx-body h1:first-child {
-  display: none;
 }

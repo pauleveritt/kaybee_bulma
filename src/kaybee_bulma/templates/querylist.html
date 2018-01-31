@@ -1,29 +1,20 @@
-<div class="row">
+<div class="row kbb-querylist">
     <div class="columns">
         {% for result_set in result_sets %}
             <div class="column">
-                <nav class="panel kb-portlet-info kb-portlet-{{ result_set.style }}">
+                <nav class="panel kbb-portlet-{{ result_set.style }}">
                     <p class="panel-heading">
                         {{ result_set.label }}
                     </p>
                     {% for result in result_set.results %}
                         <a class="panel-block"
                            href="{{ '/' + result.docname + '.html' }}">
+                            <span class="panel-icon">
+                              <i class="fas fa-book"></i>
+                            </span>
                             {{ result.title }}
                         </a>
                     {% endfor %}
-                    <div class="panel-block"
-                         style="display: none">
-                        <button class="button is-small is-white is-fullwidth">
-                            Prev
-                        </button>
-                        <button class="button is-small is-white is-fullwidth">
-                            Next
-                        </button>
-                        <button class="button is-small is-white is-fullwidth">
-                            All
-                        </button>
-                    </div>
                 </nav>
             </div>
         {% endfor %}

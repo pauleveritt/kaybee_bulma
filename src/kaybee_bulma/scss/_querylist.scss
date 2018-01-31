@@ -1,0 +1,64 @@
+@import "../../../node_modules/bulma/sass/utilities/derived-variables";
+
+.kbb-querylist nav.panel {
+  p.panel-heading {
+    margin-bottom: 0;
+  }
+}
+
+
+.kbb-portlet-primary {
+  .panel-heading {
+    background-color: $primary;
+    color: $primary-invert;
+  }
+}
+
+.kbb-portlet-info {
+  .panel-heading {
+    background-color: $info;
+    color: $info-invert;
+  }
+}
+
+.kbb-portlet-success {
+  .panel-heading {
+    background-color: $success;
+    color: $success-invert;
+  }
+}
+
+.kbb-portlet-warning {
+  .panel-heading {
+    background-color: $warning;
+    color: $warning-invert;
+  }
+}
+
+.kbb-portlet-danger {
+  .panel-heading {
+    background-color: $danger;
+    color: $danger-invert;
+  }
+}
+
+.kbb-portlet-light {
+  .panel-heading {
+    background-color: $light;
+    color: $light-invert;
+  }
+}
+
+.kbb-portlet-dark {
+  .panel-heading {
+    background-color: $dark;
+    color: $dark-invert;
+  }
+}
+
+.kbb-portlet-info {
+  .panel-heading {
+    background-color: $info;
+    color: $info-invert;
+  }
+}
