@@ -138,11 +138,10 @@ texinfo_documents = [
 # kaybee config
 kaybee_bulma_siteconfig = SiteConfig(
     logo=dict(
-        # img_url='http://bulma.io/images/bulma-logo.png',
         img_file='kaybee_logo.png',
         alt='Kaybee Logo Alt'
     ),
-    copyright='2017, All Rights Reserved',
+    copyright='2018, All Rights Reserved',
     favicon='kaybee_logo.png',
     social_media=dict(
         twitter='xxx',

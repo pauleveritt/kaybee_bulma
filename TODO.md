@@ -1,6 +1,10 @@
 # Now
 
-- Make run_livereload use the core thing
+- Get "active" working in nav menu
+
+- Extra sections on home page
+
+- Date formatter
 
 # Next
 
