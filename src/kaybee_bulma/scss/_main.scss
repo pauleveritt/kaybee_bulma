@@ -1,106 +1,106 @@
-@import "../../../node_modules/bulma/sass/utilities/derived-variables";
-
-// All nav elements should get a grey border when hovered
-.kb-header.hero .hero-head .nav-item {
-  // To avoid text jumping on hover, put an invisible by default
-  border-bottom: 2px solid transparent;
-}
-
-.kb-header.hero .hero-head .nav-item:hover {
-  border-bottom: 2px solid $grey;
-}
-
-.kb-header.hero .hero-body {
-  .title, .subtitle {
-    color: $grey-light;
-  }
-}
-
-// For each color scheme, make "active" the invert
-.is-active {
-  border-bottom: 2px solid $primary;
-}
-
-.kb-header.hero.is-primary .hero-head .nav-item.is-active {
-  border-bottom: 2px solid $primary-invert;
-}
-
-.kb-header.hero.is-info .hero-head .nav-item.is-active {
-  border-bottom: 2px solid $info-invert;
-}
-
-.kb-header.hero.is-success .hero-head .nav-item.is-active {
-  border-bottom: 2px solid $success-invert;
-}
-
-.kb-header.hero.is-warning .hero-head .nav-item.is-active {
-  border-bottom: 2px solid $warning-invert;
-}
-
-.kb-header.hero.is-danger .hero-head .nav-item.is-active {
-  border-bottom: 2px solid $danger-invert;
-}
-
-.kb-header.hero.is-light .hero-head .nav-item.is-active {
-  border-bottom: 2px solid $light-invert;
-}
-
-.kb-header.hero.is-dark .hero-head .nav-item.is-active {
-  border-bottom: 2px solid $dark-invert;
-}
-
-.kb-header.hero.is-info .hero-head .nav-item.is-active {
-  border-bottom: 2px solid $info-invert;
-}
-
-// Portlets
-.kb-portlet {
-  .panel-block {
-    font-size: $size-small;
-  }
-}
-
-.kb-listing-title a {
-  color: $link;
-}
-
-.kb-listing-excerpt {
-  font-size: $size-small;
-  font-weight: lighter;
-}
-
-.kb-listing-timeago {
-  font-size: $size-small;
-  width: 8rem;
-  text-align: right;
-}
-
-.kb-listing-table {
-  tr {
-    height: 5rem;
-
-    td {
-      border: none;
-    }
-  }
-}
-
-.kb-section-heading {
-  border-bottom: 1px solid gray;
-}
-
-.kb-listing p {
-  //margin-bottom: 1rem;
-}
-
-
-.sb_body table.highlighttable {
-  // Fix the Pygments/Bulma clash on <td> and <pre>
-  width: auto;
-  pre {
-    padding: 6.5px;
-  }
-  td {
-    padding: 0;
-  }
-}
+//@import "../../../node_modules/bulma/sass/utilities/derived-variables";
+//
+//// All nav elements should get a grey border when hovered
+//.kb-header.hero .hero-head .nav-item {
+//  // To avoid text jumping on hover, put an invisible by default
+//  border-bottom: 2px solid transparent;
+//}
+//
+//.kb-header.hero .hero-head .nav-item:hover {
+//  border-bottom: 2px solid $grey;
+//}
+//
+//.kb-header.hero .hero-body {
+//  .title, .subtitle {
+//    color: $grey-light;
+//  }
+//}
+//
+//// For each color scheme, make "active" the invert
+//.is-active {
+//  border-bottom: 2px solid $primary;
+//}
+//
+//.kb-header.hero.is-primary .hero-head .nav-item.is-active {
+//  border-bottom: 2px solid $primary-invert;
+//}
+//
+//.kb-header.hero.is-info .hero-head .nav-item.is-active {
+//  border-bottom: 2px solid $info-invert;
+//}
+//
+//.kb-header.hero.is-success .hero-head .nav-item.is-active {
+//  border-bottom: 2px solid $success-invert;
+//}
+//
+//.kb-header.hero.is-warning .hero-head .nav-item.is-active {
+//  border-bottom: 2px solid $warning-invert;
+//}
+//
+//.kb-header.hero.is-danger .hero-head .nav-item.is-active {
+//  border-bottom: 2px solid $danger-invert;
+//}
+//
+//.kb-header.hero.is-light .hero-head .nav-item.is-active {
+//  border-bottom: 2px solid $light-invert;
+//}
+//
+//.kb-header.hero.is-dark .hero-head .nav-item.is-active {
+//  border-bottom: 2px solid $dark-invert;
+//}
+//
+//.kb-header.hero.is-info .hero-head .nav-item.is-active {
+//  border-bottom: 2px solid $info-invert;
+//}
+//
+//// Portlets
+//.kb-portlet {
+//  .panel-block {
+//    font-size: $size-small;
+//  }
+//}
+//
+//.kb-listing-title a {
+//  color: $link;
+//}
+//
+//.kb-listing-excerpt {
+//  font-size: $size-small;
+//  font-weight: lighter;
+//}
+//
+//.kb-listing-timeago {
+//  font-size: $size-small;
+//  width: 8rem;
+//  text-align: right;
+//}
+//
+//.kb-listing-table {
+//  tr {
+//    height: 5rem;
+//
+//    td {
+//      border: none;
+//    }
+//  }
+//}
+//
+//.kb-section-heading {
+//  border-bottom: 1px solid gray;
+//}
+//
+//.kb-listing p {
+//  //margin-bottom: 1rem;
+//}
+//
+//
+//.sb_body table.highlighttable {
+//  // Fix the Pygments/Bulma clash on <td> and <pre>
+//  width: auto;
+//  pre {
+//    padding: 6.5px;
+//  }
+//  td {
+//    padding: 0;
+//  }
+//}
