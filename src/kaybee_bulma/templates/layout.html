@@ -32,7 +32,8 @@
     {% block hero %}{% endblock %}
 </section>
 
-<section class="section content">
+<section class="section content {{ resource.rtype if resource }}"
+         id="kbb-sphinx-body">
     {% block body %}{% endblock %}
 </section>
 

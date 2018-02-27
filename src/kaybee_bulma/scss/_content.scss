@@ -1,5 +1,9 @@
 @import "../../../node_modules/bulma/sass/utilities/derived-variables";
 
-#kbb-sphinx-body h1:first-child {
+// Let's use this for styles that apply to everything on the site
+
+// Sphinx inserts the page title in a way that we'd like to control,
+// so let's hide it. This is tricky to get just the one we want.
+#kbb-sphinx-body > div.section > h1:first-child {
   display: none;
 }

@@ -7,12 +7,49 @@
     hero_image: library.jpg
     style: dark
 
+=======================================
 Kaybee: Knowledge Base for Static Sites
 =======================================
 
-Write and organize content with pleasure. Kaybee is a static site generator
-based on Sphinx that emphasizes good looks, rich interconnections, and
-creating your own kinds of documents.
+.. sectionbox::
+    name: homepage_sections
+    sectionbox_flag: 33
+
+.. raw:: html
+
+    <section class="section">
+        <div class="container">
+          <p class="subtitle">
+            Write and organize content with pleasure. Kaybee is a
+            static site generator based on Sphinx which
+            emphasizes good looks, rich interconnections, and
+            creating your own kinds of documents.
+          </p>
+        </div>
+    </section>
+    <section class="section hero is-primary">
+        <div class="container">
+          <h1 class="title">
+            Hello World
+          </h1>
+          <p class="subtitle">
+            My first website with <strong>Bulma</strong>!
+          </p>
+        </div>
+    </section>
+    <section class="section hero is-info">
+        <div class="container">
+          <h1 class="title">
+            Hello World
+          </h1>
+          <p class="subtitle">
+            My first website with <strong>Bulma</strong>!
+          </p>
+        </div>
+    </section>
+
+Contents
+--------
 
 .. toctree::
     :maxdepth: 2

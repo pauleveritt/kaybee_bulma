@@ -1,0 +1,28 @@
+@import "../../../node_modules/bulma/sass/utilities/derived-variables";
+
+.kbb-listing {
+  margin-top: 1.5rem;
+
+  .kbb-listing-title a {
+    color: $link;
+  }
+
+  .kbb-listing-excerpt {
+    font-weight: lighter;
+  }
+
+  .kbb-listing-timeago {
+    width: 9rem;
+    text-align: right;
+  }
+
+  .kbb-listing-table {
+    tr {
+      height: 5rem;
+
+      td {
+        border: none;
+      }
+    }
+  }
+}

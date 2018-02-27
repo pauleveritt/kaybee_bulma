@@ -1,47 +1,45 @@
-<div class="container ">
-    <div class="columns">
-        <div class="column is-10">
-            <nav class="level">
-                <div class="level-left">
-                    <div class="level-item">
-                        <h2 class="title">Contents</h2>
-                    </div>
+<div class="columns kbb-listing">
+    <div class="column">
+        <nav class="level">
+            <div class="level-left">
+                <div class="level-item">
+                    <h2 class="title">Contents</h2>
                 </div>
+            </div>
 
-                <div class="level-right">
-                    <div class="level-item">
-                        <p class="subtitle">
-                            <strong id="kb-debug-result_count">{{ widget.result_count }}</strong>
-                            published
-                        </p>
-                    </div>
+            <div class="level-right">
+                <div class="level-item">
+                    <p class="subtitle">
+                        <strong id="kbb-debug-result_count">{{ toctree.result_count }}</strong>
+                        published
+                    </p>
                 </div>
-            </nav>
-            <table class="table kb-listing-table">
-                <tbody>
-                {% for entry in widget.entries %}
-                    <tr>
-                        <td>
-                            <div class="kb-listing-title">
-                                <a class="kb-debug-result"
-                                   href="{{ '/' + entry.href + '.html' }}">{{ entry.title }}</a>
-                            </div>
-                            {% if entry.resource.excerpt %}
-                                <p class="kb-listing-excerpt">
-                                    {{ entry.resource.excerpt }}
-                                </p>
-                            {% endif %}
-                        </td>
-                        <td class="kb-listing-timeago">
-                            {% if entry.resource and entry.resource.props.published %}
-                                {{ entry.resource.props.published.strftime('%Y-%m-%d') }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                {% endfor %}
+            </div>
+        </nav>
+        <table class="table kbb-listing-table">
+            <tbody>
+            {% for entry in toctree.entries %}
+                <tr>
+                    <td>
+                        <div class="kbb-listing-title">
+                            <a class="kbb-debug-result"
+                               href="{{ '/' + entry.href + '.html' }}">{{ entry.title }}</a>
+                        </div>
+                        {% if entry.resource.excerpt %}
+                            <p class="kbb-listing-excerpt">
+                                {{ entry.resource.excerpt }}
+                            </p>
+                        {% endif %}
+                    </td>
+                    <td class="kbb-listing-timeago">
+                        {% if entry.resource and entry.resource.props.published %}
+                            {{ entry.resource.props.published.strftime('%Y-%m-%d') }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
 
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+        </table>
     </div>
 </div>
