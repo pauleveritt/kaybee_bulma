@@ -12,20 +12,10 @@ from livereload import Server, shell
 from livereload.watcher import Watcher
 
 sphinx = "env3/bin/python3 env3/bin/sphinx-build -E -b html docs docs/_build"
-dist = "/usr/local/bin/npm run dist"
-both = dist + '; ' + sphinx
 
 server = get_server()
 server.watch('docs/**', shell(sphinx),
              ignore=lambda s: '_build' in s)
-# server.watch('docs/*.rst', shell(sphinx))
-# server.watch('docs/*/*.rst', shell(sphinx))
 server.watch('src/kaybee_bulma/**/*.html', shell(sphinx))
 server.watch('src/kaybee_bulma/**.py', shell(sphinx))
-server.watch('src/kaybee_bulma/**/index.js',
-             shell(both, shell="/usr/local/bin/bash"),
-             )
-server.watch('src/kaybee_bulma/**/*.scss',
-             shell(both, shell="/usr/local/bin/bash"),
-             )
 server.serve(root='docs/_build', live_css=False)

@@ -11,10 +11,6 @@
 Kaybee: Knowledge Base for Static Sites
 =======================================
 
-.. sectionbox::
-    name: homepage_sections
-    sectionbox_flag: 33
-
 .. raw:: html
 
     <section class="section">

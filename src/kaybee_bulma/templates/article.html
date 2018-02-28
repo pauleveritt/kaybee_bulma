@@ -1,26 +1,30 @@
 {% extends "layout.html" %}
 {% block body %}
     <div class="container">
-        <div class="columns">
+        <div class="columns kbb-listing">
             <div class="column sb_body">
                 <div class="title is-1">{{ resource.title }}</div>
                 <div id="kbb-sphinx-body">{{ body }}</div>
 
-                <section class="section kb-listing">
-                    <h2 class="title kb-section-heading">This Series</h2>
-                    {% for r in resource.series(resources) %}
-                        <p>
-                            <div class="kb-listing-title">
-                                <a href="{{ '/' + r.docname + '.html' }}">{{ r.title }}</a>
-                            </div>
-                            {% if r.excerpt %}
-                                <div class="kb-listing-excerpt">
-                                    {{ r.excerpt }}
+                {% set series = resource.series(resources) %}
+                {% if series %}
+                    <section class="section">
+                        <h2 class="title kbb-listing-heading">This Series</h2>
+                        {% for r in resource.series(resources) %}
+                            {% set is_active = r.docname == resource.docname %}
+                            <div class="kbb-listing-item{{ ' kbb-listing-active' if is_active }}">
+                                <div class="kb-listing-title">
+                                    <a href="{{ '/' + r.docname + '.html' }}">{{ r.title }}</a>
                                 </div>
-                            {% endif %}
-                        </p>
-                    {% endfor %}
-                </section>
+                                {% if r.excerpt %}
+                                    <div class="kb-listing-excerpt">
+                                        {{ r.excerpt }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </section>
+                {% endif %}
             </div>
 
             <div class="column is-3">
