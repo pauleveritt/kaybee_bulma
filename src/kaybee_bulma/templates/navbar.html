@@ -17,7 +17,7 @@
             {% for nav in navmenu %}
                 <a class="navbar-item{{ ' is-active' if resource and resource.in_navitem(resources, nav.docname) }}"
                    href="{{ pathto(nav.docname, 1) + '.html' }}">
-                    {{ nav.title }}
+                    {{ nav.props.nav_title or nav.title }}
                 </a>
             {% endfor %}
 

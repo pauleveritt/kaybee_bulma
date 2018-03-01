@@ -8,8 +8,22 @@ section.section.content.homepage {
   padding: 0;
 
   p:not(.panel-heading) {
+    //margin: -1rem 10% 2rem 10%;
+  }
+
+  .splash .kbb-sectionbox-content {
+    font-size: $size-3;
     margin: -1rem 10% 2rem 10%;
-    font-size: $size-large;
+  }
+
+  .kbb-sectionbox-content {
+    font-size: $size-4;
+    a {
+      text-decoration: underline;
+    }
+    a:hover {
+      text-decoration: dashed;
+    }
   }
 
 }

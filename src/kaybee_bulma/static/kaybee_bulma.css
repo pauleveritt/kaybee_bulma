@@ -6520,9 +6520,15 @@ label.panel-block {
 
 section.section.content.homepage {
   padding: 0; }
-  section.section.content.homepage p:not(.panel-heading) {
-    margin: -1rem 10% 2rem 10%;
+  section.section.content.homepage .splash .kbb-sectionbox-content {
+    font-size: 2rem;
+    margin: -1rem 10% 2rem 10%; }
+  section.section.content.homepage .kbb-sectionbox-content {
     font-size: 1.5rem; }
+    section.section.content.homepage .kbb-sectionbox-content a {
+      text-decoration: underline; }
+    section.section.content.homepage .kbb-sectionbox-content a:hover {
+      text-decoration: dashed; }
 
 footer.footer {
   padding: 3rem 1.5rem 3rem; }

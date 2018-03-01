@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 {% block body %}
     <div class="container">
-        <div class="columns kbb-listing">
+        <div class="columns">
             <div class="column sb_body">
                 <div class="title is-1">{{ resource.title }}</div>
                 <div id="kbb-sphinx-body">{{ body }}</div>
 
                 {% set series = resource.series(resources) %}
                 {% if series %}
-                    <section class="section">
+                    <section class="section kbb-listing">
                         <h2 class="title kbb-listing-heading">This Series</h2>
                         {% for r in resource.series(resources) %}
                             {% set is_active = r.docname == resource.docname %}

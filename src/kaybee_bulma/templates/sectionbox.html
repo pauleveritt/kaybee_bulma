@@ -1,0 +1,24 @@
+<section class="section hero {{ widget.props.style }}">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-11 is-offset-1">
+
+                {% set heading = widget.props.heading %}
+                {% set subheading = widget.props.subheading %}
+                {% set content = widget.content %}
+
+                {% if heading %}
+                    <h1 class="title">{{ widget.props.heading }}</h1>
+                {% endif %}
+
+                {% if subheading %}
+                    <p class="subtitle">{{ widget.props.subheading }}</p>
+                {% endif %}
+
+                {% if content %}
+                    <div class="kbb-sectionbox-content">{{ content }}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

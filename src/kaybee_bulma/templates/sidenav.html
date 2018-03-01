@@ -30,12 +30,14 @@
         {% endif %}
     </div>
 
+    {% set breadcrumbs = resource.parents(resources)[:-1]|reverse %}
+    {% if breadcrumbs %}
     <p class="menu-label">
         Breadcrumbs
     </p>
     <ul class="menu-list">
 
-        {%- for parent in resource.parents(resources)[:-1]|reverse %}
+        {%- for parent in breadcrumbs %}
             <li>
                 <a href="{{ pathto(parent.docname) }}">
                     {% for arrow in range(loop.index) %}
@@ -47,6 +49,9 @@
         {%- endfor %}
 
     </ul>
+    {% endif %}
+
+    {% if prev %}
     <p class="menu-label">
         Previous
     </p>
@@ -54,6 +59,9 @@
         <a href="{{ prev.link|e }}"
            title="{{ _('previous chapter') }}">{{ prev.title }}</a>
     </ul>
+    {% endif %}
+
+    {% if next %}
     <p class="menu-label">
         Next
     </p>
@@ -61,6 +69,7 @@
         <a href="{{ next.link|e }}"
            title="{{ _('next chapter') }}">{{ next.title }}</a>
     </ul>
+    {% endif %}
 
     {% set toc_entries = resource.toctree %}
     {% if toc_entries %}
