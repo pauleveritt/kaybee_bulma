@@ -1,0 +1,35 @@
+<section class="section">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical">
+                {% for row in widget.props.rows %}
+                    <div class="tile">
+                        {% for feature in row %}
+                            <div class="tile is-parent is-vertical">
+                                <article
+                                        class="tile is-child notification {{ feature.style }}">
+                                    <p class="title">{{ feature.heading }}</p>
+                                    {% if feature.subheading %}
+                                        <p class="subtitle">{{ feature.subheading }}</p>
+                                    {% endif %}
+                                    {% if feature.bullets %}
+                                        <ul style="padding-bottom: 1rem">
+                                            {% for bullet in feature.bullets %}
+                                                <li>{{ bullet }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    {% if feature.more_href %}
+                                        <div style="position:absolute; bottom:1rem">
+                                            <a href="{{ widget.pathto_docname(feature.more_href) + '.html' }}">More</a>
+                                        </div>
+                                    {% endif %}
+                                </article>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
