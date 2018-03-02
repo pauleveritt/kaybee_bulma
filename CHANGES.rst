@@ -2,6 +2,14 @@ Changelog
 =========
 
 
+0.2.5 (2018-03-02)
+------------------
+- @WIP Let's do another release. [Paul Everitt]
+- @WIP The docs referenced sectionquery and we don't have a
+  sectionquery.html. Remove that from the docs for now. [Paul Everitt]
+- @WIP Released 0.2.4, back to dev. [Paul Everitt]
+
+
 0.2.4 (2018-03-02)
 ------------------
 - @WIP Let's make a release. [Paul Everitt]
