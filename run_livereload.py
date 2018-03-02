@@ -16,6 +16,6 @@ sphinx = "env3/bin/python3 env3/bin/sphinx-build -E -b html docs docs/_build"
 server = get_server()
 server.watch('docs/**', shell(sphinx),
              ignore=lambda s: '_build' in s)
-server.watch('src/kaybee_bulma/**/*.html', shell(sphinx))
-server.watch('src/kaybee_bulma/**.py', shell(sphinx))
+server.watch('kaybee_bulma/**/*.html', shell(sphinx))
+server.watch('kaybee_bulma/**.py', shell(sphinx))
 server.serve(root='docs/_build', live_css=False)

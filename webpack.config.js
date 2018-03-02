@@ -2,13 +2,13 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        app: './src/kaybee_bulma/index.js',
-        kaybee_bulma: './src/kaybee_bulma/scss/kaybee_bulma.scss'
+        app: './kaybee_bulma/index.js',
+        kaybee_bulma: './kaybee_bulma/scss/kaybee_bulma.scss'
     },
     devtool: 'inline-source-map',
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'src/kaybee_bulma/static')
+        path: path.resolve(__dirname, 'kaybee_bulma/static')
     },
     module: {
         rules: [{

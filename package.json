@@ -2,11 +2,11 @@
   "name": "kaybee_bulma",
   "version": "0.0.1",
   "description": "Kaybee theme based on Bulma CSS",
-  "main": "src/kaybee_bulma/index.js",
+  "main": "kaybee_bulma/index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "dist": "webpack",
-    "scss": "node-sass src/kaybee_bulma/scss/kaybee_bulma.scss src/kaybee_bulma/static/kaybee_bulma.css"
+    "scss": "node-sass kaybee_bulma/scss/kaybee_bulma.scss kaybee_bulma/static/kaybee_bulma.css"
   },
   "repository": {
     "type": "git",
