@@ -5,6 +5,9 @@ python:
 
 # This gives Doctr the key we've generated
 sudo: false
+install:
+  - pip install -r requirements.txt
+
 env:
   global:
     # Doctr deploy key for pauleveritt/kaybee_bulma
