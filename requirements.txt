@@ -3,3 +3,7 @@ doctr
 livereload
 gitchangelog
 bumpversion
+tox
+pytest
+beautifulsoup4
+html5lib

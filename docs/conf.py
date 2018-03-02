@@ -1,4 +1,3 @@
-import kaybee
 import kaybee_bulma
 
 from kaybee_bulma.siteconfig import SiteConfig
@@ -14,8 +13,8 @@ from kaybee_bulma.siteconfig import SiteConfig
 # ones.
 
 extensions = ['sphinx.ext.intersphinx',
-              kaybee.__title__,
-              kaybee_bulma.__title__,
+              'kaybee',
+              'kaybee_bulma',
               ]
 
 # Add any paths that contain templates here, relative to this directory.
