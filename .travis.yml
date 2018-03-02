@@ -1,21 +1,21 @@
 language: python
 python:
-  - "3.6"
+- '3.6'
 sudo: false
 install:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 script:
-  - set -e
-  - pip install doctr
-  - cd docs
-  - sphinx-build -E -b html . _build
-  - cd ..
-  - doctr deploy . --built-docs docs/_build
+- set -e
+- pip install doctr
+- cd docs
+- sphinx-build -E -b html . _build
+- cd ..
+- doctr deploy . --built-docs docs/_build
 deploy:
   provider: pypi
   user: pauleveritt
   password:
-    secure: G1aCzqR5kCtbwRRPBCsZWM6ag56wniOwPi3neKFylSoiiI7KoIdnflIYboJ500c6XTL1voltMOHVW39bN/NQYq7fVUJmOGn8bBZNFg4iyNiYSth6spgYDRCBtyOc0Js9975Vzwa6FCuFtMAU5PvVNsth3Lr3gzOmlPxPYHVxVwmRM0BXBQkk8uNaU1HjmbGRDrG/jc+uVj9hB/0TmhtzMZ5tfwbWnCh/dkktAkNCldzB2o3KxCikewfABKky4n56W6K7qV2oNzJmbvMDXc7VEwAtslQKCU3Lk6kCqH2nItkP71mOl46/CyXNACdIxs0Lq7P38PuMmU3I1qt/gg0TeXgYzFNSLqIstT8wzKKZRMB50G4hTvESOaDFcmU5GRSurM6F0JPEXtfqNpsiLuTi4INHLlf2FX7d8CL4QZJ4IVlFwiOpdTFKKkmqIeNc4gycUwwJMnXHq++cu1UA8/XxuJo2YRmKJCrQY63XbGnrPvNWGihLhg/rA4Yyef8R8q5ddlQzVaMzmI038jR7zlz3N07bE8O+dvsVFT5vq8405+bZJ0Rn2YRV7EPGMfXlx9JHltpZho2znUp49ji/TTDrIbLOzjCvJ6KeQEhPuzKRRfrwSD29ZcsQanx9lCGyMsOy6+03MpUOFCgKzZoGfExIjrs+84o8TI+Z0ab05lqQ6+Q=
+    secure: DSVbcOKq7vi38q6QMKSC1UK1rSuIal7fPAK2BKIKgGIg+nmRru/hzLPZG+1nIg9ed6XIs3AAkOC5ECW4sbeJAPkHmnJmS9CTM/lIO8qp9Em1gWrYBI/AG3wES2VcBFZ4W9cJdfIdCrgeqeuSrNKrSJhMtlxHG65Anrjm3S7PEZgCHL2DRjA3wRJRBrnMc3cowMDFH84jcl0EhaBD5j0GRNQRc2nkCi9M4tzqMvKizQXZGHUEfIJoudzmGGMTs+6pnHleWzccGB0BJgYJlWoGgrqkPJbdV4C4xSlOVwK8mDFJ4Kct+u85t5JOIW1FQL8OiqpgeGwMB+rclP6KCtblpVM9ENjY/5iqPnTDjE8eU4EK9yOdz2gJXWKlts6z5yjjXpMV4xYUoq8cehwWBySEJAmLrYl4wsS2ij2HBCos0VqfPDip0Eo9J7LE7OGwlEHv4cp8992P4qsgD16gnKNIobJAmZXwKUnOnY13S0UO8+K0rhRyUigmg13WydkUCX29ALqK9JLvhCh0NJNe/8luhR2KZNAOnNymFawYEwuZVOlf4L9408LXxD+yH8PpHC/09W8LlLc2wxd0szQoInE1oS/Z3iZdAgTSZxYXhrbnY35XLH4vVgXtsVQ8PMpniFbmFnN17W6vbk2t9J3Db4J4NbpK9XHC4DqFhmzCY4KBxBQ=
   distributions: sdist bdist_wheel
   skip_cleanup: true
   on:
@@ -23,5 +23,4 @@ deploy:
     python: 3.6
 env:
   global:
-    # Doctr deploy key for pauleveritt/kaybee_bulma
-    - secure: "k6uSbq07MmPp52I28SOIK2HNzPqm9x7BsN7Lo7TQDjNJ43sI2pz1EXFnxwErznwsPqww11Kmjz9lODbcu2y+pRnGbmayyudAK+pNfxQ+xqy8AAbZ5QTEV2vKmAz4xMVd0Rfg5hcbkEIXLIbThiNKp+Smc+oX0qUiwhQdFeHD2HKI8DmzK152PAPn1t26jyIj9WDdRV4DiIORTdp7Ww+h6zi0uEpjCPDg0QhtYA6tDQtwcsaLhGn74K12hrjXF2952rfEzycA+/qfLNto+qp0tI8bODFVXhvNTkptRvDoWL7d0gAoXbFwtuVKgHCFD4MGSaEWySMlQy1FPZzsopW0gTnQ7Ad2gfMbbkdzp5rY7SzuTFW+XQCcat5EutY6dT7AuCZ+11q6SaqV3zxtnkiYsW+0fGZFc8rlm2U7TjuIU0wufOQ+eYZ82FX5/2fiii6zf774EQvDna9YTztOhTYhzfzzx/6Gtq+8dgBp6RdfBXEBA9s1u9id4WF7DWMkZgKrSeTWo9S09NIngkRwatDGFQNrTZPEy4/0i3wRsb+hGEGmk3+17Go5q+yRgD3ECCLDr3NFXAEbZE96flKDO79ry4Z+veyanJ22nWUe2UrE5r3YycZ177y9nCMMIhzMP8auGEfjBvRF6J+oW9Ah9VCdv/vy8Eq4fva92Dyhm2P0LU8="
+  - secure: k6uSbq07MmPp52I28SOIK2HNzPqm9x7BsN7Lo7TQDjNJ43sI2pz1EXFnxwErznwsPqww11Kmjz9lODbcu2y+pRnGbmayyudAK+pNfxQ+xqy8AAbZ5QTEV2vKmAz4xMVd0Rfg5hcbkEIXLIbThiNKp+Smc+oX0qUiwhQdFeHD2HKI8DmzK152PAPn1t26jyIj9WDdRV4DiIORTdp7Ww+h6zi0uEpjCPDg0QhtYA6tDQtwcsaLhGn74K12hrjXF2952rfEzycA+/qfLNto+qp0tI8bODFVXhvNTkptRvDoWL7d0gAoXbFwtuVKgHCFD4MGSaEWySMlQy1FPZzsopW0gTnQ7Ad2gfMbbkdzp5rY7SzuTFW+XQCcat5EutY6dT7AuCZ+11q6SaqV3zxtnkiYsW+0fGZFc8rlm2U7TjuIU0wufOQ+eYZ82FX5/2fiii6zf774EQvDna9YTztOhTYhzfzzx/6Gtq+8dgBp6RdfBXEBA9s1u9id4WF7DWMkZgKrSeTWo9S09NIngkRwatDGFQNrTZPEy4/0i3wRsb+hGEGmk3+17Go5q+yRgD3ECCLDr3NFXAEbZE96flKDO79ry4Z+veyanJ22nWUe2UrE5r3YycZ177y9nCMMIhzMP8auGEfjBvRF6J+oW9Ah9VCdv/vy8Eq4fva92Dyhm2P0LU8=
