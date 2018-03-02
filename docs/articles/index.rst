@@ -17,13 +17,6 @@ Articles
 
 A list of articles is here.
 
-.. sectionquery::
-    name: sq1
-    template: sectionquery
-    query:
-        parent_name: articles/index
-        rtype: article
-
 .. toctree::
 
     customizing/index
