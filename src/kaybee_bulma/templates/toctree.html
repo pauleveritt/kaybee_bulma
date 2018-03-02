@@ -23,7 +23,7 @@
                     <td>
                         <div class="kbb-listing-title">
                             <a class="kbb-debug-result"
-                               href="{{ '/' + entry.href + '.html' }}">{{ entry.title }}</a>
+                               href="{{ pathto(entry.href) + '.html' }}">{{ entry.title }}</a>
                         </div>
                         {% if entry.resource.excerpt %}
                             <p class="kbb-listing-excerpt">
