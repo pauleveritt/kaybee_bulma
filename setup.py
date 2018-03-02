@@ -25,7 +25,8 @@ CLASSIFIERS = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 INSTALL_REQUIRES = [
-    'kaybee'
+    'kaybee',
+    'sphinx'
 ]
 
 ENTRY_POINTS = {
