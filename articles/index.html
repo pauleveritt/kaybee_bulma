@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Articles</title>
+    
+        <link rel="icon"
+              href="../_static/kaybee_logo.png"/>
+    
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+          rel="stylesheet">
+    <script src="../_static/kaybee_bulma.bundle.js"></script>
+    <script src="../_static/app.bundle.js"></script>
+</head>
+<body>
+
+<section>
+    <nav id="kbb-navbar" class="navbar is-primary"
+     role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../index.html">
+            
+            <img src="../_static/kaybee_logo.png"
+                 alt="Kaybee Logo Alt">
+        </a>
+        <button class="button navbar-burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                <a class="navbar-item"
+                   href="../features/index.html">
+                    Features
+                </a>
+            
+                <a class="navbar-item is-active"
+                   href="index.html">
+                    Articles
+                </a>
+            
+                <a class="navbar-item"
+                   href="../blog/index.html">
+                    The Blog
+                </a>
+            
+                <a class="navbar-item"
+                   href="../categories/index.html">
+                    Categories
+                </a>
+            
+                <a class="navbar-item"
+                   href="../about.html">
+                    About
+                </a>
+            
+
+        </div>
+
+        <div class="navbar-end">
+            
+                <a class="navbar-item" id="kbb-config-github"
+                   href="https://github.com/xxx">
+                <span class="icon has-text-black">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </span>
+                </a>
+            
+            
+                <a class="navbar-item" id="kbb-config-twitter"
+                   href="https://twitter.com/xxx">
+                <span class="icon has-text-info">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </span>
+                </a>
+            
+        </div>
+    </div>
+</nav>
+</section>
+<section
+        class="hero is-primary"
+        style="">
+    <div class="hero-head">
+    </div>
+    
+    <div class="container">
+        <div class="hero-body">
+            <div class="columns is-vcentered">
+                <div class="column">
+                    <p class="title">
+                        Articles
+                    </p>
+                    
+                        <p class="subtitle">
+                            Standalone articles and some in a series, with code examples and diagrams.
+                        </p>
+                    
+                </div>
+                
+                
+                    <div class="column is-one-third is-hidden-mobile">
+                        <div class="card kb-featured">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Featured
+                                </p>
+                            </header>
+
+                            <div class="card-content">
+                                <div class="content">
+                                    <a href="customizing/layout">Customizing Layout</a>
+                                </div>
+                                <div class="content is-small">
+                                    Change the look of a single page, a class of pages, a part of the site, or the entire site.
+                                    <div>
+                                        <a href="customizing/layout">read...</a>
+                                        <small>2017-10-01 00:00:00</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="section content section"
+         id="kbb-sphinx-body">
+    
+    <div class="container">
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-9 kb-body">
+                <div id="kbb-sphinx-body"><div class="section" id="articles">
+<h1>Articles<a class="headerlink" href="#articles" title="Permalink to this headline">¶</a></h1>
+<p>A list of articles is here.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="customizing/index.html">Customizing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="customizing/resources.html">Customizing Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing/widgets.html">Customizing Widgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing/references.html">Customizing References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customizing/layout.html">Customizing Layout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="first_article.html">First Article</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="first_article.html#video-player">Video Player</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer is-primary">
+    <div class="container">
+        <div class="content has-text-centered">
+            <p>
+                Powered by Kaybee, which uses
+                <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>,
+                <a href="http://bulma.io">Bulma</a>,
+                <a href="http://dectate.readthedocs.io/en/latest/">Dectate</a>,
+                <a href="https://pydantic-docs.helpmanual.io">pydantic</a>,
+                and more.
+            </p>
+            <p id="kb-config-copyright">
+                &copy; 2018, All Rights Reserved
+            </p>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT: '',
+        VERSION: '0.2.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+    };
+</script>
+
+</body>
+</html>

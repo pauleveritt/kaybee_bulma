@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Features</title>
+    
+        <link rel="icon"
+              href="../_static/kaybee_logo.png"/>
+    
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+          rel="stylesheet">
+    <script src="../_static/kaybee_bulma.bundle.js"></script>
+    <script src="../_static/app.bundle.js"></script>
+</head>
+<body>
+
+<section>
+    <nav id="kbb-navbar" class="navbar is-info"
+     role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../index.html">
+            
+            <img src="../_static/kaybee_logo.png"
+                 alt="Kaybee Logo Alt">
+        </a>
+        <button class="button navbar-burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                <a class="navbar-item is-active"
+                   href="index.html">
+                    Features
+                </a>
+            
+                <a class="navbar-item"
+                   href="../articles/index.html">
+                    Articles
+                </a>
+            
+                <a class="navbar-item"
+                   href="../blog/index.html">
+                    The Blog
+                </a>
+            
+                <a class="navbar-item"
+                   href="../categories/index.html">
+                    Categories
+                </a>
+            
+                <a class="navbar-item"
+                   href="../about.html">
+                    About
+                </a>
+            
+
+        </div>
+
+        <div class="navbar-end">
+            
+                <a class="navbar-item" id="kbb-config-github"
+                   href="https://github.com/xxx">
+                <span class="icon has-text-black">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </span>
+                </a>
+            
+            
+                <a class="navbar-item" id="kbb-config-twitter"
+                   href="https://twitter.com/xxx">
+                <span class="icon danger">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </span>
+                </a>
+            
+        </div>
+    </div>
+</nav>
+</section>
+<section
+        class="hero is-info"
+        style="">
+    <div class="hero-head">
+    </div>
+    
+    <div class="container">
+        <div class="hero-body">
+            <div class="columns is-vcentered">
+                <div class="column">
+                    <p class="title">
+                        Features
+                    </p>
+                    
+                        <p class="subtitle">
+                            Brief survey of what Kaybee is good for
+                        </p>
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="section content section"
+         id="kbb-sphinx-body">
+    
+    <div class="container">
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-9 kb-body">
+                <div id="kbb-sphinx-body"><div class="section" id="features">
+<h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h1>
+<p>Lots of choices out there for generating static sites. What makes Kaybee
+different? As an author or a customizer, Kaybee has a number of compelling
+features.</p>
+<div class="section" id="attractive-theme">
+<h2>Attractive Theme<a class="headerlink" href="#attractive-theme" title="Permalink to this headline">¶</a></h2>
+<p>The default theme for Kaybee based on <a class="reference external" href="https://bulma.io/">Bulma</a> with
+an emphasis on mobile responsiveness. Out of the box the theme supports
+content organized into nav menus and branded sections with hero blocks
+and rich sidebars.</p>
+<p>For Sphinx users, the Kaybee theme uses none of the Jinja2 in Sphinx. The
+templates are written from scratch for the best user experience. The
+JavaScript from Sphinx is curently being re-used, but will likely be
+reimplemented.</p>
+</div>
+<div class="section" id="rich-content">
+<h2>Rich Content<a class="headerlink" href="#rich-content" title="Permalink to this headline">¶</a></h2>
+<p>Kaybee inherits Sphinx’s rich facilities for organizing content into a
+richly-interlinked corpus. Links between documents are automatically
+generated and reported as broken if you rename something. Put a marker
+within a document and link to that spot: in fact, headings are automatically
+link targets.</p>
+<p>Kaybee adds even more structure. You can use the hierarchy to push
+common properties up into sections, add rich metadata that can be used
+as queries, and automate your own custom reference system.</p>
+</div>
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>Put schema-validated metadata into your documents and let Kaybee help
+you generate your site structure and templating. Customizers can even
+create their own kinds of resources, with custom schemas and templates, as
+well as custom logic used in templating.</p>
+</div>
+<div class="section" id="widgets">
+<h2>Widgets<a class="headerlink" href="#widgets" title="Permalink to this headline">¶</a></h2>
+<p>Insert data-driven blocks into your documents by using widgets. Kaybee ships
+with several and it is easy to register your own.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Want to build a category system? A tag system? Have authors? Each of these
+are resources with a simple flag that says they can be a reference. Kaybee
+then registers that reference scheme and that reference value, allowing you
+to point at them from schemas or inline references.</p>
+</div>
+<div class="section" id="layout-and-styling">
+<h2>Layout and Styling<a class="headerlink" href="#layout-and-styling" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Completely new HTML templating, nothing shared from Sphinx</li>
+<li>Focused on modern-looking and acting sites, responsive, with CSS from
+a decent project (currrently Bulma and SCSS) and decent JS support, both
+using Webpack with a focus on small bundle sizes</li>
+<li>Also focused on using tools, so dropped the <code class="docutils literal notranslate"><span class="pre">css_t</span></code> approach from Sphinx</li>
+<li>Re-implement the majority of Sphinx basic styling</li>
+<li>kaybee theme has a section style and resources can get style from YAML,
+lineage, then class</li>
+<li>Conventional set of Jinja2 slots that can be filled</li>
+<li>The layout has a hero section that can be filled by a resource/section’s
+template. The homepage template fills with a taller, richer hero display.</li>
+<li>Move document_settings &lt;script&gt; to its own template to avoid screwing</li>
+</ul>
+</div>
+<div class="section" id="nav-menus">
+<h2>Nav Menus<a class="headerlink" href="#nav-menus" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Put a resource into the nav menu</li>
+<li>Active nav menu</li>
+<li>Weights adjust sort order</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Resources<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Embed YAML in RST to turn a document into a resource with properties
+enforced by a schema</li>
+<li>Schemas default to a same-named YAML file next to the resource class,
+but can be overridden by the class</li>
+<li>Ditto for the template name</li>
+<li>Lineage properties for style, template, etc.</li>
+<li>Remove some noise from the generated RST-&gt;HTML e.g. extra heading</li>
+<li>kaybee stamps the resource type named in the decorator, onto the
+resource class (to avoid duplication)</li>
+<li>Intelligent handling of page names, treating folder/index as folder
+being the actual resource</li>
+<li>Determine which section the resource is in</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Widgets<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Logic and layout in the middle of a page, driven by a directive</li>
+<li>Easily write new widgets with new property schemas, logic, and templates</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>References<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Resources can be marked as a reference value by having a “label”
+property that returns a shorthand reference marker</p>
+</li>
+<li><p class="first">Other resources can point to that resource, e.g. a certain category,
+via that label as a value on a schema field that is flagged as a reference</p>
+</li>
+<li><p class="first">Reference values are then enforced during building</p>
+</li>
+<li><p class="first">You can also use a Sphinx reference with this special scheme, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>:ref:`category-python`
+:ref:`A Link Title &lt;category-python&gt;`
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="site">
+<h2>Site<a class="headerlink" href="#site" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Maintain a mapping of resources and widgets</li>
+<li>List the sections</li>
+<li>Perform queries: filter on resource type, sort attribute, sort order,
+limit</li>
+<li>Configure site with schema-validated YAML</li>
+</ul>
+</div>
+<div class="section" id="extending">
+<h2>Extending<a class="headerlink" href="#extending" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Write new resources and widgets outside of kaybee and register with the
+configuration system</li>
+<li>Both are easier to write than normal Sphinx</li>
+</ul>
+</div>
+<div class="section" id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Configuration-driven system based on Dectate</li>
+<li>Extensive unit and integration tests</li>
+<li>Video player widget</li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="theme.html">Theme Features</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer is-info">
+    <div class="container">
+        <div class="content has-text-centered">
+            <p>
+                Powered by Kaybee, which uses
+                <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>,
+                <a href="http://bulma.io">Bulma</a>,
+                <a href="http://dectate.readthedocs.io/en/latest/">Dectate</a>,
+                <a href="https://pydantic-docs.helpmanual.io">pydantic</a>,
+                and more.
+            </p>
+            <p id="kb-config-copyright">
+                &copy; 2018, All Rights Reserved
+            </p>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT: '',
+        VERSION: '0.2.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+    };
+</script>
+
+</body>
+</html>
