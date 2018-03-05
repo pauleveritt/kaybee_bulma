@@ -1,8 +1,9 @@
 .. article::
     published: 2015-01-02 12:01
     weight: 20
-    category:
-        - python
+    references:
+        category:
+            - python
     excerpt:
         A fine article, about all kinds of things. One can never tell
         the kinds of things that it is about.
