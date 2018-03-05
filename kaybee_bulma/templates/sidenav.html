@@ -83,7 +83,7 @@
         </p>
     {% endif %}
 
-    {% for reference_label in resource.props.references %}
+    {% for reference_label in resource.props.references.keys() %}
         <div>
             <p class="menu-label">
                 <span style="text-transform: uppercase">{{ reference_label }}</span>
