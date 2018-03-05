@@ -3,10 +3,13 @@
     <div class="container">
         <div class="columns">
             <div class="column sb_body">
-                <h1 class="title is-1">Category: {{ resource.title }}</h1>
+                <h1 class="title is-1">
+                    <span style="text-transform: capitalize">{{ resource.rtype }}</span>:
+                    {{ resource.title }}</h1>
                 <div id="kbb-sphinx-body">{{ body }}</div>
 
-                <h2>Resources With This Category</h2>
+                <h2>Resources With This
+                    <span style="text-transform: capitalize">{{ resource.rtype }}</span></h2>
                 {% for resource in resource.get_sources(resources) %}
                     <p>
                     <div class="kbb-listing-title">

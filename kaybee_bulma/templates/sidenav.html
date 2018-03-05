@@ -83,18 +83,18 @@
         </p>
     {% endif %}
 
-    {% if resource.props.category %}
-        <div id="kb-sidenav-categories-heading">
+    {% for reference_label in resource.props.references %}
+        <div>
             <p class="menu-label">
-                Categories
+                <span style="text-transform: uppercase">{{ reference_label }}</span>
             </p>
             <p>
-                {% for category in references.resource_references(resource)['category'] %}
-                    <a href="/{{ pathto(category.docname, 1) + '.html' }}">
-                        <span class="tag">{{ category.props.label }}</span>
+                {% for reference in references.resource_references(resource)[reference_label] %}
+                    <a href="/{{ pathto(reference.docname, 1) + '.html' }}">
+                        <span class="tag">{{ reference.props.label }}</span>
                     </a>
                 {% endfor %}
             </p>
         </div>
-    {% endif %}
+    {% endfor %}
 </aside>
