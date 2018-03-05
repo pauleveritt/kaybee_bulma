@@ -2,6 +2,31 @@ Changelog
 =========
 
 
+0.2.9 (2018-03-05)
+------------------
+
+Changes
+~~~~~~~
+- Forgot to update reference structure. [Paul Everitt]
+
+Other
+~~~~~
+- @WIP Let's make a release. [Paul Everitt]
+- @WIP Back to dev. [Paul Everitt]
+
+
+0.2.8 (2018-03-05)
+------------------
+
+Changes
+~~~~~~~
+- Correctly format the new nested references structure. [Paul Everitt]
+
+Other
+~~~~~
+- @WIP Back to dev. [Paul Everitt]
+
+
 0.2.7 (2018-03-05)
 ------------------
 - @WIP Release 0.2.7. [Paul Everitt]
