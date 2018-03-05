@@ -7,7 +7,7 @@
                 <div id="kbb-sphinx-body">{{ body }}</div>
 
                 <h2>Resources With This Category</h2>
-                {% for resource in resource.get_targets(resources) %}
+                {% for resource in resource.get_sources(resources) %}
                     <p>
                     <div class="kbb-listing-title">
                         <a href="{{ pathto(resource.docname, 1) + '.html' }}">{{ resource.title }}</a>
