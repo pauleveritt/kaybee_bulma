@@ -2,6 +2,20 @@ Changelog
 =========
 
 
+0.2.7 (2018-03-05)
+------------------
+- @WIP Release 0.2.7. [Paul Everitt]
+- @WIP Let's make a release. [Paul Everitt]
+- Handle multiple category schemes. [Paul Everitt]
+
+
+0.2.6 (2018-03-05)
+------------------
+- Let's make a release. [Paul Everitt]
+- Use the new get_sources instead of get_targets. [Paul Everitt]
+- @WIP Released 0.2.5 back to dev. [Paul Everitt]
+
+
 0.2.5 (2018-03-02)
 ------------------
 - @WIP Let's do another release. [Paul Everitt]
