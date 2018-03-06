@@ -31,7 +31,7 @@
                                     {{ feature.excerpt }}
                                     <div>
                                         <a href="{{ pathto(feature.docname, 1) }}">read...</a>
-                                        <small>{{ feature.props.published }}</small>
+                                        <small>{{ feature.props.published | datetime_fmt('short') }}</small>
                                     </div>
                                 </div>
                             </div>

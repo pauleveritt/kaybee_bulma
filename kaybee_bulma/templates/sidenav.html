@@ -1,16 +1,23 @@
 <aside id="sidebarCollapseTarget" class="menu kbb-sidenav">
 
     <div id="kb-sidenav-published-heading">
+        {% set authors = references.resource_references(resource)['author'] %}
         {% if resource.is_published %}
             <p class="menu-label">
                 Published
             </p>
             <ul class="menu-list">
                 <li>
-                        Published on
-                        {{ resource.props.published.strftime('%Y-%m-%d') }}
-                        at
-                        {{ resource.props.published.strftime('%H:%M') }}.
+                    Published on
+                    {{ resource.props.published.strftime('%Y-%m-%d') }}
+                    at
+                    {{ resource.props.published.strftime('%H:%M') }}
+                    {% if authors %}
+                        by:
+                        {% for author in authors %}
+                            <a href="{{ pathto(author.docname) + '.html' }}">{{ author.title }}</a>
+                        {% endfor %}
+                    {% endif %}
                 </li>
             </ul>
         {% else %}
@@ -30,43 +37,43 @@
 
     {% set breadcrumbs = resource.parents(resources)[:-1]|reverse %}
     {% if breadcrumbs %}
-    <p class="menu-label">
-        Breadcrumbs
-    </p>
-    <ul class="menu-list">
+        <p class="menu-label">
+            Breadcrumbs
+        </p>
+        <ul class="menu-list">
 
-        {%- for parent in breadcrumbs %}
-            <li>
-                <a href="{{ pathto(parent.docname) }}">
-                    {% for arrow in range(loop.index) %}
-                        <span class="kb-breadcrumb-separator">></span>
-                    {% endfor %}
-                    {{ parent.title }}
-                </a>
-            </li>
-        {%- endfor %}
+            {%- for parent in breadcrumbs %}
+                <li>
+                    <a href="{{ pathto(parent.docname) }}">
+                        {% for arrow in range(loop.index) %}
+                            <span class="kb-breadcrumb-separator">></span>
+                        {% endfor %}
+                        {{ parent.title }}
+                    </a>
+                </li>
+            {%- endfor %}
 
-    </ul>
+        </ul>
     {% endif %}
 
     {% if prev %}
-    <p class="menu-label">
-        Previous
-    </p>
-    <ul class="menu-list">
-        <a href="{{ prev.link|e }}"
-           title="{{ _('previous chapter') }}">{{ prev.title }}</a>
-    </ul>
+        <p class="menu-label">
+            Previous
+        </p>
+        <ul class="menu-list">
+            <a href="{{ prev.link|e }}"
+               title="{{ _('previous chapter') }}">{{ prev.title }}</a>
+        </ul>
     {% endif %}
 
     {% if next %}
-    <p class="menu-label">
-        Next
-    </p>
-    <ul class="menu-list">
-        <a href="{{ next.link|e }}"
-           title="{{ _('next chapter') }}">{{ next.title }}</a>
-    </ul>
+        <p class="menu-label">
+            Next
+        </p>
+        <ul class="menu-list">
+            <a href="{{ next.link|e }}"
+               title="{{ _('next chapter') }}">{{ next.title }}</a>
+        </ul>
     {% endif %}
 
     {% set toc_entries = resource.toctree %}
@@ -90,7 +97,7 @@
             </p>
             <p>
                 {% for reference in references.resource_references(resource)[reference_label] %}
-                    <a href="/{{ pathto(reference.docname, 1) + '.html' }}">
+                    <a href="{{ pathto(reference.docname, 1) + '.html' }}">
                         <span class="tag">{{ reference.props.label }}</span>
                     </a>
                 {% endfor %}
