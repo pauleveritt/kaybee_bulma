@@ -91,17 +91,19 @@
     {% endif %}
 
     {% for reference_label in resource.props.references.keys() %}
-        <div>
-            <p class="menu-label">
-                <span style="text-transform: uppercase">{{ reference_label }}</span>
-            </p>
-            <p>
-                {% for reference in references.resource_references(resource)[reference_label] %}
-                    <a href="{{ pathto(reference.docname, 1) + '.html' }}">
-                        <span class="tag">{{ reference.props.label }}</span>
-                    </a>
-                {% endfor %}
-            </p>
-        </div>
+        {% if reference_label != 'author' %}
+            <div>
+                <p class="menu-label">
+                    <span style="text-transform: uppercase">{{ reference_label }}</span>
+                </p>
+                <p>
+                    {% for reference in references.resource_references(resource)[reference_label] %}
+                        <a href="{{ pathto(reference.docname, 1) + '.html' }}">
+                            <span class="tag">{{ reference.props.label }}</span>
+                        </a>
+                    {% endfor %}
+                </p>
+            </div>
+        {% endif %}
     {% endfor %}
 </aside>
