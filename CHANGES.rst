@@ -2,6 +2,20 @@ Changelog
 =========
 
 
+0.2.10 (2018-03-06)
+-------------------
+
+Changes
+~~~~~~~
+- In sidenav, put the authors. Also, format the date in the section
+  feature. [Paul Everitt]
+
+Other
+~~~~~
+- @WIP Let's make a release. [Paul Everitt]
+- @WIP Back to dev. [Paul Everitt]
+
+
 0.2.9 (2018-03-05)
 ------------------
 
