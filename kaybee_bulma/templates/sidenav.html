@@ -15,7 +15,7 @@
                     {% if authors %}
                         by:
                         {% for author in authors %}
-                            <a href="{{ pathto(author.docname) + '.html' }}">{{ author.title }}</a>
+                            <a href="{{ pathto(author.docname) }}">{{ author.title }}</a>
                         {% endfor %}
                     {% endif %}
                 </li>
