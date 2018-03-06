@@ -2,6 +2,25 @@ Changelog
 =========
 
 
+0.2.11 (2018-03-06)
+-------------------
+
+Changes
+~~~~~~~
+- Hide the "author" reference type since it is used elsewhere. Dumb
+  tries at solving theme.conf problems. [Paul Everitt]
+
+Fix
+~~~
+- Don't need the double '.html'. [Paul Everitt]
+- Don't need the double '.html'. [Paul Everitt]
+
+Other
+~~~~~
+- @WIP Let's make a release. [Paul Everitt]
+- @WIP Back to dev. [Paul Everitt]
+
+
 0.2.10 (2018-03-06)
 -------------------
 
