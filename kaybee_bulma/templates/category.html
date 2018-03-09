@@ -1,32 +1,36 @@
 {% extends "layout.html" %}
 {% block body %}
-    <div class="container">
-        <div class="columns">
-            <div class="column sb_body">
-                <h1 class="title is-1">
-                    <span style="text-transform: capitalize">{{ resource.rtype }}</span>:
-                    {{ resource.title }}</h1>
-                <div id="kbb-sphinx-body">{{ body }}</div>
+<div class="container">
+    <div class="columns">
+        <div class="column sb_body">
+            <h1 class="title is-1">
+                <span style="text-transform: capitalize">{{ resource.rtype }}</span>:
+                {{ resource.title }}</h1>
+            <div id="kbb-sphinx-body">{{ body }}</div>
 
-                <h2>Resources With This
-                    <span style="text-transform: capitalize">{{ resource.rtype }}</span></h2>
-                {% for resource in resource.get_sources(resources) %}
-                    <p>
-                    <div class="kbb-listing-title">
-                        <a href="{{ pathto(resource.docname, 1) + '.html' }}">{{ resource.title }}</a>
+            {% set sources = resource.get_sources(resources) %}
+            {% if sources|length > 0 %}
+            <h2>Resources With This
+                <span style="text-transform: capitalize">{{ resource.rtype }}</span>
+            </h2>
+            {% for resource in resource.get_sources(resources) %}
+                <p>
+                <div class="kbb-listing-title">
+                    <a href="{{ pathto(resource.docname, 1) + '.html' }}">{{ resource.title }}</a>
+                </div>
+                {% if resource.excerpt %}
+                    <div class="kb-listing-excerpt">
+                        {{ resource.excerpt }}
                     </div>
-                    {% if resource.excerpt %}
-                        <div class="kb-listing-excerpt">
-                            {{ resource.excerpt }}
-                        </div>
-                    {% endif %}
-                    </p>
-                {% endfor %}
-            </div>
+                {% endif %}
+                </p>
+            {% endfor %}
+            {% endfor %}
+        </div>
 
-            <div class="column is-3">
-                {% include "sidenav.html" %}
-            </div>
+        <div class="column is-3">
+            {% include "sidenav.html" %}
         </div>
     </div>
+</div>
 {% endblock %}
