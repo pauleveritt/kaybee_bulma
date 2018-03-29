@@ -21,6 +21,10 @@ Two kinds of references:
 
 - :ref:`Link title <category-python>` makes a new link title
 
+.. note::
+
+    This is a Sphinx note.
+
 Video Player
 ============
 
