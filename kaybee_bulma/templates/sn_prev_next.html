@@ -1,0 +1,20 @@
+{% if prev %}
+    <p class="menu-label">
+        Previous
+    </p>
+    <ul class="menu-list">
+        <a href="{{ prev.link|e }}"
+           title="{{ _('previous chapter') }}">{{ prev.title }}</a>
+    </ul>
+{% endif %}
+
+{% if next %}
+    <p class="menu-label">
+        Next
+    </p>
+    <ul class="menu-list">
+        <a href="{{ next.link|e }}"
+           title="{{ _('next chapter') }}">{{ next.title }}</a>
+    </ul>
+{% endif %}
+

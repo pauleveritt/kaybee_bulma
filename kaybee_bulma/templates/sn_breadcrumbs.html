@@ -1,0 +1,20 @@
+{% set breadcrumbs = resource.parents(resources)[:-1]|reverse %}
+{% if breadcrumbs %}
+    <p class="menu-label">
+        Breadcrumbs
+    </p>
+    <ul class="menu-list">
+
+        {%- for parent in breadcrumbs %}
+            <li>
+                <a href="{{ pathto(parent.docname) }}">
+                    {% for arrow in range(loop.index) %}
+                        <span class="kb-breadcrumb-separator">></span>
+                    {% endfor %}
+                    {{ parent.title }}
+                </a>
+            </li>
+        {%- endfor %}
+
+    </ul>
+{% endif %}

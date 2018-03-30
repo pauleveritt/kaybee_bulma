@@ -1,0 +1,14 @@
+{% set toc_entries = resource.toctree %}
+{% if toc_entries %}
+    <p class="menu-label">
+        Contents
+    <ul class="menu-list">
+        {% for entry in toc_entries %}
+            <li>
+                <a href="{{ entry[0] }}">{{ entry[1] }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </p>
+{% endif %}
+

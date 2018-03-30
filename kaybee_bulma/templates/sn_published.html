@@ -1,0 +1,35 @@
+<div id="kb-sidenav-published-heading">
+    {% set authors = references.resource_references(resource)['author'] %}
+    {% if resource.is_published %}
+        <p class="menu-label">
+            Published
+        </p>
+        <ul class="menu-list">
+            <li>
+                Published on
+                {{ resource.props.published.strftime('%Y-%m-%d') }}
+                at
+                {{ resource.props.published.strftime('%H:%M') }}
+                {% if authors %}
+                    by:
+                    {% for author in authors %}
+                        <a href="{{ pathto(author.docname) }}">{{ author.title }}</a>
+                    {% endfor %}
+                {% endif %}
+            </li>
+        </ul>
+    {% else %}
+        <p class="menu-label">
+            Draft
+        </p>
+        <ul class="menu-list">
+            <li>
+                <a href="#">
+                    This article does not have a
+                    current published date.
+                </a>
+            </li>
+            te
+        </ul>
+    {% endif %}
+</div>
