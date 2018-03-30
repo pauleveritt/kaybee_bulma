@@ -1,3 +1,5 @@
+import kaybee
+
 import kaybee_bulma
 
 from kaybee_bulma.siteconfig import SiteConfig
@@ -147,3 +149,11 @@ kaybee_bulma_siteconfig = SiteConfig(
         github='xxx'
     )
 )
+
+
+kaybee_settings = kaybee.KaybeeSettings(
+    articles=dict(
+        use_toctree=True
+    )
+)
+

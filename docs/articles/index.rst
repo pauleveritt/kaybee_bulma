@@ -1,6 +1,3 @@
-Articles
-========
-
 .. section::
 
     subheading:
@@ -14,6 +11,10 @@ Articles
     acquireds:
         all:
             style: primary
+
+========
+Articles
+========
 
 A list of articles is here.
 
