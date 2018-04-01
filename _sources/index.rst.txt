@@ -57,6 +57,7 @@ Contents
     articles/index
     features/index
     categories/index
+    authors/index
     README
 
 .. querylist::

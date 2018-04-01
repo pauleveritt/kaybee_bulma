@@ -8,6 +8,8 @@
 ./_sources/articles/customizing/widgets.rst.txt
 ./_sources/articles/first_article.rst.txt
 ./_sources/articles/index.rst.txt
+./_sources/authors/index.rst.txt
+./_sources/authors/pauleveritt/index.rst.txt
 ./_sources/blog/index.rst.txt
 ./_sources/categories/index.rst.txt
 ./_sources/categories/python.rst.txt
@@ -30,6 +32,8 @@
 ./articles/customizing/widgets.html
 ./articles/first_article.html
 ./articles/index.html
+./authors/index.html
+./authors/pauleveritt/index.html
 ./blog/index.html
 ./categories/index.html
 ./categories/python.html
