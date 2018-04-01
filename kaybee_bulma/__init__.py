@@ -31,4 +31,3 @@ def setup(app):
         version=__version__,
         parallel_read_safe=False
     )
-

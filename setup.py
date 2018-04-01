@@ -32,5 +32,6 @@ setup(
     install_requires=[
         'sphinx',
         'kaybee'
-    ]
+    ],
+    include_package_data=True
 )

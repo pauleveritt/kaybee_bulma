@@ -13,7 +13,14 @@
                 {% if authors %}
                     by:
                     {% for author in authors %}
-                        <a href="{{ pathto(author.docname) }}">{{ author.title }}</a>
+                        <a href="{{ pathto(author.docname) }}">
+                            <figure class="image is-rounded is-24x24"
+                                    style="display: inline-block; margin: 0.5rem">
+                                <img src="{{ pathto('_static/authors/paul_headshotx24.jpeg', 1) }}">
+                            </figure>
+                            <span
+                                    style="display: inline-block; vertical-align: super">{{ author.title }}</span>
+                        </a>
                     {% endfor %}
                 {% endif %}
             </li>

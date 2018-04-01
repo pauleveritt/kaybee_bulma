@@ -26,7 +26,7 @@ def handle_builderinit(kb_app: kb, sphinx_app):
 
 
 @kb.event(SphinxEvent.HPC, scope='kaybee_bulma')
-def resource_into_html_context(
+def theme_into_html_context(
         kb_app: kb,
         sphinx_app: Sphinx,
         pagename,

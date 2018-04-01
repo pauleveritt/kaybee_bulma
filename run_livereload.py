@@ -5,11 +5,9 @@ HTTP port, and also reload any browsers pointed to the docs.
 
 """
 
-import glob
+from livereload import shell
 
 from kaybee_bulma.run_livereload import get_server
-from livereload import Server, shell
-from livereload.watcher import Watcher
 
 sphinx = "env3/bin/python3 env3/bin/sphinx-build -E -b html docs docs/_build"
 
