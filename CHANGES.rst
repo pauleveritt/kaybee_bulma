@@ -2,6 +2,36 @@ Changelog
 =========
 
 
+0.2.13 (2018-04-01)
+-------------------
+- Let's make a release. [Paul Everitt]
+- Forgot to do this step. [Paul Everitt]
+- Add rendering for author. [Paul Everitt]
+- Add an example author. [Paul Everitt]
+- Delete some of the noise. [Paul Everitt]
+- Introduce authors. Break the sidenav into individual (and
+  overrideable) templates. [Paul Everitt]
+- Add some sample author headshots in different dimensions. Have
+  kaybee_bulma docs use toctree. Add a rounded image selector. [Paul
+  Everitt]
+- Style notes and warnings with Bulma styling. Fix some bottom margin on
+  code samples. [Paul Everitt]
+
+
+0.2.12 (2018-03-12)
+-------------------
+
+Changes
+~~~~~~~
+- Don't show category source resources if empty. [Paul Everitt]
+
+Other
+~~~~~
+- @WIP Let's make a release. [Paul Everitt]
+- @WIP wrong closing tag. [Paul Everitt]
+- @WIP Back to dev. [Paul Everitt]
+
+
 0.2.11 (2018-03-06)
 -------------------
 
