@@ -2,6 +2,24 @@ Changelog
 =========
 
 
+0.2.15 (2018-04-11)
+-------------------
+- @WIP Make a release. [Paul Everitt]
+- Fix some layout and a broken sectionbox which added .html. [Paul
+  Everitt]
+- Remove Sphinx CSS. Extract notification markup to its own SCSS. Add
+  back in the hover-heading-internal-anchor thing. [Paul Everitt]
+- @WIP Back to dev. [Paul Everitt]
+
+
+0.2.14 (2018-04-01)
+-------------------
+- @WIP Make a release. [Paul Everitt]
+- @WIP Shut up the warning about copying files...geez that's tiring.
+  [Paul Everitt]
+- @WIP Back to dev. [Paul Everitt]
+
+
 0.2.13 (2018-04-01)
 -------------------
 - Let's make a release. [Paul Everitt]
