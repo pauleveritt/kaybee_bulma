@@ -14,7 +14,7 @@
                             {% set is_active = r.docname == resource.docname %}
                             <div class="kbb-listing-item{{ ' kbb-listing-active' if is_active }}">
                                 <div class="kb-listing-title">
-                                    <a href="{{ pathto(r.docname) + '.html' }}">{{ r.title }}</a>
+                                    <a href="{{ pathto(r.docname) }}">{{ r.title }}</a>
                                 </div>
                                 {% if r.excerpt %}
                                     <div class="kb-listing-excerpt">
