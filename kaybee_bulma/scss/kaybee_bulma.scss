@@ -1,5 +1,4 @@
-// Include Sphinx and Pygments CSS into the bundle
-@import "../static/basic.css";
+// Include Pygments CSS into the bundle
 @import "../static/pygments.css";
 
 @import "../../node_modules/bulma/sass/utilities/initial-variables";
@@ -15,3 +14,4 @@
 @import "_querylist.scss";
 @import "_sectionbox.scss";
 @import "_toctree.scss";
+@import "_notification.scss";

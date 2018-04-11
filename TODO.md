@@ -1,12 +1,18 @@
 # Now
 
+# Next
+
+- Remove basic.css then clean out all the workarounds
+
+- Get pauleveritt author image directory doesn't exist bug fixed
+
+- Group nav into menus that might be drop-down
+
 - Get "active" working in nav menu
 
 - Extra sections on home page
 
 - Date formatter
-
-# Next
 
 - Authors, with author info in the sidenav
 

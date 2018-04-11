@@ -1,0 +1,14 @@
+.admonition {
+  @extend .notification;
+  &.note {
+    @extend .notification.is-info;
+  }
+
+  &.warning {
+    @extend .notification.is-warning;
+  }
+
+  .admonition-title {
+    @extend .is-size-3;
+  }
+}
