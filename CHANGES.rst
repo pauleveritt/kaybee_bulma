@@ -2,6 +2,20 @@ Changelog
 =========
 
 
+0.2.16 (2018-04-12)
+-------------------
+
+Changes
+~~~~~~~
+- With author headshot image references now working in kaybee, add back
+  in an example. [Paul Everitt]
+
+Other
+~~~~~
+- @WIP Let's make a release. [Paul Everitt]
+- @WIP Back to dev. [Paul Everitt]
+
+
 0.2.15 (2018-04-11)
 -------------------
 - @WIP Make a release. [Paul Everitt]
