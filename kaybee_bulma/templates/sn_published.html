@@ -1,5 +1,6 @@
 <div id="kb-sidenav-published-heading">
     {% set authors = references.resource_references(resource)['author'] %}
+
     {% if resource.is_published %}
         <p class="menu-label">
             Published
@@ -16,7 +17,7 @@
                         <a href="{{ pathto(author.docname) }}">
                             <figure class="image is-rounded is-24x24"
                                     style="display: inline-block; margin: 0.5rem">
-                                <img src="{{ pathto('_static/' + author.headshot_thumbnail('icon_24') , 1) }}">
+                                <img src="{{ pathto(author.headshot_thumbnail('icon_24'), 1) }}">
                             </figure>
                             <span
                                     style="display: inline-block; vertical-align: super">{{ author.title }}</span>
