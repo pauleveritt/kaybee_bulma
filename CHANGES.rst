@@ -2,6 +2,19 @@ Changelog
 =========
 
 
+0.2.17 (2018-04-12)
+-------------------
+
+Changes
+~~~~~~~
+- Fix: Fix the sidebar reference to the author image. [Paul Everitt]
+
+Other
+~~~~~
+- @WIP Let's make a release. [Paul Everitt]
+- @WIP Back to dev. [Paul Everitt]
+
+
 0.2.16 (2018-04-12)
 -------------------
 
