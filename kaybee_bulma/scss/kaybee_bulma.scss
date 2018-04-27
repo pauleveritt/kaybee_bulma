@@ -5,6 +5,8 @@
 @import "../../node_modules/bulma/sass/utilities/_all";
 
 @import "../../node_modules/bulma/bulma";
+@import '../../node_modules/bulma-steps-component/bulma-steps.sass';
+
 @import "_navbar.scss";
 @import "_hero.scss";
 @import "_content.scss";
