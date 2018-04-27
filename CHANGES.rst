@@ -2,6 +2,17 @@ Changelog
 =========
 
 
+(unreleased)
+------------
+- @WIP Back to dev. [Paul Everitt]
+
+
+0.2.18 (2018-04-27)
+-------------------
+- @WIP Let's make a release. [Paul Everitt]
+- @WIP Back to dev. [Paul Everitt]
+
+
 0.2.17 (2018-04-12)
 -------------------
 
