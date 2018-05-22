@@ -1,6 +1,9 @@
 import os
 
+import importscan
+
 import kaybee_bulma.events
+from kaybee_bulma import widgets
 from kaybee_bulma.siteconfig import SiteConfig
 
 __version__ = "0.2.19.dev0"
@@ -26,6 +29,7 @@ def get_path():
 
 def setup(app):
     app.add_config_value('kaybee_bulma_siteconfig', SiteConfig(), 'html')
+    importscan.scan(widgets)
 
     return dict(
         version=__version__,
