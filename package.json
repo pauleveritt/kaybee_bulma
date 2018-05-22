@@ -19,17 +19,16 @@
   },
   "homepage": "https://github.com/pauleveritt/kaybee#readme",
   "dependencies": {
-    "bulma": "^0.6.2",
-    "bulma-steps-component": "^0.5.3",
-    "npm": "^5.8.0"
+    "bulma": "^0.7.1",
+    "bulma-steps-component": "^0.5.3"
   },
   "devDependencies": {
-    "css-loader": "^0.28.4",
+    "css-loader": "^0.28.11",
     "html-webpack-plugin": "^2.29.0",
-    "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.6",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^6.0.7",
     "style-loader": "^0.18.2",
-    "webpack": "^3.3.0",
-    "webpack-dev-server": "^2.5.1"
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.2"
   }
 }
