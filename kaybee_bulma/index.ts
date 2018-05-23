@@ -1,4 +1,5 @@
 import "./scss/kaybee_bulma.scss";
+import "./scss/pygments.css";
 
 document.addEventListener("DOMContentLoaded", () => {
     // Get all "navbar-burger" elements

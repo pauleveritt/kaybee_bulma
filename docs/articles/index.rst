@@ -16,7 +16,6 @@
 Articles
 ========
 
-xxx
 
 .. filtered_listing::
     name: widgets1hello
