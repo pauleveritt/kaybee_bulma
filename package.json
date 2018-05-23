@@ -4,9 +4,7 @@
   "description": "Kaybee theme based on Bulma CSS",
   "main": "kaybee_bulma/index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "dist": "webpack",
-    "scss": "node-sass kaybee_bulma/scss/kaybee_bulma.scss kaybee_bulma/static/kaybee_bulma.css"
+    "dist": "parcel build -d kaybee_bulma/static -o kaybee_bulma kaybee_bulma/index.ts "
   },
   "repository": {
     "type": "git",
@@ -20,15 +18,36 @@
   "homepage": "https://github.com/pauleveritt/kaybee#readme",
   "dependencies": {
     "bulma": "^0.7.1",
-    "bulma-steps-component": "^0.5.3"
+    "bulma-steps-component": "^0.5.3",
+    "hyperapp": "^1.2.5"
   },
   "devDependencies": {
+    "@types/jest": "^22.2.3",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^2.29.0",
+    "jest": "^22.4.4",
     "node-sass": "^4.9.0",
+    "parcel-bundler": "^1.8.1",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.18.2",
+    "ts-jest": "^22.4.6",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
