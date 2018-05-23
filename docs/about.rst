@@ -9,15 +9,6 @@ About
     published: 2017-10-01 00:00
     style: warning
 
-.. filtered_listing::
-    name: widgets1hello
-    listing_flag: 98
-
-    Here is some text.
-
-    Here is some *more* text.
-
-
 Changing the Site Title
 =======================
 

@@ -16,9 +16,13 @@
 Articles
 ========
 
-A list of articles is here.
+.. filtered_listing::
+    name: widgets1hello
+    listing_flag: 98
+
 
 .. toctree::
+    :hidden:
 
     customizing/index
     first_article

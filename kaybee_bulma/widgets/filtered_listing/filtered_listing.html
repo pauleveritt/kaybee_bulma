@@ -1,1 +1,105 @@
-<h2 id="hello">Hello Custom Widget Template</h2>
+{% for step in steps %}
+    <div class="columns" style="margin-top: 2rem">
+        <div class="column">
+            {% for filter_item in filtering %}
+                <p class="menu-label">
+                    {{ filter_item.heading }}
+                </p>
+                {% if filter_item.control == 'checkbox' %}
+                    <div style="margin-bottom: 2rem">
+                        {% for filter_choice in filter_item.choices %}
+                            <div class="control">
+                                <label class="checkbox is-horizontal">
+                                    <input type="checkbox">
+                                    {{ filter_choice.label }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% elif filter_item.control == 'radio' %}
+                    <div style="margin-bottom: 2rem">
+                        {% for filter_choice in filter_item.choices %}
+                            <div class="control">
+                                <label class="radio">
+                                    <input type="radio"
+                                           name="{{ filter_choice.key }}">
+                                    {{ filter_choice.label }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% elif filter_item.control == 'select' %}
+                    <div class="select is-multiple"
+                         style="margin-bottom: 2rem">
+                        <select multiple size="4">
+                            {% for filter_choice in filter_item.choices %}
+                                <option value="{{ filter_choice.key }}">{{ filter_choice.label }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="column is-four-fifths">
+            <div class="box">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-96x96 }}">
+                            <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <a href="{{ step.href }}">
+                                    <strong>{{ step.title }}</strong>
+                                </a>
+                                <br>
+                                <span>{{ step.excerpt }}</span>
+                            </p>
+                        </div>
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <a class="level-item kbb-author"
+                                   href="{{ step.href }}">
+                                    <figure class="image is-rounded is-24x24"
+                                            style="margin: 0">
+                                        <img src="{{ step.author_info.headshot }}">
+                                    </figure>
+                                    <span>{{ step.author_info['title'] }}</span>
+                                </a>
+                                <span class="level-item">
+                                            <div class="tags">
+                                                {% for reference in step.references %}
+                                                    <span class="tag">
+                                                        <a href="{{ reference.href }}">
+                                                            {{ reference.label }}
+                                                        </a>
+                                                </span>
+                                                {% endfor %}
+                                            </div>
+                                        </span>
+                            </div>
+                            <div class="level-right is-size-7 has-text-grey">
+                                {% if step.duration %}
+                                    <span class="level-item">
+                                            <span class="icon">
+                                              <i class="fas fa-video"></i>
+                                            </span>
+                                            <span>{{ step.duration }}</span>
+                                        </span>
+                                {% endif %}
+                                <span class="level-item">
+                                            {{ step.published }}
+                                        </span>
+                            </div>
+                        </nav>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+
+{% endfor %}
