@@ -1,47 +1,61 @@
-{% for step in steps %}
-    <div class="columns" style="margin-top: 2rem">
-        <div class="column">
-            {% for filter_item in filtering %}
-                <p class="menu-label">
-                    {{ filter_item.heading }}
-                </p>
-                {% if filter_item.control == 'checkbox' %}
-                    <div style="margin-bottom: 2rem">
-                        {% for filter_choice in filter_item.choices %}
-                            <div class="control">
-                                <label class="checkbox is-horizontal">
-                                    <input type="checkbox">
-                                    {{ filter_choice.label }}
-                                </label>
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% elif filter_item.control == 'radio' %}
-                    <div style="margin-bottom: 2rem">
-                        {% for filter_choice in filter_item.choices %}
-                            <div class="control">
-                                <label class="radio">
-                                    <input type="radio"
-                                           name="{{ filter_choice.key }}">
-                                    {{ filter_choice.label }}
-                                </label>
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% elif filter_item.control == 'select' %}
-                    <div class="select is-multiple"
-                         style="margin-bottom: 2rem">
-                        <select multiple size="4">
-                            {% for filter_choice in filter_item.choices %}
-                                <option value="{{ filter_choice.key }}">{{ filter_choice.label }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                {% endif %}
-            {% endfor %}
+<div class="columns is-centered">
+    <div class="column is-half">
+        <div class="field">
+            <p class="control is-expanded has-icons-left">
+                <input class="input" type="text"
+                       placeholder="Filter listings...">
+                <span class="icon is-small is-left">
+          <i class="fas fa-search"></i>
+        </span>
+            </p>
         </div>
+    </div>
+</div>
+<div class="columns" style="margin-top: 2rem">
+    <div class="column">
+        {% for filter_item in filtering %}
+            <p class="menu-label">
+                {{ filter_item.heading }}
+            </p>
+            {% if filter_item.control == 'checkbox' %}
+                <div style="margin-bottom: 2rem">
+                    {% for filter_choice in filter_item.choices %}
+                        <div class="control">
+                            <label class="checkbox is-horizontal">
+                                <input type="checkbox">
+                                {{ filter_choice.label }}
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% elif filter_item.control == 'radio' %}
+                <div style="margin-bottom: 2rem">
+                    {% for filter_choice in filter_item.choices %}
+                        <div class="control">
+                            <label class="radio">
+                                <input type="radio"
+                                       name="{{ filter_choice.key }}">
+                                {{ filter_choice.label }}
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% elif filter_item.control == 'select' %}
+                <div class="select is-multiple"
+                     style="margin-bottom: 2rem">
+                    <select multiple size="4">
+                        {% for filter_choice in filter_item.choices %}
+                            <option value="{{ filter_choice.key }}">{{ filter_choice.label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 
-        <div class="column is-four-fifths">
+    <div class="column is-four-fifths">
+        {% for step in steps %}
+
             <div class="box">
                 <article class="media">
                     <div class="media-left">
@@ -98,8 +112,8 @@
                     </div>
                 </article>
             </div>
-        </div>
-    </div>
+            </div>
+        {% endfor %}
+</div>
 
 
-{% endfor %}
