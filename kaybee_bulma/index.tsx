@@ -1,3 +1,6 @@
+import { h } from "hyperapp";
+import { app } from "hyperapp";
+
 import "./scss/kaybee_bulma.scss";
 import "./scss/pygments.css";
 
@@ -26,4 +29,30 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+});
+
+interface IState {
+    count: number;
+}
+
+class Actions {
+    down = (value: number) => (state: IState) => ({count: state.count - value});
+    up = (value: number) => (state: IState) => ({count: state.count + value});
+}
+
+const Container = (state: IState, actions: Actions) => (
+    <div>
+        <h1>{state.count}</h1>
+        <button onclick={() => actions.down(1)}>-</button>
+        <button onclick={() => actions.up(1)}>+</button>
+    </div>
+);
+
+const initialState: IState = {
+    count: 0
+};
+
+document.addEventListener("DOMContentLoaded", event => {
+    const target = document.getElementById("target");
+    app(initialState, new Actions(), Container, target);
 });

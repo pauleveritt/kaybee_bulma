@@ -4,7 +4,7 @@
   "description": "Kaybee theme based on Bulma CSS",
   "main": "kaybee_bulma/index.js",
   "scripts": {
-    "dist": "parcel build -d kaybee_bulma/static -o kaybee_bulma kaybee_bulma/index.ts "
+    "dist": "parcel build -d kaybee_bulma/static -o kaybee_bulma kaybee_bulma/index.tsx"
   },
   "repository": {
     "type": "git",
