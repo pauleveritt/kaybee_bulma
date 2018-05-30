@@ -1,0 +1,225 @@
+{
+  "results": [
+    {
+      "href": "a/b/jsonserver1",
+      "title": "Debugging JSX With Chrome",
+      "published": "2018-02-26",
+      "duration": "3m27s",
+      "excerpt": "Sometimes you need to debug in the browser, such as for JSX rendering and events. Use the IDE to remote control Chrome during debugging.",
+      "authorInfo": {
+        "title": "Paul Everitt",
+        "href": "/paul.html",
+        "headshot": "https://pauleveritt.github.io/pycharm_companion/authors/pauleveritt/paul_headshotx24.jpeg"
+      },
+      "references": [
+        {
+          "href": "/someref1.html",
+          "label": "flask"
+        },
+        {
+          "href": "/someref2.html",
+          "label": "django"
+        },
+        {
+          "href": "/someref3.html",
+          "label": "templating"
+        }
+      ],
+      "type": "article"
+    },
+    {
+      "href": "a/b/jsonserver2",
+      "published": "2018-02-26",
+      "title": "Class Components With Props",
+      "excerpt": "Make a simple class component with a single prop, again with a TypeScript interface describing the props.",
+      "author": "typicode",
+      "type": "article",
+      "references": [
+        {
+          "href": "/someref1.html",
+          "label": "django"
+        },
+        {
+          "href": "/someref2.html",
+          "label": "angular"
+        },
+        {
+          "href": "/someref4.html",
+          "label": "jest"
+        },
+        {
+          "href": "/someref3.html",
+          "label": "typescript"
+        }
+      ],
+      "authorInfo": {
+        "title": "Paul Everitt",
+        "href": "/paul.html",
+        "headshot": "https://pauleveritt.github.io/pycharm_companion/authors/pauleveritt/paul_headshotx24.jpeg"
+      }
+    },
+    {
+      "href": "a/b/jsonserver3",
+      "published": "2018-02-26",
+      "title": "Model Class State With TypeScript Interfaces",
+      "excerpt": "Make a very simple class component with local counter state, then make an interface for that state.",
+      "author": "typicode",
+      "type": "tip",
+      "references": [
+        {
+          "href": "/someref1.html",
+          "label": "flask"
+        },
+        {
+          "href": "/someref2.html",
+          "label": "django"
+        }
+      ],
+      "authorInfo": {
+        "title": "Paul Everitt",
+        "href": "/paul.html",
+        "headshot": "https://pauleveritt.github.io/pycharm_companion/authors/pauleveritt/paul_headshotx24.jpeg"
+      }
+    },
+    {
+      "href": "a/b/jsonserver4",
+      "published": "2018-02-26",
+      "title": "Functional React Components in TypeScript",
+      "excerpt": "React builds UIs as a tree of components. See how to make stateless functional component correctly with TypeScript.",
+      "author": "pauleveritt",
+      "references": [
+        {
+          "href": "/someref1.html",
+          "label": "flask"
+        },
+        {
+          "href": "/someref2.html",
+          "label": "django"
+        },
+        {
+          "href": "/someref3.html",
+          "label": "templating"
+        },
+        {
+          "href": "/someref2.html",
+          "label": "angular"
+        },
+        {
+          "href": "/someref4.html",
+          "label": "jest"
+        },
+        {
+          "href": "/someref3.html",
+          "label": "typescript"
+        }
+      ],
+      "authorInfo": {
+        "title": "Paul Everitt",
+        "href": "/paul.html",
+        "headshot": "https://pauleveritt.github.io/pycharm_companion/authors/pauleveritt/paul_headshotx24.jpeg"
+      }
+    }
+  ],
+  "filterGroups": [
+    {
+      "label": "Types",
+      "value": "type",
+      "control": "checkbox",
+      "choices": [
+        {
+          "label": "Article",
+          "value": "article"
+        },
+        {
+          "label": "Blog Post",
+          "value": "blogpost"
+        },
+        {
+          "label": "Blog Tutorial",
+          "value": "blogtutorial"
+        },
+        {
+          "label": "Tip",
+          "value": "tip"
+        },
+        {
+          "label": "Tutorial",
+          "value": "tutorial"
+        },
+        {
+          "label": "Webinar",
+          "value": "webinar"
+        }
+      ]
+    },
+    {
+      "label": "Date",
+      "value": "date",
+      "control": "radio",
+      "choices": [
+        {
+          "label": "Article",
+          "value": "article"
+        }
+      ]
+    },
+    {
+      "label": "Technology",
+      "value": "technology",
+      "control": "select",
+      "choices": [
+        {
+          "label": "Ansible",
+          "value": "ansible"
+        },
+        {
+          "label": "AWS",
+          "value": "aws"
+        },
+        {
+          "label": "create-react-app",
+          "value": "cra"
+        },
+        {
+          "label": "Docker",
+          "value": "docker"
+        },
+        {
+          "label": "Enzyme",
+          "value": "enzyme"
+        },
+        {
+          "label": "Flask",
+          "value": "flask"
+        }
+      ]
+    },
+    {
+      "label": "Topic",
+      "value": "topic",
+      "control": "select",
+      "choices": [
+        {
+          "label": "Breakpoints",
+          "value": "breakpoints"
+        },
+        {
+          "label": "Debugging",
+          "value": "debugging"
+        },
+        {
+          "label": "HTTP Client",
+          "value": "httpclient"
+        },
+        {
+          "label": "Navigation",
+          "value": "navigation"
+        },
+        {
+          "label": "Python Console",
+          "value": "pythonconsole"
+        }
+      ]
+    }
+  ]
+}

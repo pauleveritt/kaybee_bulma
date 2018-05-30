@@ -4,7 +4,10 @@
   "description": "Kaybee theme based on Bulma CSS",
   "main": "kaybee_bulma/index.js",
   "scripts": {
-    "dist": "parcel build -d kaybee_bulma/static -o kaybee_bulma kaybee_bulma/index.tsx"
+    "start": "parcel ./kaybee_bulma/index.html",
+    "build": "parcel build ./kaybee_bulma/index.html",
+    "test": "jest --coverage --no-cache",
+    "json": "json-server --watch db.json"
   },
   "repository": {
     "type": "git",
@@ -22,19 +25,14 @@
     "hyperapp": "^1.2.5"
   },
   "devDependencies": {
-    "@types/jest": "^22.2.3",
-    "css-loader": "^0.28.11",
-    "html-webpack-plugin": "^2.29.0",
-    "jest": "^22.4.4",
+    "@types/jest": "^22.2.2",
+    "jest": "^22.4.3",
+    "json-server": "^0.12.2",
     "node-sass": "^4.9.0",
-    "parcel-bundler": "^1.8.1",
-    "sass-loader": "^6.0.7",
-    "style-loader": "^0.18.2",
-    "ts-jest": "^22.4.6",
-    "tslint": "^5.10.0",
-    "typescript": "^2.8.3",
-    "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.2"
+    "parcel-bundler": "^1.6.2",
+    "ts-jest": "^22.4.2",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2"
   },
   "jest": {
     "transform": {
