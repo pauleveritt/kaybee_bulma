@@ -3,9 +3,9 @@ import { app } from "hyperapp";
 import "./scss/kaybee_bulma.scss";
 import "./scss/pygments.css";
 
-import actions from "./Actions";
-import Container from "./Container";
-import initialState from "./State";
+import actions from "./filteredlisting/Actions";
+import Container from "./filteredlisting/Container";
+import initialState from "./filteredlisting/State";
 
 import "./container.scss";
 
