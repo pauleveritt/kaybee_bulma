@@ -11,7 +11,7 @@ class FilteredlistingModel(BaseWidgetModel):
     listing_flag: int
 
 
-@kb.widget('filtered_listing')
+@kb.widget('filteredlisting')
 class FilteredlistingWidget(BaseWidget):
     greeting = 'widget greeting'
     props: FilteredlistingModel
