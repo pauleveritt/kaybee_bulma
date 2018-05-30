@@ -5,9 +5,10 @@
   "main": "kaybee_bulma/index.js",
   "scripts": {
     "start": "parcel ./kaybee_bulma/index.html",
-    "build": "parcel build ./kaybee_bulma/index.html",
     "test": "jest --coverage --no-cache",
-    "json": "json-server --watch db.json"
+    "json": "json-server --watch db.json",
+    "build": "parcel build -d kaybee_bulma/static -o kaybee_bulma kaybee_bulma/index.tsx"
+
   },
   "repository": {
     "type": "git",
