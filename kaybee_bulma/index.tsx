@@ -7,7 +7,6 @@ import actions from "./filteredlisting/Actions";
 import Container from "./filteredlisting/Container";
 import initialState from "./filteredlisting/State";
 
-import "./container.scss";
 
 app(
     initialState,

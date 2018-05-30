@@ -9,10 +9,9 @@
         <link rel="icon"
               href="{{ pathto('_static/' + siteconfig.favicon, 1) }}"/>
     {% endif %}
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
-          rel="stylesheet">
     <link rel="stylesheet" href="{{  pathto('_static/kaybee_bulma.css', 1) }}"/>
-    <script src="{{ pathto('_static/kaybee_bulma.js', 1) }}"></script>
+    <script defer src="{{ pathto('_static/kaybee_bulma.js', 1) }}"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
 <body>
 {% set style = resource.acquire(resources, 'style') if resource else None %}
