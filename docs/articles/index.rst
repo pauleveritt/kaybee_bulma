@@ -17,7 +17,7 @@ Articles
 ========
 
 
-.. filtered_listing::
+.. filteredlisting::
     name: widgets1hello
     listing_flag: 98
 
