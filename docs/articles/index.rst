@@ -19,7 +19,7 @@ Articles
 
 .. filteredlisting::
     name: widgets1hello
-    listing_flag: 98
+    filename: all_resources.json
 
 
 .. toctree::
