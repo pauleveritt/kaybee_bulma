@@ -73,9 +73,6 @@ export const Sidebar = () => ({filterGroups}: IState) => (
                     <p class="menu-label">
                         {fg.label}
                     </p>
-                    <p>
-                        <button onclick={() => console.log(fg.choices)}>Dump Choices</button>
-                    </p>
                     {(() => {
                         switch (fg.control) {
                             case "checkbox":
