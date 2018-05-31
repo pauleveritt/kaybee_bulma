@@ -1,15 +1,13 @@
 import { ActionsType } from "hyperapp";
 import { IFilterChoice, IFilterGroup, IResult, IState } from "./State";
 
-const DB_URL = `http://localhost:3000/db`;
-
 export interface IDbJson {
     results: IResult[];
     filterGroups: IFilterGroup[];
 }
 
 export interface IActions {
-    getInitialJson: () => void;
+    getInitialJson: (dbUrl: string) => void;
     setInitialJson: (initialJson: IDbJson) => void;
     toggleFetching: (isFetching: boolean) => void;
     consoleLog: (data: any) => void;
@@ -19,10 +17,11 @@ export interface IActions {
 }
 
 const Actions: ActionsType<IState, IActions> = {
-    getInitialJson: () => async (state: IState, actions: any) => {
+    getInitialJson: (dbUrl) => async (state: IState, actions: any) => {
         actions.toggleFetching(true);
+        state.dbUrl = dbUrl;
         actions.setInitialJson(
-            await fetch(DB_URL)
+            await fetch(state.dbUrl)
                 .then(data => data.json())
         );
         actions.toggleFetching(false);
@@ -57,11 +56,11 @@ const Actions: ActionsType<IState, IActions> = {
             // Now filter based on checkboxes. Start by collecting all set
             // keys/values to filter on
             // noinspection JSMismatchedCollectionQueryUpdate
-            const keysValues: Array<[string, string]> = [];
+            const keysValues: Array<[ string, string ]> = [];
             state.filterGroups.map((fg: IFilterGroup) => {
                 fg.choices.map((fc: IFilterChoice) => {
                     if (fc.checked) {
-                        keysValues.push([fg.value, fc.value]);
+                        keysValues.push([ fg.value, fc.value ]);
                     }
                 });
             });
@@ -70,8 +69,8 @@ const Actions: ActionsType<IState, IActions> = {
             if (keysValues.length) {
                 results = results.filter((result: any) => {
                     let hasMatch = false;
-                    keysValues.map(([key, value]: [string, string]) => {
-                        if (result[key] && result[key] === value) {
+                    keysValues.map(([ key, value ]: [ string, string ]) => {
+                        if (result[ key ] && result[ key ] === value) {
                             hasMatch = true;
                         }
                     });

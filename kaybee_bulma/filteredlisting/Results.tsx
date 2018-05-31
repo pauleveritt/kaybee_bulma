@@ -13,7 +13,8 @@ export const Result = ({result}: IResultProps) => (
         <article className="media">
             <div className="media-left">
                 <figure className="image is-96x96 }">
-                    <img src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg"/>
+                    <img
+                        src="http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg"/>
                 </figure>
             </div>
             <div className="media-content">
@@ -70,7 +71,20 @@ export const Result = ({result}: IResultProps) => (
 
 export const Results = () => (state: IState, actions: IActions) => (
     <div
-        oncreate={() => actions.getInitialJson()}
+        oncreate={(element: HTMLElement) => {
+            let el = element;
+            while (el.parentNode) {
+                el = el.parentNode as HTMLElement;
+                if (el.dataset && el.dataset.filteredlistingurl) {
+                    const dbUrl = el.dataset.filteredlistingurl;
+                    if (dbUrl) {
+                        actions.getInitialJson(dbUrl);
+                    }
+                } else if (el.tagName.toLowerCase() === "body") {
+                    return;
+                }
+            }
+        }}
     >
         {state.results.map((resource) => (
             <Result key={resource.href} result={resource}/>

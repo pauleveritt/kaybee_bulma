@@ -40,6 +40,7 @@ export interface IState {
     filterGroups: IFilterGroup[];
     filterterm: string;
     filterChoices: any;
+    dbUrl: string;
 }
 
 const initialState: IState = {
@@ -48,7 +49,8 @@ const initialState: IState = {
     results: [],
     filterGroups: [],
     filterterm: "",
-    filterChoices: {}
+    filterChoices: {},
+    dbUrl: ""
 };
 
 export default initialState;

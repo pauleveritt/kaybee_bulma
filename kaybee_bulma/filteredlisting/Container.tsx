@@ -1,12 +1,12 @@
 import { h } from "hyperapp";
-
 import Pagination from "./Pagination";
 import Results from "./Results";
 import Searchbox from "./Searchbox";
 import Sidebar from "./Sidebar";
 
 export default () => (
-    <div class="kbb-filteredlisting">
+    <div
+        class="kbb-filteredlisting">
         <div class="columns is-centered">
             <div class="column is-half">
                 <Searchbox/>
