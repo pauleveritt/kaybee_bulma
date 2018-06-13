@@ -1,23 +1,43 @@
-export interface IAuthorInfo {
+export interface IProps {
+    [ propname: string ]: any;
+}
+
+export interface IResourceReferences {
+    [ reftype: string ]: string[];
+}
+
+export interface IResource {
+    docname: string;
     title: string;
-    href: string;
-    headshot: string;
+    parent_docnames: string[];
+    rtype: string;
+    props
+        : IProps;
+    excerpt: string;
+    published: string;
+    duration?: string;
+}
+
+export interface IResources {
+    [ docname: string ]: IResource;
 }
 
 export interface IReference {
-    href: string;
-    label: string;
+    count: number;
+    docname: string;
 }
 
-export interface IResult {
-    href: string;
-    title: string;
-    excerpt: string;
-    authorInfo: IAuthorInfo;
-    references: IReference[];
-    duration: string;
-    published: string;
-    type: string;
+export interface IReferenceType {
+    [ reftype: string ]: IReference;
+}
+
+export interface IReferences {
+    [ reftype: string ]: IReferenceType;
+}
+
+export interface IDbJson {
+    resources: IResources;
+    references: IReferences;
 }
 
 export interface IFilterChoice {
@@ -35,22 +55,27 @@ export interface IFilterGroup {
 
 export interface IState {
     isFetching: boolean;
-    initialJson: IResult[];
-    results: IResult[];
+    initialDbJson: IDbJson;
+    results: IResource[];
     filterGroups: IFilterGroup[];
     filterterm: string;
     filterChoices: any;
     dbUrl: string;
+    notification: string;
 }
 
 const initialState: IState = {
     isFetching: false,
-    initialJson: [],
+    initialDbJson: {
+        resources: {},
+        references: {}
+    },
     results: [],
     filterGroups: [],
     filterterm: "",
     filterChoices: {},
-    dbUrl: ""
+    dbUrl: "",
+    notification: ""
 };
 
 export default initialState;

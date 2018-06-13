@@ -19,7 +19,7 @@ Articles
 
 .. filteredlisting::
     name: widgets1hello
-    filename: all_resources.json
+    filename: catalog.json
 
 
 .. toctree::

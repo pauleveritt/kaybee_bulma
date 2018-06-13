@@ -12,8 +12,8 @@ export const SidebarCheckbox = ({choices}: ISidebargroupProps) =>
             {
                 choices.map(
                     (choice: IFilterChoice) => (
-                        <div className="control">
-                            <label className="checkbox is-horizontal">
+                        <div class="control">
+                            <label class="checkbox is-horizontal">
                                 <input
                                     type="checkbox"
                                     name={choice.value}
@@ -23,7 +23,7 @@ export const SidebarCheckbox = ({choices}: ISidebargroupProps) =>
                                         actions.setFilterChoice();
                                     }}
                                 />
-                                <span className="kbb-label">{choice.label}</span>
+                                <span class="kbb-label">{choice.label}</span>
                             </label>
                         </div>
                     )
@@ -37,14 +37,14 @@ export const SidebarRadio = ({choices}: ISidebargroupProps) => (
         {
             choices.map(
                 (choice: IFilterChoice) => (
-                    <div className="control">
-                        <label className="radio is-horizontal">
+                    <div class="control">
+                        <label class="radio is-horizontal">
                             <input
                                 type="radio"
                                 value={choice.value}
                                 oninput={(e: any) => console.log("e", e.target.name, e.target.value)}
                             />
-                            <span className="kbb-label">{choice.label}</span>
+                            <span class="kbb-label">{choice.label}</span>
                         </label>
                     </div>
                 )
@@ -53,7 +53,7 @@ export const SidebarRadio = ({choices}: ISidebargroupProps) => (
     </div>
 );
 export const SidebarSelect = ({choices}: ISidebargroupProps) => (
-    <div className="select is-multiple">
+    <div class="select is-multiple">
         <select multiple size="4">
             {
                 choices.map(

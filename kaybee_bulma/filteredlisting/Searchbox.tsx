@@ -5,7 +5,7 @@ import { IState } from "./State";
 
 const Searchbox = () => (state: IState, actions: IActions) => (
     <div class="field">
-        <p className="control is-expanded has-icons-left">
+        <p class="control is-expanded has-icons-left">
             <input
                 class="input"
                 type="text"
@@ -16,8 +16,8 @@ const Searchbox = () => (state: IState, actions: IActions) => (
                         actions.setFilterterm(v.value);
                     }}
             />
-            <span className="icon is-small is-left">
-              <i className="fas fa-search"/>
+            <span class="icon is-small is-left">
+              <i class="fas fa-search"/>
             </span>
         </p>
     </div>

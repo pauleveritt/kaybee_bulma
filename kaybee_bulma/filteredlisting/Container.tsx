@@ -4,12 +4,19 @@ import Results from "./Results";
 import Searchbox from "./Searchbox";
 import Sidebar from "./Sidebar";
 
-export default () => (
+import { IState } from "./State";
+
+export default (state: IState) => (
     <div
-        class="kbb-filteredlisting">
+        class="kbb-fl">
         <div class="columns is-centered">
             <div class="column is-half">
                 <Searchbox/>
+                {state.notification &&
+                <div class="notification is-warning">
+                    {state.notification}
+                </div>
+                }
             </div>
         </div>
         <div class="columns">
