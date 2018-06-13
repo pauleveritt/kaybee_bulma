@@ -2,10 +2,6 @@ export interface IProps {
     [ propname: string ]: any;
 }
 
-export interface IResourceReferences {
-    [ reftype: string ]: string[];
-}
-
 export interface IResource {
     docname: string;
     title: string;

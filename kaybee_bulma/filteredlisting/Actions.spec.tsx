@@ -1,15 +1,16 @@
 import { app, h } from "hyperapp";
 
 import { default as Actions } from "./Actions";
-import { default as initialState, IState } from "./State";
+import { dbreferences1, dbresources1 } from "./sample_resources";
+import { default as initialState, IDbJson, IReference, IResource, IState } from "./State";
 
-describe("Actions", () => {
+describe("Actions Unit Tests", () => {
     let wiredActions = new Actions();
 
     beforeEach(done => {
         document.body.innerHTML = "";
         const Wrapper = (state: IState, actions: Actions) => (
-            <div oncreate={() => done()} />
+            <div oncreate={() => done()}/>
         );
         wiredActions = app(initialState, new Actions(), Wrapper, document.body);
     });
@@ -57,40 +58,16 @@ describe("Actions", () => {
         expect(unpacked.notification).toEqual(statusText);
     });
 
-    it("should verify the JSON", async () => {
-        // Mock the fetch
-        window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-            status: 200,
-            json: () => Promise.resolve({
-                resources: {a: 9},
-                references: {}
-            })
-        }));
-
-        expect(initialState.dbUrl).toEqual("");
-        const result = await wiredActions.getJson("http://some.where");
+    it("should set initial JSON", async () => {
+        const dbJson: IDbJson = {
+            resources: dbresources1,
+            references: dbreferences1
+        };
+        const result = await wiredActions.setJson(dbJson);
         const unpacked = {...result} as IState;
-        expect(unpacked.dbUrl).toEqual("http://some.where");
-        expect(unpacked.isFetching).toEqual(false);
-        expect(unpacked.notification).toEqual("");
-        expect(unpacked.initialDbJson.resources).toEqual({a: 9});
+        const resource1: IResource = unpacked.initialDbJson.resources.article1;
+        expect(resource1.docname).toEqual(dbresources1.article1.docname);
+        const topic1: IReference = unpacked.initialDbJson.references.topic.topic1;
+        expect(topic1.count).toEqual(dbreferences1.topic.topic1.count);
     });
-
-    it("should verify the JSON is missing resources", async () => {
-        // Mock the fetch
-        window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-            status: 200,
-            json: () => Promise.resolve({
-                references: {}
-            })
-        }));
-
-        expect(initialState.dbUrl).toEqual("");
-        const result = await wiredActions.getJson("http://some.where");
-        const unpacked = {...result} as IState;
-        expect(unpacked.dbUrl).toEqual("http://some.where");
-        expect(unpacked.isFetching).toEqual(false);
-        expect(unpacked.notification).toEqual("Server data missing resources or references");
-    });
-
 });

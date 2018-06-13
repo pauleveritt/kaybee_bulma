@@ -1,4 +1,4 @@
-import { IResource } from "./State";
+import { IReferences, IResource, IResources } from "./State";
 
 export const reference1: IResource = {
     docname: "topics/topic1",
@@ -45,4 +45,12 @@ export const article1: IResource = {
     excerpt: "Some excerpt...",
     published: "2018/01/01 12:00PM",
     duration: "2m20s"
+};
+
+export const dbresources1: IResources = {article1};
+export const dbreferences1: IReferences = {
+    topic: {
+        topic1: {count: 19, docname: reference1.docname},
+        topic2: {count: 29, docname: reference2.docname}
+    }
 };
