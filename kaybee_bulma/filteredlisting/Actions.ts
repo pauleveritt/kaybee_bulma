@@ -6,6 +6,7 @@ export interface IActions {
     setNotification: (msg: string) => Partial<IState>;
     getJson: (dbUrl: string) => Partial<IState>;
     setJson: (data: IDbJson) => Partial<IState>;
+    setFilterterm: (filterterm: string) => Partial<IState>;
 }
 
 class Actions implements ActionsType<IState, IActions> {
@@ -44,11 +45,18 @@ class Actions implements ActionsType<IState, IActions> {
 
             state.isFetching = false;
             return {...state};
-        }
+        };
 
     setJson = (data: IDbJson) => () => {
         return {initialDbJson: data, results: Object.values(data.resources)};
-    }
+    };
+
+    setFilterterm = (filterterm: string) =>
+        (state: IState, actions: IActions) => {
+            const ft = filterterm.toLowerCase();
+            return {filterterm: ft};  // actions.filterResults(ft);
+        };
+
 }
 
 export default Actions;

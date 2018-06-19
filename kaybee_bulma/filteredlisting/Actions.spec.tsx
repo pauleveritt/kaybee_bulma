@@ -69,5 +69,7 @@ describe("Actions Unit Tests", () => {
         expect(resource1.docname).toEqual(dbresources1.article1.docname);
         const topic1: IReference = unpacked.initialDbJson.references.topic.topic1;
         expect(topic1.count).toEqual(dbreferences1.topic.topic1.count);
+        const results = unpacked.results;
+        expect(results.length).toEqual(1);
     });
 });
