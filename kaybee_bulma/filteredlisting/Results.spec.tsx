@@ -27,24 +27,3 @@ describe("Results test", () => {
     });
 
 });
-
-// describe("Get DB URL", () => {
-//     it("should find a data uri", () => {
-//         document.body.innerHTML = innerHtml;
-//         const div = document.querySelector(".result") as HTMLElement;
-//         const dbUrl = getDbUrl(div);
-//         expect(dbUrl).toEqual("http://foo.com/db");
-//     });
-//     it("should not find a data uri", () => {
-//         document.body.innerHTML = `
-// <body>
-//     <div id="kbb-filteredlisting">
-//         <div class="result"></div>
-//     </div>
-// </body>
-// `;
-//         const div = document.querySelector(".result") as HTMLElement;
-//         const dbUrl = getDbUrl(div);
-//         expect(dbUrl).toBeUndefined();
-//     });
-// });
