@@ -2,39 +2,28 @@ import { h } from "hyperapp";
 
 import { IActions } from "./Actions";
 import Result from "./Result";
-import { article1, author1, reference1, references1 } from "./sample_resources";
-import { IState } from "./State";
+import { IResource, IState } from "./State";
 
-export function getDbUrl(el: HTMLElement) {
-    let dbUrl: string | null = "";
-    while (el.parentNode) {
-        el = el.parentNode as HTMLElement;
-        dbUrl = el.getAttribute("data-filteredlistingurl");
-        if (dbUrl) {
-            return dbUrl;
-        } else if (el.tagName.toLowerCase() === "body") {
-            return;
-        }
-    }
+export interface IResult {
+    resource: IResource;
+    author: IResource;
+    references: IResource[];
 }
 
-export const Results = () => (state: IState, actions: IActions) => {
+export interface IResultsProps {
+    values: IResult[];
+}
+
+export const Results = ({values}: IResultsProps) => (state: IState, actions: IActions) => {
 
     return (
-        <div
-            oncreate={(element: HTMLElement) => {
-                // Get the URL from a data attribute in the HTML
-                const dbUrl = getDbUrl(element);
-                if (dbUrl) {
-                    actions.getJson(dbUrl);
-                }
-            }}
-        >{state.results.length}xX
-            {state.results && Object.values(state.results).map((resource) => (
+        <div id="kbb-fl-results">
+            {values &&
+            values.map(({resource, author, references}) => (
                 <Result
-                    resource={article1}
-                    author={author1}
-                    references={references1}
+                    resource={resource}
+                    author={author}
+                    references={references}
                 />
             ))}
         </div>

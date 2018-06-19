@@ -47,10 +47,39 @@ export const article1: IResource = {
     duration: "2m20s"
 };
 
-export const dbresources1: IResources = {article1};
+export const article2: IResource = {
+    docname: "articles/article2",
+    title: "Article Two",
+    parent_docnames: [ "articles/index", "index" ],
+    rtype: "article",
+    props: {
+        references: {
+            topics: [ reference1, reference2 ]
+        }
+    },
+    excerpt: "Some excerpt again...",
+    published: "2018/01/01 12:00PM",
+    duration: "2m20s"
+};
+
+export const dbresources1: IResources = {article1, article2};
 export const dbreferences1: IReferences = {
     topic: {
         topic1: {count: 19, docname: reference1.docname},
         topic2: {count: 29, docname: reference2.docname}
     }
 };
+
+// Used in the <Results values={}/> component
+export const dbresults1 = [
+    {
+        resource: article1,
+        author: author1,
+        references: [ reference1, reference2 ]
+    },
+    {
+        resource: article2,
+        author: author1,
+        references: [ reference1, reference2 ]
+    }
+];
