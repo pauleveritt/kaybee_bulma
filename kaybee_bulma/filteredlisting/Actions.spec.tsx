@@ -76,7 +76,7 @@ describe("Actions Unit Tests", () => {
         const topic1: IReference = unpacked.initialDbJson.references.topic.topic1;
         expect(topic1.count).toEqual(dbreferences1.topic.topic1.count);
         const results = unpacked.results;
-        expect(results.length).toEqual(3);
+        expect(results.length).toEqual(5);
     });
 });
 
@@ -129,10 +129,10 @@ describe("Filter Values", () => {
 describe("Flatten Results", () => {
     const filteredResources: IResource[] = Object.values(dbresources1);
     it("should flatten author and references", () => {
-        const results = flattenResults(filteredResources, dbresources1);
+        const results = flattenResults(filteredResources, dbresources1, dbreferences1);
         const author = results[ 0 ].author as IResource;
         const theseReferences = results[ 0 ].references;
-        expect(author.docname).toEqual(author1.docname);
+        expect(author.props.label).toEqual(author1.props.label);
         expect(theseReferences[ 0 ].docname).toEqual(author1.docname);
     });
 });
@@ -149,20 +149,20 @@ describe("Generate Results", () => {
     });
     it("should parse resources into results with no filtering", () => {
         const results = generateResults(dbjson, "", []);
-        expect(results.length).toEqual(3);
+        expect(results.length).toEqual(5);
     });
     it("should filter on title", () => {
         const results = generateResults(dbjson, "one", []);
-        expect(results.length).toEqual(2);
+        expect(results.length).toEqual(3);
     });
     it("should filter on mixed case title", () => {
         const results = generateResults(dbjson, "ONe", []);
-        expect(results.length).toEqual(2);
+        expect(results.length).toEqual(3);
         expect(results[ 0 ].resource.docname).toEqual(article1.docname);
     });
     it("should not filter on false filter groups", () => {
         const results = generateResults(dbjson, "", filterGroups);
-        expect(results.length).toEqual(3);
+        expect(results.length).toEqual(5);
     });
     it("should filter on true filter groups for no matches", () => {
         filterGroups[ 0 ].choices[ 0 ].checked = true;

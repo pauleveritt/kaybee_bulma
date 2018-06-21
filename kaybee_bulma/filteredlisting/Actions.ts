@@ -1,5 +1,5 @@
 import { ActionsType } from "hyperapp";
-import { IDbJson, IFilterChoice, IFilterGroup, IResource, IResources, IResult, IState } from "./State";
+import { IDbJson, IFilterChoice, IFilterGroup, IReferences, IResource, IResources, IResult, IState } from "./State";
 
 export interface IActions {
     toggleFetching: (isFetching: boolean) => Partial<IState>;
@@ -44,7 +44,9 @@ export function filterValues(
 
 export function flattenResults(
     filteredResources: IResource[],
-    allResources: IResources) {
+    allResources: IResources,
+    allReferences: IReferences
+) {
     /*
         Dereference the primary author and each reference for all results
 
@@ -56,18 +58,22 @@ export function flattenResults(
         // Flatten the author
         let author: IResource | undefined;
         if (references && references.author) {
-            const primaryAuthor = resource.props.references.author[ 0 ];
-            author = primaryAuthor ? allResources[ primaryAuthor ] : undefined;
+            const primaryAuthorLabel = resource.props.references.author[ 0 ];
+            if (primaryAuthorLabel) {
+                const authorDocname = allReferences.author[ primaryAuthorLabel ].docname;
+                author = allResources[ authorDocname ];
+            }
         }
 
         // Flatten the non-author references
         const theseReferences: IResource[] = [];
         if (references) {
             Object.entries(references).map(reference => {
-                const label = reference[ 0 ];
+                const reftype = reference[ 0 ];
                 const docnames = reference[ 1 ] as string[];
-                if (label !== "author)") {
-                    docnames.map((docname: string) => {
+                if (reftype !== "author)") {
+                    docnames.map((label: string) => {
+                        const docname = allReferences[ reftype ][ label ].docname;
                         const thisResource = allResources[ docname ];
                         theseReferences.push(thisResource);
                     });
@@ -103,7 +109,7 @@ export function generateResults(
     resources = filterValues(resources, filterKeysValues);
 
     // Now that we've filtered, let's assemble each author/references
-    return flattenResults(resources, initialDbJson.resources);
+    return flattenResults(resources, initialDbJson.resources, initialDbJson.references);
 }
 
 class Actions implements ActionsType<IState, IActions> {
@@ -153,9 +159,11 @@ class Actions implements ActionsType<IState, IActions> {
     setFilterterm = (filterterm: string) =>
         (state: IState, actions: IActions) => {
             const ft = filterterm.toLowerCase();
-            return {filterterm: ft};  // actions.filterResults(ft);
+            const results = generateResults(
+                state.initialDbJson, ft, []
+            );
+            return {filterterm: ft, results};
         };
-
 }
 
 export default Actions;

@@ -7,18 +7,18 @@ import { IResource } from "./State";
 
 export interface IResultProps {
     resource: IResource;
-    author: IResource;
+    author?: IResource;
     references: IResource[];
 }
 
 const primaryReferenceSrc = "http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg";
 
 export const Result = ({resource, author, references}: IResultProps) => {
-    const authorValue: IAuthorProps = {
+    const authorValue: IAuthorProps | null = author ? {
         href: author.docname,
         src: "src",
         title: author.title
-    };
+    } : null;
     const referenceValues: IReferenceProps[] = references.map(reference => {
         return {href: reference.docname, label: reference.props.label};
     });
@@ -44,11 +44,14 @@ export const Result = ({resource, author, references}: IResultProps) => {
                     </div>
                     <nav className="level is-mobile">
                         <div className="level-left">
-                            <Author
-                                href={authorValue.href}
-                                src={authorValue.src}
-                                title={authorValue.title}
-                            />
+                            {authorValue && (
+                                <Author
+                                    href={authorValue.href}
+                                    src={authorValue.src}
+                                    title={authorValue.title}
+                                />
+                            )
+                            }
                             <span className="level-item">
                                 <References values={referenceValues}/>
                             </span>

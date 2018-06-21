@@ -29,7 +29,9 @@ export const author1: IResource = {
     rtype: "article",
     excerpt: "Some excerpt...",
     published: "2018/01/01 12:00PM",
-    props: {}
+    props: {
+        label: "paul"
+    }
 };
 
 export const article1: IResource = {
@@ -39,8 +41,8 @@ export const article1: IResource = {
     rtype: "article",
     props: {
         references: {
-            author: [ author1.docname ],
-            topics: [ reference1.docname, reference2.docname ]
+            author: [ author1.props.label ],
+            topic: [ reference1.props.label, reference2.props.label ]
         }
     },
     excerpt: "Some excerpt...",
@@ -55,8 +57,8 @@ export const article2: IResource = {
     rtype: "article",
     props: {
         references: {
-            author: [ author1.docname ],
-            topics: [ reference1.docname, reference2.docname ]
+            author: [ author1.props.label ],
+            topic: [ reference1.props.label, reference2.props.label ]
         }
     },
     excerpt: "Some excerpt again...",
@@ -64,11 +66,19 @@ export const article2: IResource = {
     duration: "2m20s"
 };
 
-export const dbresources1: IResources = {article1, article2, "authors/author1": author1};
+export const dbresources1: IResources = {
+    article1, article2,
+    "authors/author1": author1,
+    "topics/topic1": reference1,
+    "topics/topic2": reference2
+};
 export const dbreferences1: IReferences = {
     topic: {
         topic1: {count: 19, docname: reference1.docname},
         topic2: {count: 29, docname: reference2.docname}
+    },
+    author: {
+        paul: {count: 17, docname: author1.docname}
     }
 };
 
