@@ -2,7 +2,6 @@ import { app, h } from "hyperapp";
 
 import {
     default as Actions,
-    filterKeysValues,
     filterValues,
     flattenResults,
     generateResults,
@@ -77,7 +76,7 @@ describe("Actions Unit Tests", () => {
         const topic1: IReference = unpacked.initialDbJson.references.topic.topic1;
         expect(topic1.count).toEqual(dbreferences1.topic.topic1.count);
         const results = unpacked.results;
-        expect(results.length).toEqual(1);
+        expect(results.length).toEqual(3);
     });
 });
 
@@ -93,7 +92,7 @@ describe("Get Filter Groups", () => {
         filterGroups = [ ...filterGroups1 ];
         filterGroups[ 0 ].choices[ 0 ].checked = true;
         const result = getFilterGroupValues(filterGroups);
-        expect(result).toEqual([ [ "author", "pauleveritt" ] ]);
+        expect(result).toEqual([ [ "author", "authors/author1" ] ]);
     });
     it("should not find a filter group value when false", () => {
         filterGroups = [ ...filterGroups1 ];
