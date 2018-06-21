@@ -1,3 +1,5 @@
+import { dbresults1 } from "./sample_resources";
+
 export interface IProps {
     [ propname: string ]: any;
 }
@@ -7,8 +9,7 @@ export interface IResource {
     title: string;
     parent_docnames: string[];
     rtype: string;
-    props
-        : IProps;
+    props: IProps;
     excerpt: string;
     published: string;
     duration?: string;
@@ -49,10 +50,16 @@ export interface IFilterGroup {
     choices: IFilterChoice[];
 }
 
+export interface IResult {
+    resource: IResource;
+    author?: IResource;
+    references: IResource[];
+}
+
 export interface IState {
     isFetching: boolean;
     initialDbJson: IDbJson;
-    results: IResource[];
+    results: IResult[];
     filterGroups: IFilterGroup[];
     filterterm: string;
     filterChoices: any;
@@ -66,7 +73,7 @@ const initialState: IState = {
         resources: {},
         references: {}
     },
-    results: [],
+    results: dbresults1,
     filterGroups: [],
     filterterm: "",
     filterChoices: {},

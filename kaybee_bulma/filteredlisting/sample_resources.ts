@@ -1,4 +1,4 @@
-import { IReferences, IResource, IResources } from "./State";
+import { IFilterGroup, IReferences, IResource, IResources } from "./State";
 
 export const reference1: IResource = {
     docname: "topics/topic1",
@@ -39,7 +39,8 @@ export const article1: IResource = {
     rtype: "article",
     props: {
         references: {
-            topics: [ reference1, reference2 ]
+            author: [ author1.docname ],
+            topics: [ reference1.docname, reference2.docname ]
         }
     },
     excerpt: "Some excerpt...",
@@ -54,7 +55,8 @@ export const article2: IResource = {
     rtype: "article",
     props: {
         references: {
-            topics: [ reference1, reference2 ]
+            author: [ author1.docname ],
+            topics: [ reference1.docname, reference2.docname ]
         }
     },
     excerpt: "Some excerpt again...",
@@ -62,7 +64,7 @@ export const article2: IResource = {
     duration: "2m20s"
 };
 
-export const dbresources1: IResources = {article1, article2};
+export const dbresources1: IResources = {article1, article2, "authors/author1": author1};
 export const dbreferences1: IReferences = {
     topic: {
         topic1: {count: 19, docname: reference1.docname},
@@ -81,5 +83,20 @@ export const dbresults1 = [
         resource: article2,
         author: author1,
         references: [ reference1, reference2 ]
+    }
+];
+
+export const filterGroups1: IFilterGroup[] = [
+    {
+        label: "Author",
+        value: "author",
+        control: "checkbox",
+        choices: [
+            {
+                label: "Author One",
+                value: "authors/author1",
+                checked: false
+            }
+        ]
     }
 ];

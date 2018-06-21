@@ -8,6 +8,7 @@
     "no-var-keyword": true,
     "member-access": false,
     "trailing-comma": false,
+    "semicolon": false,
     "arrow-parens": false,
     "variable-name": false,
     "no-console": false,

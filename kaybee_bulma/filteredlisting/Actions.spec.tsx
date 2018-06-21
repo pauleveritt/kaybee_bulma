@@ -1,8 +1,15 @@
 import { app, h } from "hyperapp";
 
-import { default as Actions } from "./Actions";
-import { dbreferences1, dbresources1 } from "./sample_resources";
-import { default as initialState, IDbJson, IReference, IResource, IState } from "./State";
+import {
+    default as Actions,
+    filterKeysValues,
+    filterValues,
+    flattenResults,
+    generateResults,
+    getFilterGroupValues
+} from "./Actions";
+import { article1, author1, dbreferences1, dbresources1, filterGroups1 } from "./sample_resources";
+import { default as initialState, IDbJson, IFilterGroup, IReference, IResource, IState } from "./State";
 
 describe("Actions Unit Tests", () => {
     let wiredActions = new Actions();
@@ -71,5 +78,96 @@ describe("Actions Unit Tests", () => {
         expect(topic1.count).toEqual(dbreferences1.topic.topic1.count);
         const results = unpacked.results;
         expect(results.length).toEqual(1);
+    });
+});
+
+describe("Get Filter Groups", () => {
+    let filterGroups: IFilterGroup[] = [];
+
+    it("should be empty with no filter groups", () => {
+        filterGroups = [];
+        const result = getFilterGroupValues(filterGroups);
+        expect(result).toEqual([]);
+    });
+    it("should find a filter group value when true", () => {
+        filterGroups = [ ...filterGroups1 ];
+        filterGroups[ 0 ].choices[ 0 ].checked = true;
+        const result = getFilterGroupValues(filterGroups);
+        expect(result).toEqual([ [ "author", "pauleveritt" ] ]);
+    });
+    it("should not find a filter group value when false", () => {
+        filterGroups = [ ...filterGroups1 ];
+        filterGroups[ 0 ].choices[ 0 ].checked = false;
+        const result = getFilterGroupValues(filterGroups);
+        expect(result).toEqual([]);
+    });
+});
+
+describe("Filter Values", () => {
+    it("should return all values when no filterKeysValues", () => {
+        const fKV: Array<[ string, string ]> = [];
+        const resources = Object.values(dbresources1);
+        const result = filterValues(resources, fKV);
+        expect(result).toEqual(resources);
+    });
+    it("should return all values when one filterKeysValues", () => {
+        const fKV: Array<[ string, string ]> = [ [ "rtype", "article" ] ];
+        const resources = Object.values(dbresources1);
+        const result = filterValues(resources, fKV);
+        expect(result).toEqual(resources);
+    });
+    it("should return all values when one of multiple", () => {
+        const fKV: Array<[ string, string ]> = [
+            [ "rtype", "article" ],
+            [ "rtype", "xyzpdq" ],
+        ];
+        const resources = Object.values(dbresources1);
+        const result = filterValues(resources, fKV);
+        expect(result).toEqual(resources);
+    });
+});
+
+describe("Flatten Results", () => {
+    const filteredResources: IResource[] = Object.values(dbresources1);
+    it("should flatten author and references", () => {
+        const results = flattenResults(filteredResources, dbresources1);
+        const author = results[ 0 ].author as IResource;
+        const theseReferences = results[ 0 ].references;
+        expect(author.docname).toEqual(author1.docname);
+        expect(theseReferences[ 0 ].docname).toEqual(author1.docname);
+    });
+});
+
+describe("Generate Results", () => {
+    const dbjson: IDbJson = {
+        resources: dbresources1,
+        references: dbreferences1
+    };
+    let filterGroups: IFilterGroup[] = [];
+
+    beforeEach(() => {
+        filterGroups = [ ...filterGroups1 ];
+    });
+    it("should parse resources into results with no filtering", () => {
+        const results = generateResults(dbjson, "", []);
+        expect(results.length).toEqual(3);
+    });
+    it("should filter on title", () => {
+        const results = generateResults(dbjson, "one", []);
+        expect(results.length).toEqual(2);
+    });
+    it("should filter on mixed case title", () => {
+        const results = generateResults(dbjson, "ONe", []);
+        expect(results.length).toEqual(2);
+        expect(results[ 0 ].resource.docname).toEqual(article1.docname);
+    });
+    it("should not filter on false filter groups", () => {
+        const results = generateResults(dbjson, "", filterGroups);
+        expect(results.length).toEqual(3);
+    });
+    it("should filter on true filter groups for no matches", () => {
+        filterGroups[ 0 ].choices[ 0 ].checked = true;
+        expect(generateResults(dbjson, "", filterGroups))
+            .toEqual([]);
     });
 });

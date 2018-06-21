@@ -4,11 +4,21 @@ import Results from "./Results";
 import Searchbox from "./Searchbox";
 import Sidebar from "./Sidebar";
 
+import { IActions } from "./Actions";
 import { IState } from "./State";
+import { getDbUrl } from "./utils";
 
-export default (state: IState) => (
+export default (state: IState, actions: IActions) => (
     <div
-        class="kbb-fl">
+        class="kbb-fl"
+        oncreate={(element: HTMLElement) => {
+            // Get the URL from a data attribute in the HTML
+            const dbUrl = getDbUrl(element);
+            if (dbUrl) {
+                actions.getJson(dbUrl);
+            }
+        }}
+    >
         <div class="columns is-centered">
             <div class="column is-half">
                 <Searchbox/>
@@ -24,7 +34,7 @@ export default (state: IState) => (
                 <Sidebar/>
             </div>
             <div class="column is-four-fifths">
-                <Results/>
+                <Results values={state.results}/>
                 <Pagination/>
             </div>
         </div>

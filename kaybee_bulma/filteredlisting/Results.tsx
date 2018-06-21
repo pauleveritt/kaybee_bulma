@@ -2,13 +2,7 @@ import { h } from "hyperapp";
 
 import { IActions } from "./Actions";
 import Result from "./Result";
-import { IResource, IState } from "./State";
-
-export interface IResult {
-    resource: IResource;
-    author: IResource;
-    references: IResource[];
-}
+import { IResult, IState } from "./State";
 
 export interface IResultsProps {
     values: IResult[];

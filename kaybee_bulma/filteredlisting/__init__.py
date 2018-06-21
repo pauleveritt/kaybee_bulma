@@ -16,3 +16,4 @@ class FilteredlistingWidget(BaseWidget):
 
     def make_context(self, context, sphinx_app: Sphinx):
         pass
+
