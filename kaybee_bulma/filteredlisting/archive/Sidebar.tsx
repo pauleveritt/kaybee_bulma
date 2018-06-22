@@ -20,7 +20,7 @@ export const SidebarCheckbox = ({choices}: ISidebargroupProps) =>
                                     checked={choice.checked}
                                     oninput={({target}: any) => {
                                         choice.checked = target.checked;
-                                        actions.setFilterChoice();
+                                        // actions.setFilterChoice();
                                     }}
                                 />
                                 <span class="kbb-label">{choice.label}</span>
