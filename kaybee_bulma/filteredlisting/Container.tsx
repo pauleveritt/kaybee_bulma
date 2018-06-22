@@ -45,6 +45,8 @@ const Resources = ({values}: IResourcesProps) => {
             </div>
         );
     }
+
+    return;
 };
 
 const onCreate = (element: HTMLElement, actions: IActions) => {
