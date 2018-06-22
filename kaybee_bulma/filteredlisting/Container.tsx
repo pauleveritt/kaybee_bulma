@@ -18,15 +18,16 @@ const Fetching = ({isFetching, actions}: IFetchingProps) => (
 
 interface INotificationProps {
     notification: string;
-    actions: IActions;
 }
 
-const Notification = ({notification, actions}: INotificationProps) => (
-    <p>
-        <code>notification</code>: {notification}
-        <button onclick={() => actions.setNotification("Some New Notification")}>Set</button>
-    </p>
-);
+const Notification = ({notification}: INotificationProps) => {
+    if (notification) {
+        return (
+            <div class="notification is-primary">Notification: {notification}</div>
+        );
+    }
+    return;
+};
 
 interface IResourcesProps {
     values?: IResources;
@@ -58,11 +59,11 @@ const onCreate = (element: HTMLElement, actions: IActions) => {
 
 export default (state: IState, actions: IActions) => (
     <div oncreate={(element: HTMLElement) => onCreate(element, actions)}>
+        <Notification notification={state.notification}/>
         <p>
             <button onclick={() => console.log("State:", actions.getState())}>Dump State</button>
         </p>
         <Fetching isFetching={state.isFetching} actions={actions}/>
-        <Notification notification={state.notification} actions={actions}/>
         <Resources values={state.resources}/>
     </div>
 );
