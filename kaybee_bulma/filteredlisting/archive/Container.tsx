@@ -6,7 +6,7 @@ import Sidebar from "./Sidebar";
 
 import { IActions } from "./Actions";
 import { IState } from "./State";
-import { getDbUrl } from "./utils";
+import { getDbUrl } from "../utils";
 
 export default (state: IState, actions: IActions) => (
     <div

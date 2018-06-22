@@ -57,11 +57,13 @@ export function flattenResults(
 
         // Flatten the author
         let author: IResource | undefined;
-        if (references && references.author) {
-            const primaryAuthorLabel = resource.props.references.author[ 0 ];
-            if (primaryAuthorLabel) {
-                const authorDocname = allReferences.author[ primaryAuthorLabel ].docname;
-                author = allResources[ authorDocname ];
+        if (references) {
+            if (references.author) {
+                const primaryAuthorLabel = resource.props.references.author[ 0 ];
+                if (primaryAuthorLabel) {
+                    const authorDocname = allReferences.author[ primaryAuthorLabel ].docname;
+                    author = allResources[ authorDocname ];
+                }
             }
         }
 

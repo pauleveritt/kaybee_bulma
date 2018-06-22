@@ -10,4 +10,3 @@ export function getDbUrl(el: HTMLElement) {
         }
     }
 }
-

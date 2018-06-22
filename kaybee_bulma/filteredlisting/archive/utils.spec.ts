@@ -1,4 +1,4 @@
-import { getDbUrl } from "./utils";
+import { getDbUrl } from "../utils";
 
 const goodInnerHtml = `
 <div id="kbb-filteredlisting" data-filteredlistingurl="http://foo.com/db">
