@@ -17,9 +17,14 @@ class Actions implements ActionsType<IState, IActions> {
     setNotification = (notification: string) => ({notification});
     setResources = (dbResources: any) => ({resources: dbResources});
     getJson = (dbUrl: string) => async (state: IState, actions: IActions) => {
-        const response: Response = await fetch(dbUrl);
-        const dbJson: IDbJson = await response.json();
-        actions.setResources(dbJson.resources);
+        try {
+            const response: Response = await fetch(dbUrl);
+            const dbJson: IDbJson = await response.json();
+            actions.setResources(dbJson.resources);
+        } catch (error) {
+            actions.setNotification("Error: " + error.message);
+            throw new Error(error.message);
+        }
     };
 }
 

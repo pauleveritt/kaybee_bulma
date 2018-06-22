@@ -33,26 +33,29 @@ interface IResourcesProps {
 }
 
 const Resources = ({values}: IResourcesProps) => {
-    return (
-        <p>Resources length:
-            <ul>
-                {values && Object.values(values).map(resource => (
-                    <li>{resource.docname}</li>
-                ))}
-            </ul>
-        </p>
-    );
+    if (values) {
+        return (
+            <div>
+                <h2>Resources</h2>
+                <ul>
+                    {values && Object.values(values).map(resource => (
+                        <li>{resource.docname}</li>
+                    ))}
+                </ul>
+            </div>
+        );
+    }
+};
+
+const onCreate = (element: HTMLElement, actions: IActions) => {
+    const dbUrl = getDbUrl(element);
+    if (dbUrl) {
+        actions.getJson(dbUrl);
+    }
 };
 
 export default (state: IState, actions: IActions) => (
-    <div
-        oncreate={(element: HTMLElement) => {
-            const dbUrl = getDbUrl(element);
-            if (dbUrl) {
-                actions.getJson(dbUrl);
-            }
-        }}
-    >
+    <div oncreate={(element: HTMLElement) => onCreate(element, actions)}>
         <p>
             <button onclick={() => console.log("State:", actions.getState())}>Dump State</button>
         </p>
