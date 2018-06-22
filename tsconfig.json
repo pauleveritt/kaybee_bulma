@@ -8,6 +8,8 @@
       "esnext"
     ],
     "module": "commonjs",
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   }
 }
