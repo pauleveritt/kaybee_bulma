@@ -9,4 +9,6 @@ export function getDbUrl(el: HTMLElement) {
             return;
         }
     }
+
+    return;
 }
