@@ -36,7 +36,7 @@ export default (state: IState, actions: IActions) => (
         </div>
         <div className="columns">
             <div className="column">
-                <div>Ft: <code>{state.filterterm}</code></div>
+                <div>Ft: <code>{state.filterTerm}</code></div>
                 <Dumpstate actions={actions}/>
                 <Fetching isFetching={state.isFetching} actions={actions}/>
                 <Sidebar filterGroups={state.filterGroups} actions={actions}/>

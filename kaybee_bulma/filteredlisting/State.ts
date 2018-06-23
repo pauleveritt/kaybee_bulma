@@ -25,11 +25,15 @@ export interface IFilterChoice {
     checked?: boolean;
 }
 
+export interface IFilterChoices {
+    [label: string]: IFilterChoice;
+}
+
 export interface IFilterGroup {
     label: string;
     value: string;
     control: string;
-    choices: IFilterChoice[];
+    choices: IFilterChoices;
 }
 
 export interface IState {
@@ -37,14 +41,14 @@ export interface IState {
     notification: string;
     resources?: IResources;
     filterGroups: IFilterGroup[];
-    filterterm: string;
+    filterTerm: string;
 }
 
 const initialState: IState = {
     isFetching: false,
     notification: "Initial State",
     filterGroups: filterGroups1,
-    filterterm: ""
+    filterTerm: ""
 };
 
 export default initialState;

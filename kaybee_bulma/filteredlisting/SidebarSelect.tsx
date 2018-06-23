@@ -1,13 +1,13 @@
 import { h } from "hyperapp";
 
 import { IActions } from "./Actions";
-import { IFilterChoice } from "./State";
+import { IFilterChoices } from "./State";
 
 interface ISidebarSelectProps {
-    choices: IFilterChoice[];
+    choices: IFilterChoices;
     actions: IActions;
 }
 
 export default ({choices, actions}: ISidebarSelectProps) => (
-    <div></div>
+    <div>sc</div>
 );

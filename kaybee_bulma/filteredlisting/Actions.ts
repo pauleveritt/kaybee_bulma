@@ -1,7 +1,7 @@
 import { ActionsType } from "hyperapp";
 
 import { IDbJson } from "./dbjson";
-import { IResources, IState } from "./State";
+import { IFilterGroup, IResources, IState } from "./State";
 
 export interface IActions {
     setFetching: (isFetching: boolean) => { isFetching: boolean };
@@ -9,7 +9,8 @@ export interface IActions {
     getJson: (dbUrl: string) => Promise<void>;
     setDb: (dbJson: IDbJson) => { resources: IResources };
     getState: () => IState;
-    setFilterterm: (filterterm: string) => { filterterm: string };
+    setFilterterm: (filterTerm: string) => { filterTerm: string };
+    setFilterChoice: () => { filterGroups: IFilterGroup[] };
 }
 
 class Actions implements ActionsType<IState, IActions> {
@@ -44,7 +45,11 @@ class Actions implements ActionsType<IState, IActions> {
         }
         actions.setFetching(false);
     };
-    setFilterterm = (filterterm: string) => ({filterterm});
+    setFilterterm = (filterTerm: string) => ({filterTerm});
+    setFilterChoice = () => (state: IState) => {
+            const newFilterGroups = [ ...state.filterGroups ];
+            return {filterGroups: newFilterGroups};
+        };
 }
 
 export default Actions;

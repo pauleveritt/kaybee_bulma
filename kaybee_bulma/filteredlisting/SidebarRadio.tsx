@@ -1,24 +1,27 @@
 import { h } from "hyperapp";
 
 import { IActions } from "./Actions";
-import { IFilterChoice } from "./State";
+import { IFilterChoice, IFilterChoices } from "./State";
 
 interface ISidebarRadioProps {
-    choices: IFilterChoice[];
+    choices: IFilterChoices;
     actions: IActions;
 }
 
 export default ({choices, actions}: ISidebarRadioProps) => (
     <div>
         {
-            choices.map(
+            Object.values(choices).map(
                 (choice: IFilterChoice) => (
                     <div className="control">
                         <label className="radio is-horizontal">
                             <input
                                 type="radio"
                                 value={choice.value}
-                                onInput={(e: any) => console.log("e", e.target.name, e.target.value)}
+                                oninput={({target}: any) => {
+                                    choice.checked = target.checked;
+                                    actions.setFilterChoice();
+                                }}
                             />
                             <span className="kbb-label">{choice.label}</span>
                         </label>
