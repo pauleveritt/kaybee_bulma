@@ -37,12 +37,14 @@ export interface IState {
     notification: string;
     resources?: IResources;
     filterGroups: IFilterGroup[];
+    filterterm: string;
 }
 
 const initialState: IState = {
     isFetching: false,
     notification: "Initial State",
-    filterGroups: filterGroups1
+    filterGroups: filterGroups1,
+    filterterm: ""
 };
 
 export default initialState;

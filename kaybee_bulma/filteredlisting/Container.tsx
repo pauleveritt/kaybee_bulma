@@ -4,12 +4,12 @@ import { IActions } from "./Actions";
 import Dumpstate from "./Dumpstate";
 import Fetching from "./Fetching";
 import Notification from "./Notification";
+import Pagination from "./Pagination";
 import Results from "./Results";
+import Searchbox from "./Searchbox";
+import Sidebar from "./Sidebar";
 import { IState } from "./State";
 import { getDbUrl } from "./utils";
-import Sidebar from "./Sidebar";
-import Searchbox from "./Searchbox";
-import Pagination from "./Pagination";
 
 const onCreate = (element: HTMLElement, actions: IActions) => {
     const dbUrl = getDbUrl(element);
@@ -26,7 +26,7 @@ export default (state: IState, actions: IActions) => (
         <div className="columns is-centered">
             <div className="column is-half">
                 <Notification notification={state.notification}/>
-                <Searchbox flag={"Search"}/>
+                <Searchbox actions={actions}/>
                 {state.notification &&
                 <div className="notification is-warning">
                     {state.notification}
@@ -36,6 +36,7 @@ export default (state: IState, actions: IActions) => (
         </div>
         <div className="columns">
             <div className="column">
+                <div>Ft: <code>{state.filterterm}</code></div>
                 <Dumpstate actions={actions}/>
                 <Fetching isFetching={state.isFetching} actions={actions}/>
                 <Sidebar filterGroups={state.filterGroups} actions={actions}/>

@@ -9,6 +9,7 @@ export interface IActions {
     getJson: (dbUrl: string) => Promise<void>;
     setDb: (dbJson: IDbJson) => { resources: IResources };
     getState: () => IState;
+    setFilterterm: (filterterm: string) => { filterterm: string };
 }
 
 class Actions implements ActionsType<IState, IActions> {
@@ -43,6 +44,7 @@ class Actions implements ActionsType<IState, IActions> {
         }
         actions.setFetching(false);
     };
+    setFilterterm = (filterterm: string) => ({filterterm});
 }
 
 export default Actions;
