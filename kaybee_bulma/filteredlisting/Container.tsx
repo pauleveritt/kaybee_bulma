@@ -38,7 +38,7 @@ export default (state: IState, actions: IActions) => (
             <div className="column">
                 <Dumpstate actions={actions}/>
                 <Fetching isFetching={state.isFetching} actions={actions}/>
-                <Sidebar flag={"World"}/>
+                <Sidebar filterGroups={state.filterGroups} actions={actions}/>
             </div>
             <div className="column is-four-fifths">
                 <Results values={state.resources}/>

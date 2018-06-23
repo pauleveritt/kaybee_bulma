@@ -9,4 +9,3 @@ export default ({flag}: IPaginationProps) => (
         Pagination {flag}
     </p>
 )
-
