@@ -36,13 +36,12 @@ class Actions implements ActionsType<IState, IActions> {
                 throw Error(response.statusText);
             }
             const dbJson: IDbJson = await response.json();
-            actions.setFetching(false);
             actions.setDb(dbJson);
         } catch (error) {
             actions.setNotification("Error: " + error.message);
-            actions.setFetching(false);
             throw new Error(error.message);
         }
+        actions.setFetching(false);
     };
 }
 
