@@ -14,7 +14,6 @@ interface ISidebarProps {
 export default ({filterGroups, actions}: ISidebarProps) => (
     <div>
         {filterGroups.map((fg: IFilterGroup) => {
-                console.log("fg23", fg.label, fg.choices);
                 if (Object.keys(fg.choices).length) {
                     return (
                         <div class="kbb-sidebargroup">

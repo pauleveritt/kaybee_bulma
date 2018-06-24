@@ -6,7 +6,7 @@ export interface IAuthorProps {
     title: string;
 }
 
-export const Author = ({href, src, title}: IAuthorProps) => (
+export default ({href, src, title}: IAuthorProps) => (
     <a class="level-item kbb-fl-author"
        href={href}>
         <figure class="image is-rounded is-24x24"
@@ -16,5 +16,3 @@ export const Author = ({href, src, title}: IAuthorProps) => (
         <span>{title}</span>
     </a>
 );
-
-export default Author;

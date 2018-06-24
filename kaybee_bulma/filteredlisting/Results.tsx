@@ -11,10 +11,9 @@ export default ({values}: IResultsProps) => {
     if (values) {
         return (
             <div>
-                <h2>Resources</h2>
-                    {values && Object.values(values).map(resource => (
-                        <Result resource={resource}/>
-                    ))}
+                {values && Object.values(values).map(resource => (
+                    <Result resource={resource}/>
+                ))}
             </div>
         );
     }

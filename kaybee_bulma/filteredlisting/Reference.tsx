@@ -6,12 +6,10 @@ export interface IReferenceProps {
     label: string;
 }
 
-export const Reference = ({href, label}: IReferenceProps) => (
+export default ({href, label}: IReferenceProps) => (
     <span class="tag">
             <a href={href}>
                 {label}
             </a>
     </span>
 );
-
-export default Reference;

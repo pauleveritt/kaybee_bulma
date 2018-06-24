@@ -6,7 +6,7 @@ export interface IReferencesProps {
     values: IReferenceProps[];
 }
 
-export const References = ({values}: IReferencesProps) => (
+export default ({values}: IReferencesProps) => (
     <div class="tags">
         {values.map(reference => (
                 <Reference
@@ -18,5 +18,3 @@ export const References = ({values}: IReferencesProps) => (
         )}
     </div>
 );
-
-export default References;
