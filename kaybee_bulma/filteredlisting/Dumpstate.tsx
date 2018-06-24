@@ -8,6 +8,10 @@ interface IDumpstateProps {
 
 export default ({actions}: IDumpstateProps) => (
     <p>
-        <button onclick={() => console.log("State:", actions.getState())}>Dump State</button>
+        <button
+            class="button is-primary"
+            onclick={() => console.log("State:", actions.getState())}
+        >Dump State
+        </button>
     </p>
 )

@@ -2,7 +2,6 @@ import { h } from "hyperapp";
 
 import { IActions } from "./Actions";
 import Dumpstate from "./Dumpstate";
-import Fetching from "./Fetching";
 import Notification from "./Notification";
 import Pagination from "./Pagination";
 import Results from "./Results";
@@ -36,10 +35,8 @@ export default (state: IState, actions: IActions) => (
         </div>
         <div className="columns">
             <div className="column">
-                <div>Ft: <code>{state.filterTerm}</code></div>
-                <Dumpstate actions={actions}/>
-                <Fetching isFetching={state.isFetching} actions={actions}/>
                 <Sidebar filterGroups={state.filterGroups} actions={actions}/>
+                <Dumpstate actions={actions}/>
             </div>
             <div className="column is-four-fifths">
                 <Results values={state.results}/>
