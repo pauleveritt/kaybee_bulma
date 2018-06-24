@@ -7,5 +7,5 @@ interface IResultProps {
 }
 
 export default ({resource}: IResultProps) => (
-    <li>{resource.docname}</li>
+    <li>{resource.docname}, author: {resource.author ? resource.author.title : "None: " + resource.docname}</li>
 );

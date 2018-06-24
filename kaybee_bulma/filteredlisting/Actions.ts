@@ -1,6 +1,6 @@
 import { ActionsType } from "hyperapp";
 
-import { IDbJson, setFilterGroups } from "./dbjson";
+import { IDbJson, setFilterGroups, setResources } from "./dbjson";
 import { IFilterGroup, IResources, IState } from "./State";
 
 export interface IActions {
@@ -23,9 +23,10 @@ class Actions implements ActionsType<IState, IActions> {
 
         if (!(dbJson.resources) && (dbJson.references)) {
             actions.setNotification("Server data missing resources or references");
+            return;
         }
         return {
-            resources: dbJson.resources,
+            resources: setResources(dbJson.resources, dbJson.references),
             filterGroups: setFilterGroups(dbJson.references, dbJson.resources)
         };
     };

@@ -1,4 +1,4 @@
-import { IFilterGroup } from "./State";
+import { IFilterGroup, IResource, IResources } from "./State";
 
 export interface IDbProps {
     [ propname: string ]: any;
@@ -12,7 +12,6 @@ export interface IDbResource {
     props: IDbProps;
     excerpt: string;
     published: string;
-    duration?: string;
 }
 
 export interface IDbResources {
@@ -38,6 +37,57 @@ export interface IDbJson {
 }
 
 /* Some conversion functions for working with external data */
+
+export function setResources(
+    dbResources: IDbResources,
+    dbReferences: IDbReferences
+): IResources {
+    /* Called from actions.setDb to flatten references and populate
+    state.resources.
+     */
+
+    const newResources: IResources = {};
+    Object.entries(dbResources)
+        .map(([ docname, dbResource ]: [ string, IDbResource ]) => {
+            const newResource: IResource = {...dbResource, references: []};
+
+            Object.entries(dbResource.props.references || {})
+                .map(([ reftype, reflabels ]: [ string, any ]) => {
+                    if (reftype === "author") {
+                        // Get the primary author, if any, as a flattened resource
+                        const firstAuthorLabel: string = reflabels[ 0 ];
+                        const firstAuthorDocname: string = dbReferences
+                            .author[ firstAuthorLabel ].docname;
+                        const firstAuthor = dbResources[ firstAuthorDocname ];
+                        if (firstAuthor) {
+                            newResource.author = {
+                                docname: firstAuthorDocname,
+                                title: firstAuthor.title,
+                                props: {...firstAuthor.props}
+                            };
+                        }
+                    } else {
+                        // Handle other kinds of references
+                        newResource.references = [];
+                        reflabels.map((reflabel: string) => {
+                            // Get the reference for this label
+                            const refDocname = dbReferences[ reftype ][ reflabel ].docname;
+                            const refResource = dbResources[ refDocname ];
+                            newResource.references.push({
+                                reftype,
+                                label: reflabel,
+                                docname: refDocname,
+                                title: refResource.title
+                            });
+                        });
+                    }
+                });
+            console.log(23499, newResource.author, newResource.references);
+            newResources[ docname ] = newResource;
+        });
+
+    return newResources;
+}
 
 export function setFilterGroups(
     references: IDbReferences,

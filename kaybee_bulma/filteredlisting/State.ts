@@ -1,7 +1,18 @@
-import { filterGroups1 } from "./sample_data";
-
 export interface IProps {
     [ propname: string ]: any;
+}
+
+export interface IAuthor {
+    docname: string;
+    title: string;
+    props: IProps;
+}
+
+export interface IReference {
+    reftype: string;
+    label: string;
+    docname: string;
+    title: string;
 }
 
 export interface IResource {
@@ -12,7 +23,8 @@ export interface IResource {
     props: IProps;
     excerpt: string;
     published: string;
-    author?: IResource;
+    author?: IAuthor;
+    references: IReference[];
 }
 
 export interface IResources {
@@ -26,7 +38,7 @@ export interface IFilterChoice {
 }
 
 export interface IFilterChoices {
-    [label: string]: IFilterChoice;
+    [ label: string ]: IFilterChoice;
 }
 
 export interface IFilterGroup {
@@ -39,7 +51,7 @@ export interface IFilterGroup {
 export interface IState {
     isFetching: boolean;
     notification: string;
-    resources?: IResources;
+    resources: IResources;
     filterGroups: IFilterGroup[];
     filterTerm: string;
 }
@@ -47,8 +59,9 @@ export interface IState {
 const initialState: IState = {
     isFetching: false,
     notification: "Initial State",
-    filterGroups: filterGroups1,
-    filterTerm: ""
+    filterGroups: [],
+    filterTerm: "",
+    resources: {}
 };
 
 export default initialState;
