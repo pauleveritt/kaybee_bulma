@@ -5,6 +5,7 @@ export interface IProps {
 export interface IAuthor {
     docname: string;
     title: string;
+    label: string;
     props: IProps;
 }
 

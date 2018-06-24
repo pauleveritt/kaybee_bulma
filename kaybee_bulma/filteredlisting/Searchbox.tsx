@@ -16,7 +16,8 @@ export default ({actions}: ISearchboxProps) => (
                 autoFocus
                 onkeyup={
                     ({target: v}: any) => {
-                        actions.setFilterterm(v.value);
+                        actions.setFilterTerm(v.value);
+                        actions.filterResults();
                     }}
             />
             <span className="icon is-small is-left">

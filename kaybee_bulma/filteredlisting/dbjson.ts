@@ -63,6 +63,7 @@ export function setResources(
                             newResource.author = {
                                 docname: firstAuthorDocname,
                                 title: firstAuthor.title,
+                                label: firstAuthorLabel,
                                 props: {...firstAuthor.props}
                             };
                         }

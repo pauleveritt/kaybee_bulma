@@ -21,6 +21,7 @@ export default ({choices, actions}: ISidebarCheckboxProps) => (
                             oninput={({target}: any) => {
                                 choice.checked = target.checked;
                                 actions.setFilterChoice();
+                                actions.filterResults();
                             }}
                         />
                         <span className="kbb-label">{choice.label}</span>
