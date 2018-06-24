@@ -59,6 +59,7 @@ export function filterValues(
 export interface IActions {
     setFetching: (isFetching: boolean) => { isFetching: boolean };
     setNotification: (msg: string) => { notification: string };
+    setDbUrl: (dbUrl: string) => { dbUrl: string };
     getJson: (dbUrl: string) => Promise<void>;
     setDb: (dbJson: IDbJson) => { resources: IResources, filterGroups: IFilterGroup[] };
     getState: () => IState;
@@ -68,6 +69,7 @@ export interface IActions {
 }
 
 class Actions implements ActionsType<IState, IActions> {
+    setDbUrl = (dbUrl: string) => ({dbUrl});
     getState = () => (state: IState) => state;
     setFetching = (isFetching: boolean) => ({isFetching});
     setNotification = (notification: string) => ({notification});
@@ -130,6 +132,7 @@ class Actions implements ActionsType<IState, IActions> {
             throw new Error(error.message);
         }
         actions.setFetching(false);
+        actions.setDbUrl(dbUrl);
     };
     setFilterTerm = (filterTerm: string) => ({filterTerm});
     setFilterChoice = () => (state: IState) => {

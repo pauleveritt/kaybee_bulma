@@ -50,6 +50,7 @@ export interface IFilterGroup {
 }
 
 export interface IState {
+    dbUrl?: string;
     isFetching: boolean;
     notification: string;
     resources: IResources;

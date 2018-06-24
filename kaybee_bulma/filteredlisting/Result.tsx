@@ -18,7 +18,7 @@ export default ({resource}: IResultProps) => {
             {
                 key: reference.docname,
                 href: "xxx",
-                label: "xyzpdq123"
+                label: reference.label
             }
         ));
 
