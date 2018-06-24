@@ -7,10 +7,10 @@ interface ISearchboxProps {
 }
 
 export default ({actions}: ISearchboxProps) => (
-    <div className="field">
-        <p className="control is-expanded has-icons-left">
+    <div class="field">
+        <p class="control is-expanded has-icons-left">
             <input
-                className="input"
+                class="input"
                 type="text"
                 placeholder="Filter listing..."
                 autoFocus
@@ -20,8 +20,8 @@ export default ({actions}: ISearchboxProps) => (
                         actions.filterResults();
                     }}
             />
-            <span className="icon is-small is-left">
-              <i className="fas fa-search"/>
+            <span class="icon is-small is-left">
+              <i class="fas fa-search"/>
             </span>
         </p>
     </div>

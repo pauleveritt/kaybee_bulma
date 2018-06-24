@@ -27,13 +27,13 @@ export const Result = ({resource, author, references}: IResultProps) => {
     return (
         <div class="kbb-fl-result box">
             <article class="media">
-                <div className="media-left">
-                    <figure className="image is-96x96 }">
+                <div class="media-left">
+                    <figure class="image is-96x96 }">
                         <img src={primaryReferenceSrc}/>
                     </figure>
                 </div>
-                <div className="media-content">
-                    <div className="content">
+                <div class="media-content">
+                    <div class="content">
                         <p>
                             <a href={resource.docname}>
                                 <strong>{resource.title}</strong>
@@ -42,8 +42,8 @@ export const Result = ({resource, author, references}: IResultProps) => {
                             <span>{resource.excerpt}</span>
                         </p>
                     </div>
-                    <nav className="level is-mobile">
-                        <div className="level-left">
+                    <nav class="level is-mobile">
+                        <div class="level-left">
                             {authorValue && (
                                 <Author
                                     href={authorValue.href}
@@ -52,13 +52,13 @@ export const Result = ({resource, author, references}: IResultProps) => {
                                 />
                             )
                             }
-                            <span className="level-item">
+                            <span class="level-item">
                                 <References values={referenceValues}/>
                             </span>
                         </div>
-                        <div className="level-right is-size-7 has-text-grey">
+                        <div class="level-right is-size-7 has-text-grey">
                             <Duration duration={durationValue}/>
-                            <span className="level-item">
+                            <span class="level-item">
                                 {resource.published}
                             </span>
                         </div>

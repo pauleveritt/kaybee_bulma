@@ -13,34 +13,40 @@ interface ISidebarProps {
 
 export default ({filterGroups, actions}: ISidebarProps) => (
     <div>
-        {filterGroups.map((fg: IFilterGroup) => (
-                <div className="kbb-sidebargroup">
-                    <p className="menu-label">
-                        {fg.label}
-                    </p>
-                    {(() => {
-                        switch (fg.control) {
-                            case "checkbox":
-                                return <SidebarCheckbox
-                                    choices={fg.choices}
-                                    actions={actions}
-                                />;
-                            case "radio":
-                                return <SidebarRadio
-                                    choices={fg.choices}
-                                    actions={actions}
-                                />;
-                            case "select":
-                                return <SidebarSelect
-                                    choices={fg.choices}
-                                    actions={actions}
-                                />;
-                            default:
-                                return null;
-                        }
-                    })()}
-                </div>
-            )
+        {filterGroups.map((fg: IFilterGroup) => {
+                console.log("fg23", fg.label, fg.choices);
+                if (Object.keys(fg.choices).length) {
+                    return (
+                        <div class="kbb-sidebargroup">
+                            <p class="menu-label">
+                                {fg.label} {fg.choices}
+                            </p>
+                            {(() => {
+                                switch (fg.control) {
+                                    case "checkbox":
+                                        return <SidebarCheckbox
+                                            choices={fg.choices}
+                                            actions={actions}
+                                        />;
+                                    case "radio":
+                                        return <SidebarRadio
+                                            choices={fg.choices}
+                                            actions={actions}
+                                        />;
+                                    case "select":
+                                        return <SidebarSelect
+                                            choices={fg.choices}
+                                            actions={actions}
+                                        />;
+                                    default:
+                                        return null;
+                                }
+                            })()}
+                        </div>
+                    );
+                }
+                return;
+            }
         )}
     </div>
 )

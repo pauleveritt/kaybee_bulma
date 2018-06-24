@@ -12,8 +12,8 @@ export default ({choices, actions}: ISidebarCheckboxProps) => (
     <div>
         {
             Object.values(choices).map((choice: IFilterChoice) => (
-                <div className="control">
-                    <label className="checkbox is-horizontal">
+                <div class="control">
+                    <label class="checkbox is-horizontal">
                         <input
                             type="checkbox"
                             name={choice.value}
@@ -24,7 +24,7 @@ export default ({choices, actions}: ISidebarCheckboxProps) => (
                                 actions.filterResults();
                             }}
                         />
-                        <span className="kbb-label">{choice.label}</span>
+                        <span class="kbb-label">{choice.label}</span>
                     </label>
                 </div>
             ))

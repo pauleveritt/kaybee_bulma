@@ -13,8 +13,8 @@ export default ({choices, actions}: ISidebarRadioProps) => (
         {
             Object.values(choices).map(
                 (choice: IFilterChoice) => (
-                    <div className="control">
-                        <label className="radio is-horizontal">
+                    <div class="control">
+                        <label class="radio is-horizontal">
                             <input
                                 type="radio"
                                 value={choice.value}
@@ -23,7 +23,7 @@ export default ({choices, actions}: ISidebarRadioProps) => (
                                     actions.setFilterChoice();
                                 }}
                             />
-                            <span className="kbb-label">{choice.label}</span>
+                            <span class="kbb-label">{choice.label}</span>
                         </label>
                     </div>
                 )

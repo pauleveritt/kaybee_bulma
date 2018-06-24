@@ -22,23 +22,23 @@ export default (state: IState, actions: IActions) => (
         class="kbb-fl"
         oncreate={(element: HTMLElement) => onCreate(element, actions)}
     >
-        <div className="columns is-centered">
-            <div className="column is-half">
+        <div class="columns is-centered">
+            <div class="column is-half">
                 <Notification notification={state.notification}/>
                 <Searchbox actions={actions}/>
                 {state.notification &&
-                <div className="notification is-warning">
+                <div class="notification is-warning">
                     {state.notification}
                 </div>
                 }
             </div>
         </div>
-        <div className="columns">
-            <div className="column">
+        <div class="columns">
+            <div class="column">
                 <Sidebar filterGroups={state.filterGroups} actions={actions}/>
                 <Dumpstate actions={actions}/>
             </div>
-            <div className="column is-four-fifths">
+            <div class="column is-four-fifths">
                 <Results values={state.results}/>
                 <Pagination flag={"Pagination"}/>
             </div>

@@ -23,15 +23,15 @@ export default ({resource}: IResultProps) => {
         ));
 
     return (
-        <div className="kbb-fl-result box">
-            <article className="media">
-                <div className="media-left">
-                    <figure className="image is-96x96 }">
+        <div class="kbb-fl-result box">
+            <article class="media">
+                <div class="media-left">
+                    <figure class="image is-96x96 }">
                         <img src={primaryReferenceSrc}/>
                     </figure>
                 </div>
-                <div className="media-content">
-                    <div className="content">
+                <div class="media-content">
+                    <div class="content">
                         <p>
                             <a href={resource.docname}>
                                 <strong>{resource.title}</strong>
@@ -40,8 +40,8 @@ export default ({resource}: IResultProps) => {
                             <span>{resource.excerpt}</span>
                         </p>
                     </div>
-                    <nav className="level is-mobile">
-                        <div className="level-left">
+                    <nav class="level is-mobile">
+                        <div class="level-left">
                             {resource.author && (
                                 <Author
                                     href={resource.author.docname}
@@ -50,13 +50,13 @@ export default ({resource}: IResultProps) => {
                                 />
                             )
                             }
-                            <span className="level-item">
+                            <span class="level-item">
                                 <References values={referenceValues}/>
                             </span>
                         </div>
-                        <div className="level-right is-size-7 has-text-grey">
+                        <div class="level-right is-size-7 has-text-grey">
                             <Duration duration={"2h22m2s"}/>
-                            <span className="level-item">
+                            <span class="level-item">
                                 {resource.props.published}
                             </span>
                         </div>
