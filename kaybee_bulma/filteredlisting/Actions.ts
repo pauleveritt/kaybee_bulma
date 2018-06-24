@@ -25,9 +25,13 @@ class Actions implements ActionsType<IState, IActions> {
             actions.setNotification("Server data missing resources or references");
             return;
         }
+
+        const resources: IResources = setResources(dbJson.resources, dbJson.references);
+        const filterGroups: IFilterGroup[] = setFilterGroups(dbJson.references, dbJson.resources);
         return {
-            resources: setResources(dbJson.resources, dbJson.references),
-            filterGroups: setFilterGroups(dbJson.references, dbJson.resources)
+            resources,
+            filterGroups,
+            results: Object.values(resources)
         };
     };
 

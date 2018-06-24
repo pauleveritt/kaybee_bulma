@@ -42,7 +42,7 @@ export default (state: IState, actions: IActions) => (
                 <Sidebar filterGroups={state.filterGroups} actions={actions}/>
             </div>
             <div className="column is-four-fifths">
-                <Results values={state.resources}/>
+                <Results values={state.results}/>
                 <Pagination flag={"Pagination"}/>
             </div>
         </div>

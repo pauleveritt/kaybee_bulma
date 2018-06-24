@@ -1,10 +1,10 @@
 import { h } from "hyperapp";
 
 import Result from "./Result";
-import { IResources } from "./State";
+import { IResource } from "./State";
 
 interface IResultsProps {
-    values?: IResources;
+    values?: IResource[];
 }
 
 export default ({values}: IResultsProps) => {
@@ -12,11 +12,9 @@ export default ({values}: IResultsProps) => {
         return (
             <div>
                 <h2>Resources</h2>
-                <ul>
                     {values && Object.values(values).map(resource => (
                         <Result resource={resource}/>
                     ))}
-                </ul>
             </div>
         );
     }

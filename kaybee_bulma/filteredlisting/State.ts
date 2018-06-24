@@ -54,6 +54,7 @@ export interface IState {
     resources: IResources;
     filterGroups: IFilterGroup[];
     filterTerm: string;
+    results: IResource[];
 }
 
 const initialState: IState = {
@@ -61,7 +62,8 @@ const initialState: IState = {
     notification: "Initial State",
     filterGroups: [],
     filterTerm: "",
-    resources: {}
+    resources: {},
+    results: []
 };
 
 export default initialState;

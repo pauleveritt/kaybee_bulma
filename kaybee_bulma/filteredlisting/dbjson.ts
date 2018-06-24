@@ -82,7 +82,6 @@ export function setResources(
                         });
                     }
                 });
-            console.log(23499, newResource.author, newResource.references);
             newResources[ docname ] = newResource;
         });
 
