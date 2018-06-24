@@ -1,13 +1,13 @@
 import { ActionsType } from "hyperapp";
 
-import { IDbJson } from "./dbjson";
+import { IDbJson, setFilterGroups } from "./dbjson";
 import { IFilterGroup, IResources, IState } from "./State";
 
 export interface IActions {
     setFetching: (isFetching: boolean) => { isFetching: boolean };
     setNotification: (msg: string) => { notification: string };
     getJson: (dbUrl: string) => Promise<void>;
-    setDb: (dbJson: IDbJson) => { resources: IResources };
+    setDb: (dbJson: IDbJson) => { resources: IResources, filterGroups: IFilterGroup[] };
     getState: () => IState;
     setFilterterm: (filterTerm: string) => { filterTerm: string };
     setFilterChoice: () => { filterGroups: IFilterGroup[] };
@@ -17,14 +17,19 @@ class Actions implements ActionsType<IState, IActions> {
     getState = () => (state: IState) => state;
     setFetching = (isFetching: boolean) => ({isFetching});
     setNotification = (notification: string) => ({notification});
+
     setDb = (dbJson: IDbJson) => (state: IState, actions: IActions) => {
         // Validate/Clean up the data in any ways
 
         if (!(dbJson.resources) && (dbJson.references)) {
             actions.setNotification("Server data missing resources or references");
         }
-        return {resources: dbJson.resources};
+        return {
+            resources: dbJson.resources,
+            filterGroups: setFilterGroups(dbJson.references, dbJson.resources)
+        };
     };
+
     getJson = (dbUrl: string) => async (state: IState, actions: IActions) => {
 
         // Before fetching
@@ -47,9 +52,9 @@ class Actions implements ActionsType<IState, IActions> {
     };
     setFilterterm = (filterTerm: string) => ({filterTerm});
     setFilterChoice = () => (state: IState) => {
-            const newFilterGroups = [ ...state.filterGroups ];
-            return {filterGroups: newFilterGroups};
-        };
+        const newFilterGroups = [ ...state.filterGroups ];
+        return {filterGroups: newFilterGroups};
+    };
 }
 
 export default Actions;
