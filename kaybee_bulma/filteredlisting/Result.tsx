@@ -55,7 +55,9 @@ export default ({resource}: IResultProps) => {
                             </span>
                         </div>
                         <div class="level-right is-size-7 has-text-grey">
-                            <Duration duration={"2h22m2s"}/>
+                            {resource.props.duration && (
+                                <Duration duration={resource.props.duration}/>
+                            )}
                             <span class="level-item">
                                 {resource.props.published}
                             </span>
