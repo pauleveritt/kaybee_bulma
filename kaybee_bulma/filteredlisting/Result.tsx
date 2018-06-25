@@ -4,12 +4,11 @@ import Author from "./Author";
 import Duration from "./Duration";
 import References from "./References";
 import { IReference, IResource } from "./State";
+import TechLogo from "./TechLogo";
 
 interface IResultProps {
     resource: IResource;
 }
-
-const primaryReferenceSrc = "http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg";
 
 export default ({resource}: IResultProps) => {
 
@@ -22,13 +21,15 @@ export default ({resource}: IResultProps) => {
             }
         ));
 
+    const primaryReferenceLogo = referenceValues[0] ? referenceValues[ 0 ].label : "";
+
     return (
         <div class="kbb-fl-result box">
             <article class="media">
                 <div class="media-left">
-                    <figure class="image is-96x96 }">
-                        <img src={primaryReferenceSrc}/>
-                    </figure>
+                    {primaryReferenceLogo && (
+                        <TechLogo technology={primaryReferenceLogo}/>
+                    )}
                 </div>
                 <div class="media-content">
                     <div class="content">
