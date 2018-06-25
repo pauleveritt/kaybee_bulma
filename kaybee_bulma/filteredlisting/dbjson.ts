@@ -56,6 +56,12 @@ export function setResources(
                 ...dbResource, references: [], href: newResourceHref
             };
 
+            // Format the published date.
+            if (newResource.props.published) {
+                const newDate = new Date(newResource.props.published);
+                newResource.props.published = newDate.toDateString();
+            }
+
             Object.entries(dbResource.props.references || {})
                 .map(([ reftype, reflabels ]: [ string, any ]) => {
                     if (reftype === "author") {
