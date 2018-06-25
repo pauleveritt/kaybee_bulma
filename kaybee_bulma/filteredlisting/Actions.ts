@@ -103,7 +103,11 @@ class Actions implements ActionsType<IState, IActions> {
             return;
         }
 
-        const resources: IResources = setResources(dbJson.resources, dbJson.references);
+        const resources: IResources = setResources(
+            dbJson.resources,
+            dbJson.references,
+            state.dbUrl as string
+        );
         const filterGroups: IFilterGroup[] = setFilterGroups(dbJson.references, dbJson.resources);
         actions.filterResults();
         return {
@@ -115,6 +119,7 @@ class Actions implements ActionsType<IState, IActions> {
     getJson = (dbUrl: string) => async (state: IState, actions: IActions) => {
 
         // Before fetching
+        actions.setDbUrl(dbUrl);
         actions.setFetching(true);
         actions.setNotification("");
 
@@ -132,7 +137,6 @@ class Actions implements ActionsType<IState, IActions> {
             throw new Error(error.message);
         }
         actions.setFetching(false);
-        actions.setDbUrl(dbUrl);
     };
     setFilterTerm = (filterTerm: string) => ({filterTerm});
     setFilterChoice = () => (state: IState) => {

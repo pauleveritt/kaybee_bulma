@@ -4,8 +4,11 @@ export interface IProps {
 
 export interface IAuthor {
     docname: string;
+    href: string;
     title: string;
     label: string;
+    thumbnailUrl?: string;
+    headshotUrl?: string;
     props: IProps;
 }
 
@@ -13,11 +16,13 @@ export interface IReference {
     reftype: string;
     label: string;
     docname: string;
+    href: string;
     title: string;
 }
 
 export interface IResource {
     docname: string;
+    href: string;
     title: string;
     parent_docnames: string[];
     rtype: string;

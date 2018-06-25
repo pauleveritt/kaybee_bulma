@@ -40,7 +40,7 @@ export default (state: IState, actions: IActions) => (
             </div>
             <div class="column is-four-fifths">
                 <Results values={state.results}/>
-                <Pagination flag={"Pagination"}/>
+                <Pagination/>
             </div>
         </div>
     </div>

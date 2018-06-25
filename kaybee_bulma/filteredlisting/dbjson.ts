@@ -40,7 +40,8 @@ export interface IDbJson {
 
 export function setResources(
     dbResources: IDbResources,
-    dbReferences: IDbReferences
+    dbReferences: IDbReferences,
+    dbUrl: string
 ): IResources {
     /* Called from actions.setDb to flatten references and populate
     state.resources.
@@ -49,7 +50,11 @@ export function setResources(
     const newResources: IResources = {};
     Object.entries(dbResources)
         .map(([ docname, dbResource ]: [ string, IDbResource ]) => {
-            const newResource: IResource = {...dbResource, references: []};
+
+            const newResourceHref = dbUrl + "/../" + dbResource.docname;
+            const newResource: IResource = {
+                ...dbResource, references: [], href: newResourceHref
+            };
 
             Object.entries(dbResource.props.references || {})
                 .map(([ reftype, reflabels ]: [ string, any ]) => {
@@ -59,11 +64,25 @@ export function setResources(
                         const firstAuthorDocname: string = dbReferences
                             .author[ firstAuthorLabel ].docname;
                         const firstAuthor = dbResources[ firstAuthorDocname ];
+                        const firstAuthorHref = dbUrl + "/../" + firstAuthor.docname;
+                        let firstAuthorSrc;
+                        const firstImages = firstAuthor.props.images;
+                        if (firstImages) {
+                            firstImages.map(
+                                ({usage, filename}: any) => {
+                                    if (usage === "icon_24") {
+                                        firstAuthorSrc = firstAuthorHref + "/" + filename;
+                                    }
+                                }
+                            );
+                        }
                         if (firstAuthor) {
                             newResource.author = {
                                 docname: firstAuthorDocname,
+                                href: firstAuthorHref,
                                 title: firstAuthor.title,
                                 label: firstAuthorLabel,
+                                thumbnailUrl: firstAuthorSrc,
                                 props: {...firstAuthor.props}
                             };
                         }
@@ -74,8 +93,10 @@ export function setResources(
                             // Get the reference for this label
                             const refDocname = dbReferences[ reftype ][ reflabel ].docname;
                             const refResource = dbResources[ refDocname ];
+                            const refResourceHref = dbUrl + "/../" + refResource.docname;
                             newResource.references.push({
                                 reftype,
+                                href: refResourceHref,
                                 label: reflabel,
                                 docname: refDocname,
                                 title: refResource.title

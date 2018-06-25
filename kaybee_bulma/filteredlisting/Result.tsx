@@ -17,7 +17,7 @@ export default ({resource}: IResultProps) => {
         (reference: IReference) => (
             {
                 key: reference.docname,
-                href: "xxx",
+                href: reference.href,
                 label: reference.label
             }
         ));
@@ -44,8 +44,8 @@ export default ({resource}: IResultProps) => {
                         <div class="level-left">
                             {resource.author && (
                                 <Author
-                                    href={resource.author.docname}
-                                    src={resource.author.docname}
+                                    href={resource.author.href}
+                                    src={resource.author.thumbnailUrl}
                                     title={resource.author.title}
                                 />
                             )
