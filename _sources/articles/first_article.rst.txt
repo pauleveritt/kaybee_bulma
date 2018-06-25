@@ -3,7 +3,8 @@
     weight: 20
     references:
         category:
-            - python
+            - typescript
+            - react
         author:
             - pauleveritt
     excerpt:
@@ -19,9 +20,9 @@ The article body is here.
 
 Two kinds of references:
 
-- :ref:`category-python` uses the target as the link title
+- :ref:`category-react` uses the target as the link title
 
-- :ref:`Link title <category-python>` makes a new link title
+- :ref:`Link title <category-react>` makes a new link title
 
 .. note::
 

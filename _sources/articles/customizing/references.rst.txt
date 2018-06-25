@@ -4,6 +4,12 @@ Customizing References
 
 .. article::
     published: 2017-10-01 00:00
+    references:
+        category:
+            - react
+            - angular
+        author:
+            - pauleveritt
     excerpt:
         References let you make a taxonomy scheme and link content.
 

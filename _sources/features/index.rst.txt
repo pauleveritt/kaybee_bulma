@@ -1,15 +1,18 @@
-========
-Features
-========
-
 .. section::
     in_nav: 10
     published: 2017-10-01 00:00
     style: info
     subheading: Brief survey of what Kaybee is good for
+    references:
+        author:
+            - pauleveritt
     acquireds:
         all:
             style: info
+
+========
+Features
+========
 
 Lots of choices out there for generating static sites. What makes Kaybee
 different? As an author or a customizer, Kaybee has a number of compelling
@@ -139,8 +142,8 @@ References
 
 - You can also use a Sphinx reference with this special scheme, e.g.::
 
-    :ref:`category-python`
-    :ref:`A Link Title <category-python>`
+    :ref:`category-react`
+    :ref:`A Link Title <category-react>`
 
 Site
 ====

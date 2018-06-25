@@ -15,5 +15,6 @@ Categories
 
 .. toctree::
     :maxdepth: 1
+    :glob:
 
-    python
+    *
