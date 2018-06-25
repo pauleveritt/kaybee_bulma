@@ -1,14 +1,14 @@
 import { getDbUrl } from "../utils";
 
 const goodInnerHtml = `
-<div id="kbb-filteredlisting" data-filteredlistingurl="http://foo.com/db">
+<div id="fbb-fl" data-filteredlistingurl="http://foo.com/db">
     <div class="result"></div>
 </div>
 `;
 
 const badInnerHtml = `
 <body>
-    <div id="kbb-filteredlisting">
+    <div id="fbb-fl">
         <div class="result"></div>
     </div>
 </body>

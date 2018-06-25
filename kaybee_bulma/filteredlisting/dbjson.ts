@@ -71,7 +71,7 @@ export function setResources(
                             firstImages.map(
                                 ({usage, filename}: any) => {
                                     if (usage === "icon_24") {
-                                        firstAuthorSrc = firstAuthorHref + "/" + filename;
+                                        firstAuthorSrc = firstAuthorHref + "/../" + filename;
                                     }
                                 }
                             );

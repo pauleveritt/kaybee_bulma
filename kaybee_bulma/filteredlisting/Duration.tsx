@@ -5,16 +5,15 @@ export interface IDurationProps {
 }
 
 export default ({duration}: IDurationProps) => {
-    return (
-        <span class="kbb-fl-duration level-item">
-            {duration &&
-            <span>
-                <span class="icon">
-                    <i class="fas fa-video"/>
+    if (duration) {
+        return (
+            <span className="kbb-fl-duration level-item">
+                <span className="icon">
+                    <i className="fas fa-video"/>
                 </span>
                 < span>{duration}</span>
             </span>
-            }
-        </span>
-    );
+        );
+    }
+    return;
 };

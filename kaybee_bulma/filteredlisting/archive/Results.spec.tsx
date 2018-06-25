@@ -5,7 +5,7 @@ import { dbresults1 } from "./sample_resources";
 import initialState from "./State";
 
 const innerHtml = `
-<div id="kbb-filteredlisting" data-filteredlistingurl="http://foo.com/db">
+<div id="fbb-fl" data-filteredlistingurl="http://foo.com/db">
     <div class="result"></div>
 </div>
 `;

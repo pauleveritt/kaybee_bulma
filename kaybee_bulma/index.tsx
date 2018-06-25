@@ -11,5 +11,5 @@ app(
     initialState,
     new Actions(),
     Container,
-    document.getElementById("kbb-filteredlisting")
+    document.getElementById("kbb-fl")
 );
