@@ -21,8 +21,6 @@ export default ({resource}: IResultProps) => {
             }
         ));
 
-    const primaryReferenceLogo = referenceValues[ 0 ] ? referenceValues[ 0 ].label : "";
-
     return (
         <div class="kbb-fl-result box">
             <article class="media">
@@ -60,9 +58,9 @@ export default ({resource}: IResultProps) => {
                         </div>
                     </nav>
                 </div>
-                {primaryReferenceLogo && (
+                {resource.props.primary_reference && (
                     <div className="media-right">
-                        <TechLogo technology={primaryReferenceLogo}/>
+                        <TechLogo technology={resource.props.primary_reference}/>
                     </div>
                 )}
             </article>
