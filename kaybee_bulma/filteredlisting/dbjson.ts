@@ -52,9 +52,22 @@ export function setResources(
         .map(([ docname, dbResource ]: [ string, IDbResource ]) => {
 
             const newResourceHref = dbUrl + "/../" + dbResource.docname;
+
             const newResource: IResource = {
                 ...dbResource, references: [], href: newResourceHref
             };
+
+            if (newResource.props.primary_reference) {
+                // Take the docname pointed at by primary_reference, get the
+                // resource for it, and get the logo property
+                const primaryRefResource = dbResources[newResource.props.primary_reference];
+                newResource.primary_reference = {
+                    docname: primaryRefResource.docname,
+                    label: primaryRefResource.props.label,
+                    title: primaryRefResource.title,
+                    logo: primaryRefResource.props.logo
+                };
+            }
 
             // Format the published date.
             if (newResource.props.published) {

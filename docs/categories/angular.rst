@@ -1,5 +1,6 @@
 .. category::
     label: angular
+    logo: http://konpa.github.io/devicon/devicon.git/icons/angularjs/angularjs-original.svg
     references:
         author:
             - pauleveritt

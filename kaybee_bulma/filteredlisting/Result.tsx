@@ -58,9 +58,9 @@ export default ({resource}: IResultProps) => {
                         </div>
                     </nav>
                 </div>
-                {resource.props.primary_reference && (
+                {(resource.primary_reference && resource.primary_reference.logo) && (
                     <div className="media-right">
-                        <TechLogo technology={resource.props.primary_reference}/>
+                        <TechLogo logo={resource.primary_reference.logo}/>
                     </div>
                 )}
             </article>

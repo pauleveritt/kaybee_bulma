@@ -12,6 +12,13 @@ export interface IAuthor {
     props: IProps;
 }
 
+export interface IPrimaryReference {
+    docname: string;
+    label: string;
+    title: string;
+    logo?: string;
+}
+
 export interface IReference {
     reftype: string;
     label: string;
@@ -31,6 +38,7 @@ export interface IResource {
     published: string;
     author?: IAuthor;
     references: IReference[];
+    primary_reference?: IPrimaryReference;
 }
 
 export interface IResources {
