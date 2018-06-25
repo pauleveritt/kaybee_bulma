@@ -16,9 +16,14 @@
 Articles
 ========
 
-A list of articles is here.
+
+.. filteredlisting::
+    name: widgets1hello
+    filename: catalog.json
+
 
 .. toctree::
+    :hidden:
 
     customizing/index
     first_article
