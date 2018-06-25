@@ -15,8 +15,13 @@ const logos: ILogos = {
     react: "http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg"
 };
 
-export default ({technology}: ITechLogoProps) => (
-    <figure className="image is-96x96 }">
-        <img src={logos[technology]}/>
-    </figure>
-);
+export default ({technology}: ITechLogoProps) => {
+    if (logos[ technology ]) {
+        return (
+            <figure className="image is-96x96 }">
+                <img src={logos[ technology ]}/> {technology}
+            </figure>
+        );
+    }
+    return (<div>{technology}</div>);
+};

@@ -7,8 +7,15 @@
     }
   }
 
-  .kbb-fl-author span {
-    padding-left: 0.4em;
+  .kbb-fl-author {
+    figure {
+      // Sphinx sticks a "content" class in a parent, triggering
+      // a Bulma margin everywhere
+      margin: 0;
+    }
+    span {
+      padding-left: 0.4em;
+    }
   }
 
   .kbb-pagination {

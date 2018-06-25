@@ -2,7 +2,7 @@
 doctr
 livereload
 gitchangelog
-bumpversion
+bump2version
 tox
 pytest
 beautifulsoup4
