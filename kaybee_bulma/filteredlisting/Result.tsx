@@ -21,16 +21,11 @@ export default ({resource}: IResultProps) => {
             }
         ));
 
-    const primaryReferenceLogo = referenceValues[0] ? referenceValues[ 0 ].label : "";
+    const primaryReferenceLogo = referenceValues[ 0 ] ? referenceValues[ 0 ].label : "";
 
     return (
         <div class="kbb-fl-result box">
             <article class="media">
-                <div class="media-left">
-                    {primaryReferenceLogo && (
-                        <TechLogo technology={primaryReferenceLogo}/>
-                    )}
-                </div>
                 <div class="media-content">
                     <div class="content">
                         <p>
@@ -65,6 +60,11 @@ export default ({resource}: IResultProps) => {
                         </div>
                     </nav>
                 </div>
+                {primaryReferenceLogo && (
+                    <div className="media-right">
+                        <TechLogo technology={primaryReferenceLogo}/>
+                    </div>
+                )}
             </article>
         </div>
     );

@@ -1,9 +1,15 @@
+.. section::
+    published: 2017-10-01 00:00
+    references:
+        category:
+            - typescript
+            - angular
+        author:
+            - pauleveritt
+
 ===========
 Customizing
 ===========
-
-.. section::
-    published: 2017-10-01 00:00
 
 Here.
 

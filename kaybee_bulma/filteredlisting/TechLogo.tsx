@@ -10,6 +10,7 @@ interface ILogos {
 
 const logos: ILogos = {
     angularjs: "http://konpa.github.io/devicon/devicon.git/icons/angularjs/angularjs-original.svg",
+    angular: "http://konpa.github.io/devicon/devicon.git/icons/angularjs/angularjs-original.svg",
     typescript: "http://konpa.github.io/devicon/devicon.git/icons/typescript/typescript-original.svg",
     debugging: "http://konpa.github.io/devicon/devicon.git/icons/typescript/typescript-original.svg",
     react: "http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg"
@@ -18,8 +19,8 @@ const logos: ILogos = {
 export default ({technology}: ITechLogoProps) => {
     if (logos[ technology ]) {
         return (
-            <figure className="image is-96x96 }">
-                <img src={logos[ technology ]}/> {technology}
+            <figure className="image is-64x64 }">
+                <img src={logos[ technology ]}/>
             </figure>
         );
     }

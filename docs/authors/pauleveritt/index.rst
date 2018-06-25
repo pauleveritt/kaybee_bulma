@@ -1,6 +1,9 @@
 .. author::
     label: pauleveritt
     published: 2018-01-02 12:01
+    references:
+        author:
+            - pauleveritt
     images:
         - usage: icon_24
           filename: paul_headshotx24.jpeg

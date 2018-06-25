@@ -1,13 +1,19 @@
-=====
-About
-=====
-
 .. article::
 
     in_nav: True
     weight: 100
     published: 2017-10-01 00:00
     style: warning
+    references:
+        category:
+            - typescript
+            - react
+        author:
+            - pauleveritt
+
+=====
+About
+=====
 
 Changing the Site Title
 =======================

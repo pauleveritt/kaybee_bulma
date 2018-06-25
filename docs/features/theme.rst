@@ -1,12 +1,17 @@
-==============
-Theme Features
-==============
-
 .. article::
     published: 2017-10-01 00:00
     excerpt:
         The templating and CSS features for Kaybee, in detail.
+    references:
+        category:
+            - typescript
+            - react
+        author:
+            - pauleveritt
 
+==============
+Theme Features
+==============
 
 - A resource can specify a template in YAML, inherit it from the section,
   or fall back on getting it from the class name.
