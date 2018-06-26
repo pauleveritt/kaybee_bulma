@@ -35,7 +35,7 @@ export function filterValues(
     }
 
     if (filterKeysValues.length) {
-        filteredResults = results.filter((result: IResource) => {
+        filteredResults = filteredResults.filter((result: IResource) => {
             let hasMatch = false;
 
             // For this result, iterate through the "true" filterGroup
@@ -45,6 +45,14 @@ export function filterValues(
                 if (reftype === "author") {
                     if (result.author && result.author.docname === value) {
                         hasMatch = true;
+                    } else {
+                        hasMatch = false;
+                    }
+                } else if (reftype === "rtype") {
+                    if (result.rtype === value) {
+                        hasMatch = true;
+                    } else {
+                        hasMatch = false;
                     }
                 } else {
                     // Look in references
@@ -58,6 +66,8 @@ export function filterValues(
                                 }
                             }
                         );
+                    } else {
+                        hasMatch = false;
                     }
                 }
             });

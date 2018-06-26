@@ -140,6 +140,13 @@ export function setFilterGroups(
     }
 
     const newFilterGroups: INewFilterGroups = {};
+    // Make a filter group for resource types
+    newFilterGroups.rtypes = {
+        label: "Resource Type",
+        value: "rtype",
+        control: "checkbox",
+        choices: {}
+    };
 
     // Make a copy of the resources, then filter if needed by the
     // parent_docname if this widget only wants filter information
@@ -160,6 +167,17 @@ export function setFilterGroups(
     // based on the actual resources, using references to get title etc.
     Object.entries(filteredResults)
         .map(([ docname, resource ]: [ string, IResource ]) => {
+            // Keep track of the types that we visit
+            if (!newFilterGroups.rtypes.choices[resource.rtype]) {
+                newFilterGroups.rtypes.choices[resource.rtype] = {
+                    label: resource.rtype,
+                    value: resource.rtype,
+                    count: 1
+                }
+            } else {
+                newFilterGroups.rtypes.choices[resource.rtype].count++;
+            }
+
             if (resource.props && resource.props.references) {
                 Object.entries(resource.props.references)
                     .map(([ reftype, refvalues ]: [ string, any ]) => {
