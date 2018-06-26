@@ -8,6 +8,7 @@ from sphinx.application import Sphinx
 
 class FilteredlistingModel(BaseWidgetModel):
     filename: str
+    parent_docname: str = "none"
 
 
 @kb.widget('filteredlisting')

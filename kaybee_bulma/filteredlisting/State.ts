@@ -65,6 +65,7 @@ export interface IFilterGroup {
 
 export interface IState {
     dbUrl?: string;
+    filterParent?: string;
     isFetching: boolean;
     notification: string;
     resources: IResources;

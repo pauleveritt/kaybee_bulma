@@ -60,6 +60,7 @@ export interface IActions {
     setFetching: (isFetching: boolean) => { isFetching: boolean };
     setNotification: (msg: string) => { notification: string };
     setDbUrl: (dbUrl: string) => { dbUrl: string };
+    setFilterParent: (docname: string) => { filterParent: string };
     getJson: (dbUrl: string) => Promise<void>;
     setDb: (dbJson: IDbJson) => { resources: IResources, filterGroups: IFilterGroup[] };
     getState: () => IState;
@@ -70,6 +71,7 @@ export interface IActions {
 
 class Actions implements ActionsType<IState, IActions> {
     setDbUrl = (dbUrl: string) => ({dbUrl});
+    setFilterParent = (docname: string) => ({filterParent: docname});
     getState = () => (state: IState) => state;
     setFetching = (isFetching: boolean) => ({isFetching});
     setNotification = (notification: string) => ({notification});

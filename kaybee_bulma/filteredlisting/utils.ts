@@ -12,3 +12,18 @@ export function getDbUrl(el: HTMLElement) {
 
     return;
 }
+
+export function getFilterParent(el: HTMLElement) {
+    let filterParent: string | null = "";
+    while (el.parentNode) {
+        el = el.parentNode as HTMLElement;
+        filterParent = el.getAttribute("data-filteredlisting-parent");
+        if (filterParent) {
+            return filterParent;
+        } else if (el.tagName.toLowerCase() === "body") {
+            return;
+        }
+    }
+
+    return;
+}

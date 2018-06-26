@@ -8,12 +8,17 @@ import Results from "./Results";
 import Searchbox from "./Searchbox";
 import Sidebar from "./Sidebar";
 import { IState } from "./State";
-import { getDbUrl } from "./utils";
+import { getDbUrl, getFilterParent } from "./utils";
 
 const onCreate = (element: HTMLElement, actions: IActions) => {
     const dbUrl = getDbUrl(element);
     if (dbUrl) {
         actions.getJson(dbUrl);
+    }
+    const filterParent = getFilterParent(element);
+    if (filterParent && filterParent !== "none") {
+        console.log(99, filterParent);
+        actions.setFilterParent(filterParent);
     }
 };
 
