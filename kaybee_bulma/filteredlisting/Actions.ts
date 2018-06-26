@@ -108,7 +108,7 @@ class Actions implements ActionsType<IState, IActions> {
             dbJson.references,
             state.dbUrl as string
         );
-        const filterGroups: IFilterGroup[] = setFilterGroups(dbJson.references, dbJson.resources);
+        const filterGroups: IFilterGroup[] = setFilterGroups(dbJson.references, resources);
         actions.filterResults();
         return {
             resources,

@@ -24,7 +24,7 @@ export default ({choices, actions}: ISidebarCheckboxProps) => (
                                 actions.filterResults();
                             }}
                         />
-                        <span class="kbb-label">{choice.label}</span>
+                        <span class="kbb-label is-size-7">{choice.label} ({choice.count})</span>
                     </label>
                 </div>
             ))

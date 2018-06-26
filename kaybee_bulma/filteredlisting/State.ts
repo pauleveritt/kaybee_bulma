@@ -48,6 +48,7 @@ export interface IResources {
 export interface IFilterChoice {
     label: string;
     value: string;
+    count: number;
     checked?: boolean;
 }
 

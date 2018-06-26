@@ -60,7 +60,7 @@ export function setResources(
             if (newResource.props.primary_reference) {
                 // Take the docname pointed at by primary_reference, get the
                 // resource for it, and get the logo property
-                const primaryRefResource = dbResources[newResource.props.primary_reference];
+                const primaryRefResource = dbResources[ newResource.props.primary_reference ];
                 newResource.primary_reference = {
                     docname: primaryRefResource.docname,
                     label: primaryRefResource.props.label,
@@ -131,38 +131,50 @@ export function setResources(
 
 export function setFilterGroups(
     references: IDbReferences,
-    resources: IDbResources) {
+    resources: IResources) {
     /* Called from setDb to populate state.filterGroups */
 
-    const newFilterGroups: IFilterGroup[] = [];
+    interface INewFilterGroups {
+        [ reftyp: string ]: IFilterGroup
+    }
 
-    // Iterate through the references and convert to filterGroups
-    Object.entries(references)
-        .map(([ reftype, refvalue ]: [ string, IDbReferenceType ]) => {
-            const newFilterGroup: IFilterGroup = {
-                label: reftype,
-                value: reftype,
-                control: "checkbox",
-                choices: {}
-            };
-            Object.entries(refvalue)
-                .map(([ label, refinfo ]: [ string, IDbReference ]) => {
-                    if (refinfo.count) {
-                        // There are some references for this, so show
-                        // it. Get the resource to get the label
-                        // and the value.
-                        const docname = refinfo.docname;
-                        const resource = resources[ docname ];
-                        const title = resource.title;
-                        newFilterGroup.choices[ label ] = {
-                            label: title,
-                            value: docname,
-                            checked: false
-                        };
-                    }
-                });
-            newFilterGroups.push(newFilterGroup);
+    const newFilterGroups: INewFilterGroups = {};
+
+    // Iterate through the resources and accumulate IFilterGroup info
+    // based on the actual resources, using references to get title etc.
+    Object.entries(resources)
+        .map(([ docname, resource ]: [ string, IResource ]) => {
+            if (resource.props && resource.props.references) {
+                Object.entries(resource.props.references)
+                    .map(([ reftype, refvalues ]: [ string, any ]) => {
+                        // If there's no reftype, make one and set label/count
+                        if (!newFilterGroups[ reftype ]) {
+                            newFilterGroups[ reftype ] = {
+                                label: reftype,
+                                value: reftype,
+                                control: "checkbox",
+                                choices: {}
+                            };
+                        }
+                        const thisRefType = newFilterGroups[ reftype ].choices;
+                        refvalues.map(
+                            (label: string) => {
+                                if (!thisRefType[ label ]) {
+                                    const thisRef: IDbReference = references[reftype][label];
+                                    const thisRefResource: IResource = resources[thisRef.docname];
+                                    thisRefType[ label ] = {
+                                        label: thisRefResource.title,
+                                        value: thisRefResource.docname,
+                                        count: 0
+                                    }
+                                } else {
+                                    thisRefType[label].count++
+                                }
+                            }
+                        );
+                    });
+            }
         });
 
-    return newFilterGroups;
+    return Object.values(newFilterGroups);
 }
