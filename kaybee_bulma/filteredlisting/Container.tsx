@@ -17,7 +17,6 @@ const onCreate = (element: HTMLElement, actions: IActions) => {
     }
     const filterParent = getFilterParent(element);
     if (filterParent && filterParent !== "none") {
-        console.log(99, filterParent);
         actions.setFilterParent(filterParent);
     }
 };

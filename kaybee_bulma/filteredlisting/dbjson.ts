@@ -131,7 +131,8 @@ export function setResources(
 
 export function setFilterGroups(
     references: IDbReferences,
-    resources: IResources) {
+    resources: IResources,
+    filterParent: string | undefined) {
     /* Called from setDb to populate state.filterGroups */
 
     interface INewFilterGroups {
@@ -140,9 +141,24 @@ export function setFilterGroups(
 
     const newFilterGroups: INewFilterGroups = {};
 
+    // Make a copy of the resources, then filter if needed by the
+    // parent_docname if this widget only wants filter information
+    // based on place in the tree.
+    const filteredResults: IResources = {};
+    Object.entries(resources)
+        .map(([ docname, resource ]: [ string, IResource ]) => {
+            if (!filterParent) {
+                filteredResults[ docname ] = resource;
+            } else {
+                if (resource.parent_docnames.includes(filterParent)) {
+                    filteredResults[ docname ] = resource;
+                }
+            }
+        });
+
     // Iterate through the resources and accumulate IFilterGroup info
     // based on the actual resources, using references to get title etc.
-    Object.entries(resources)
+    Object.entries(filteredResults)
         .map(([ docname, resource ]: [ string, IResource ]) => {
             if (resource.props && resource.props.references) {
                 Object.entries(resource.props.references)
@@ -160,15 +176,15 @@ export function setFilterGroups(
                         refvalues.map(
                             (label: string) => {
                                 if (!thisRefType[ label ]) {
-                                    const thisRef: IDbReference = references[reftype][label];
-                                    const thisRefResource: IResource = resources[thisRef.docname];
+                                    const thisRef: IDbReference = references[ reftype ][ label ];
+                                    const thisRefResource: IResource = resources[ thisRef.docname ];
                                     thisRefType[ label ] = {
                                         label: thisRefResource.title,
                                         value: thisRefResource.docname,
-                                        count: 0
-                                    }
+                                        count: 1
+                                    };
                                 } else {
-                                    thisRefType[label].count++
+                                    thisRefType[ label ].count++;
                                 }
                             }
                         );

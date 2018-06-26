@@ -19,9 +19,21 @@ export function getFilterGroupValues(filterGroups: IFilterGroup[]): Array<[ stri
 
 export function filterValues(
     results: IResource[],
-    filterKeysValues: Array<[ string, string ]>) {
+    filterKeysValues: Array<[ string, string ]>,
+    filterParent: string | undefined) {
 
     let filteredResults = [ ...results ];
+
+    // Start by filtering results based on parent, if state.filterParent
+    // has a docname to filter by
+    if (filterParent) {
+        filteredResults = filteredResults.filter(
+            (result: IResource) => {
+                return result.parent_docnames.includes(filterParent);
+            }
+        );
+    }
+
     if (filterKeysValues.length) {
         filteredResults = results.filter((result: IResource) => {
             let hasMatch = false;
@@ -92,7 +104,7 @@ class Actions implements ActionsType<IState, IActions> {
         const filterKeysValues: Array<[ string, string ]> = getFilterGroupValues(state.filterGroups);
 
         // Filter results by matching any of the keysValues
-        results = filterValues(results, filterKeysValues);
+        results = filterValues(results, filterKeysValues, state.filterParent);
 
         return {results};
     };
@@ -110,7 +122,8 @@ class Actions implements ActionsType<IState, IActions> {
             dbJson.references,
             state.dbUrl as string
         );
-        const filterGroups: IFilterGroup[] = setFilterGroups(dbJson.references, resources);
+        const filterGroups: IFilterGroup[] = setFilterGroups(
+            dbJson.references, resources, state.filterParent);
         actions.filterResults();
         return {
             resources,
