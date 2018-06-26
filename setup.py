@@ -9,7 +9,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='kaybee_bulma',
-    version='0.2.22',
+    version='0.2.23.dev0',
     description='Bulma-based theme for Kaybee',
     long_description=long_description,
     url='https://github.com/pauleveritt/kaybee_bulma',
