@@ -51,7 +51,7 @@ export function setResources(
     Object.entries(dbResources)
         .map(([ docname, dbResource ]: [ string, IDbResource ]) => {
 
-            const newResourceHref = dbUrl + "/../" + dbResource.docname;
+            const newResourceHref = dbUrl + "/../" + dbResource.docname + ".html";
 
             const newResource: IResource = {
                 ...dbResource, references: [], href: newResourceHref
@@ -83,7 +83,7 @@ export function setResources(
                         const firstAuthorDocname: string = dbReferences
                             .author[ firstAuthorLabel ].docname;
                         const firstAuthor = dbResources[ firstAuthorDocname ];
-                        const firstAuthorHref = dbUrl + "/../" + firstAuthor.docname;
+                        const firstAuthorHref = dbUrl + "/../" + firstAuthor.docname + ".html";
                         let firstAuthorSrc;
                         const firstImages = firstAuthor.props.images;
                         if (firstImages) {
@@ -112,7 +112,7 @@ export function setResources(
                             // Get the reference for this label
                             const refDocname = dbReferences[ reftype ][ reflabel ].docname;
                             const refResource = dbResources[ refDocname ];
-                            const refResourceHref = dbUrl + "/../" + refResource.docname;
+                            const refResourceHref = dbUrl + "/../" + refResource.docname + ".html";
                             newResource.references.push({
                                 reftype,
                                 href: refResourceHref,

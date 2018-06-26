@@ -27,7 +27,7 @@ export default ({resource}: IResultProps) => {
                 <div class="media-content">
                     <div class="content">
                         <p>
-                            <a href={resource.docname}>
+                            <a href={resource.href}>
                                 <strong>{resource.title}</strong>
                             </a>
                             <br/>
