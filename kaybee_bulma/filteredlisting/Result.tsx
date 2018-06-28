@@ -41,8 +41,8 @@ export default ({resource}: IResultProps) => {
                             <span>{resource.excerpt}</span>
                         </p>
                     </div>
-                    <nav className="level is-mobile">
-                <div className="level-left">
+                    <nav class="level is-mobile">
+                <div class="level-left">
                     {resource.author && (
                         <Author
                             href={resource.author.href}
@@ -51,15 +51,15 @@ export default ({resource}: IResultProps) => {
                         />
                     )
                     }
-                    <span className="level-item">
+                    <span class="level-item">
                                 <References values={referenceValues}/>
                             </span>
                 </div>
-                <div className="level-right is-size-7 has-text-grey">
+                <div class="level-right is-size-7 has-text-grey">
                     {resource.props.duration && (
                         <Duration duration={resource.props.duration}/>
                     )}
-                    <span className="level-item">
+                    <span class="level-item">
                                 {resource.props.published}
                             </span>
                 </div>
@@ -69,73 +69,3 @@ export default ({resource}: IResultProps) => {
         </div>
     );
 };
-
-/*
-
-
-<nav className="level is-mobile" style="display:none">
-                    <div className="level-left">
-                        {resource.author && (
-                            <Author
-                                href={resource.author.href}
-                                src={resource.author.thumbnailUrl}
-                                title={resource.author.title}
-                            />
-                        )
-                        }
-                        <span className="level-item">
-                                <References values={referenceValues}/>
-                            </span>
-                    </div>
-                    <div className="level-right is-size-7 has-text-grey">
-                        {resource.props.duration && (
-                            <Duration duration={resource.props.duration}/>
-                        )}
-                        <span className="level-item">
-                                {resource.props.published}
-                            </span>
-                    </div>
-                </nav>
-
-        <div class="kbb-fl-result box">
-            <article class="media">
-                <div class="media-left">
-                    <figure class="image is-96x96 }">
-                        <img src={primaryReferenceSrc}/>
-                    </figure>
-                </div>
-                <div class="media-content">
-                    <div class="content">
-                        <p>
-                            <a href={resource.docname}>
-                                <strong>{resource.title}</strong>
-                            </a>
-                            <br/>
-                            <span>{resource.excerpt}</span>
-                        </p>
-                    </div>
-                    <nav class="level is-mobile">
-                        <div class="level-left">
-                            {resource.author && (
-                                <Author
-                                    href={resource.author.docname}
-                                    src={resource.author.docname}
-                                    title={resource.author.title}
-                                />
-                            )
-                            }
-                            <span class="level-item">
-                                <References values={referenceValues}/>
-                            </span>
-                        </div>
-                        <div class="level-right is-size-7 has-text-grey">
-                            <Duration duration={"2h22m2s"}/>
-                            <span class="level-item">
-                                {resource.props.published}
-                            </span>
-                        </div>
-                    </nav>
-                </div>
-            </article>
-        </div>
- */

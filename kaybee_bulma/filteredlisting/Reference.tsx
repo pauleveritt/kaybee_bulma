@@ -7,7 +7,7 @@ export interface IReferenceProps {
 }
 
 export default ({href, label}: IReferenceProps) => (
-    <span class="tag">
+    <span class="tag is-rounded">
             <a href={href}>
                 {label}
             </a>

@@ -5,7 +5,7 @@ export interface ITechLogoProps {
 }
 
 export default ({logo}: ITechLogoProps) => (
-    <figure className="image is-96x96 }">
+    <figure class="image is-96x96 }">
         <img src={logo}/>
     </figure>
 );
