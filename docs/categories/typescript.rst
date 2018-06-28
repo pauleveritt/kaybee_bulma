@@ -1,5 +1,6 @@
 .. category::
     label: typescript
+    published: 2009-10-21 12:23
     logo: http://konpa.github.io/devicon/devicon.git/icons/typescript/typescript-original.svg
     references:
         author:
