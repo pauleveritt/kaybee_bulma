@@ -142,7 +142,7 @@ export function setFilterGroups(
     const newFilterGroups: INewFilterGroups = {};
     // Make a filter group for resource types
     newFilterGroups.rtypes = {
-        label: "Resource Type",
+        label: "resource type",
         value: "rtype",
         control: "checkbox",
         choices: {}
@@ -210,7 +210,20 @@ export function setFilterGroups(
             }
         });
 
-    return Object.values(newFilterGroups);
+    // Now at the end, sort the filter groups by label
+    const newFilterGroupList = Object.values(newFilterGroups);
+    newFilterGroupList.sort(
+        (a: IFilterGroup, b: IFilterGroup) => {
+            if (a.label > b.label) {
+                return 1;
+            } else if (a.label < b.label) {
+                return -1;
+            }
+            return 0;
+        }
+    );
+
+    return newFilterGroupList;
 }
 
 export function sortResults(results: IResource[], resultInfo: IResultInfo) {
