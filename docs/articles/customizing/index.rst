@@ -1,5 +1,5 @@
 .. section::
-    published: 2017-10-01 00:00
+    published: 2017-04-04 00:00
     primary_reference: categories/react
     excerpt: This section is about customizing. Meaning, customizing this
         package. The section is a subsection of the articles section, which

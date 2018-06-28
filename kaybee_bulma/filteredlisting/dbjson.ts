@@ -1,4 +1,4 @@
-import { IFilterGroup, IResource, IResources } from "./State";
+import { IFilterGroup, IResource, IResources, IResultInfo } from "./State";
 
 export interface IDbProps {
     [ propname: string ]: any;
@@ -168,14 +168,14 @@ export function setFilterGroups(
     Object.entries(filteredResults)
         .map(([ docname, resource ]: [ string, IResource ]) => {
             // Keep track of the types that we visit
-            if (!newFilterGroups.rtypes.choices[resource.rtype]) {
-                newFilterGroups.rtypes.choices[resource.rtype] = {
+            if (!newFilterGroups.rtypes.choices[ resource.rtype ]) {
+                newFilterGroups.rtypes.choices[ resource.rtype ] = {
                     label: resource.rtype,
                     value: resource.rtype,
                     count: 1
-                }
+                };
             } else {
-                newFilterGroups.rtypes.choices[resource.rtype].count++;
+                newFilterGroups.rtypes.choices[ resource.rtype ].count++;
             }
 
             if (resource.props && resource.props.references) {
@@ -211,4 +211,23 @@ export function setFilterGroups(
         });
 
     return Object.values(newFilterGroups);
+}
+
+export function sortResults(results: IResource[], resultInfo: IResultInfo) {
+    const newResults = [ ...results ];
+
+    // First we sort, ending with a reverse
+    newResults.sort(
+        (a: IResource, b: IResource) => {
+            if (a.props.published > b.props.published) {
+                return 1;
+            } else if (a.props.published === b.props.published) {
+                return -1;
+            }
+            return 0;
+        }
+    );
+    newResults.reverse();
+
+    return newResults;
 }

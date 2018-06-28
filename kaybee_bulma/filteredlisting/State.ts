@@ -63,6 +63,12 @@ export interface IFilterGroup {
     choices: IFilterChoices;
 }
 
+export interface IResultInfo {
+    sortKey: string;
+    batchSize: number;
+    start: number;
+}
+
 export interface IState {
     dbUrl?: string;
     filterParent?: string;
@@ -72,6 +78,7 @@ export interface IState {
     filterGroups: IFilterGroup[];
     filterTerm: string;
     results: IResource[];
+    resultInfo: IResultInfo;
 }
 
 const initialState: IState = {
@@ -80,7 +87,12 @@ const initialState: IState = {
     filterGroups: [],
     filterTerm: "",
     resources: {},
-    results: []
+    results: [],
+    resultInfo: {
+        sortKey: "published",
+        batchSize: 10,
+        start: 0
+    }
 };
 
 export default initialState;

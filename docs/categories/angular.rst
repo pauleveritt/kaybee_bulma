@@ -1,6 +1,6 @@
 .. category::
     label: angular
-    published: 2009-10-21 12:23
+    published: 2018-10-21 12:23
     logo: http://konpa.github.io/devicon/devicon.git/icons/angularjs/angularjs-original.svg
     references:
         author:
