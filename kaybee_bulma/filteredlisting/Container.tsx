@@ -23,7 +23,7 @@ const onCreate = (element: HTMLElement, actions: IActions) => {
 
 export default (state: IState, actions: IActions) => (
     <div
-        class="kbb-fl"
+        class="kbb-fl container"
         oncreate={(element: HTMLElement) => onCreate(element, actions)}
     >
         <div class="columns is-centered">
