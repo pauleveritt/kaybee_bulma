@@ -1,4 +1,6 @@
 #kbb-fl {
+  min-height: 40rem; // To prevent flashing
+
   .kbb-sidebargroup {
     margin-bottom: 2rem;
 
@@ -20,6 +22,7 @@
 
   .kbb-pagination {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     ul {
       list-style: none;
     }

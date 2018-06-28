@@ -40,11 +40,11 @@ export default (state: IState, actions: IActions) => (
         <div class="columns">
             <div class="column">
                 <Sidebar filterGroups={state.filterGroups} actions={actions}/>
-                <Dumpstate actions={actions}/>
             </div>
             <div class="column is-four-fifths">
                 <Results values={state.results}/>
                 <Pagination/>
+                <Dumpstate actions={actions}/>
             </div>
         </div>
     </div>
