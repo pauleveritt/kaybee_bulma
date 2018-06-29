@@ -1,6 +1,11 @@
 #kbb-fl {
   min-height: 40rem; // To prevent flashing
 
+  .kbb-fl-result figure {
+    // More Sphinx crap, sticks margins on figure
+    margin: 0;
+  }
+
   .kbb-sidebargroup {
     margin-bottom: 2rem;
 

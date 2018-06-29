@@ -21,15 +21,13 @@ export default ({resource}: IResultProps) => {
             }
         ));
 
+    const pr = resource.primary_reference;
+
     return (
         <div class="kbb-fl-result box">
             <article class="media">
                 <div class="media-left">
-                    {(resource.primary_reference && resource.primary_reference.logo) && (
-                        <div class="media-right">
-                            <TechLogo logo={resource.primary_reference.logo}/>
-                        </div>
-                    )}
+                    <TechLogo logo={pr ? pr.logo : undefined}/>
                 </div>
                 <div class="media-content">
                     <div class="content">
@@ -42,28 +40,28 @@ export default ({resource}: IResultProps) => {
                         </p>
                     </div>
                     <nav class="level is-mobile">
-                <div class="level-left">
-                    {resource.author && (
-                        <Author
-                            href={resource.author.href}
-                            src={resource.author.thumbnailUrl}
-                            title={resource.author.title}
-                        />
-                    )
-                    }
-                    <span class="level-item">
+                        <div class="level-left">
+                            {resource.author && (
+                                <Author
+                                    href={resource.author.href}
+                                    src={resource.author.thumbnailUrl}
+                                    title={resource.author.title}
+                                />
+                            )
+                            }
+                            <span class="level-item">
                                 <References values={referenceValues}/>
                             </span>
-                </div>
-                <div class="level-right is-size-7 has-text-grey">
-                    {resource.props.duration && (
-                        <Duration duration={resource.props.duration}/>
-                    )}
-                    <span class="level-item">
+                        </div>
+                        <div class="level-right is-size-7 has-text-grey">
+                            {resource.props.duration && (
+                                <Duration duration={resource.props.duration}/>
+                            )}
+                            <span class="level-item">
                                 {resource.props.published}
                             </span>
-                </div>
-            </nav>
+                        </div>
+                    </nav>
                 </div>
             </article>
         </div>

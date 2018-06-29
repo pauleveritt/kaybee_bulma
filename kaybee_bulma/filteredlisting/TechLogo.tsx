@@ -4,8 +4,10 @@ export interface ITechLogoProps {
     logo: string;
 }
 
+const pythonLogo = "https://cdn.worldvectorlogo.com/logos/python-5.svg";
+
 export default ({logo}: ITechLogoProps) => (
-    <figure class="image is-96x96 }">
-        <img src={logo}/>
+    <figure class="image is-64x64 }">
+        <img src={logo ? logo : pythonLogo}/>
     </figure>
 );
