@@ -1,7 +1,7 @@
 import { h } from "hyperapp";
 
 export interface ITechLogoProps {
-    logo: string;
+    logo?: string;
 }
 
 const pythonLogo = "https://cdn.worldvectorlogo.com/logos/python-5.svg";
