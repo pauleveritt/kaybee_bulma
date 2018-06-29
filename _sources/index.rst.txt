@@ -11,6 +11,11 @@
 Kaybee: Knowledge Base for Static Sites
 =======================================
 
+
+.. filteredlisting::
+    name: kbbfl
+    filename: ../catalog.json
+
 .. raw:: html
 
     <section class="section">

@@ -4,6 +4,7 @@ Customizing Layout
 
 .. article::
     published: 2017-10-01 00:00
+    primary_reference: categories/angular
     references:
         category:
             - angular

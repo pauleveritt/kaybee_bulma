@@ -23,7 +23,7 @@ Articles
 .. filteredlisting::
     name: widgets1hello
     filename: ../catalog.json
-
+    parent_docname: articles/index
 
 .. toctree::
     :hidden:
