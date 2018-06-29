@@ -6,7 +6,7 @@ import kaybee_bulma.events
 from kaybee_bulma import filteredlisting
 from kaybee_bulma.siteconfig import SiteConfig
 
-__version__ = "0.2.24"
+__version__ = "0.2.25"
 __title__ = "kaybee_bulma"
 __description__ = "Bulma-based theme for Kaybee"
 __uri__ = "https://github.com/pauleveritt/kaybee_bulma"
