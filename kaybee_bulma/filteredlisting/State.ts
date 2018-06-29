@@ -63,6 +63,10 @@ export interface IFilterGroup {
     choices: IFilterChoices;
 }
 
+export interface IFilterGroups {
+    [value: string]: IFilterGroup;
+}
+
 export interface IResultInfo {
     sortKey: string;
     batchSize: number;
@@ -75,7 +79,7 @@ export interface IState {
     isFetching: boolean;
     notification: string;
     resources: IResources;
-    filterGroups: IFilterGroup[];
+    filterGroups: IFilterGroups;
     filterTerm: string;
     results: IResource[];
     resultInfo: IResultInfo;
@@ -84,7 +88,7 @@ export interface IState {
 const initialState: IState = {
     isFetching: false,
     notification: "Initial State",
-    filterGroups: [],
+    filterGroups: {},
     filterTerm: "",
     resources: {},
     results: [],

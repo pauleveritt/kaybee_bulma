@@ -1,4 +1,4 @@
-import { IFilterGroup, IResource, IResources, IResultInfo } from "./State";
+import { IFilterGroups, IResource, IResources, IResultInfo } from "./State";
 
 export interface IDbProps {
     [ propname: string ]: any;
@@ -135,11 +135,7 @@ export function setFilterGroups(
     filterParent: string | undefined) {
     /* Called from setDb to populate state.filterGroups */
 
-    interface INewFilterGroups {
-        [ reftyp: string ]: IFilterGroup
-    }
-
-    const newFilterGroups: INewFilterGroups = {};
+    const newFilterGroups: IFilterGroups = {};
     // Make a filter group for resource types
     newFilterGroups.rtypes = {
         label: "resource type",
@@ -211,19 +207,19 @@ export function setFilterGroups(
         });
 
     // Now at the end, sort the filter groups by label
-    const newFilterGroupList = Object.values(newFilterGroups);
-    newFilterGroupList.sort(
-        (a: IFilterGroup, b: IFilterGroup) => {
-            if (a.label > b.label) {
-                return 1;
-            } else if (a.label < b.label) {
-                return -1;
-            }
-            return 0;
-        }
-    );
+    // const newFilterGroupList = Object.values(newFilterGroups);
+    // newFilterGroupList.sort(
+    //     (a: IFilterGroup, b: IFilterGroup) => {
+    //         if (a.label > b.label) {
+    //             return 1;
+    //         } else if (a.label < b.label) {
+    //             return -1;
+    //         }
+    //         return 0;
+    //     }
+    // );
 
-    return newFilterGroupList;
+    return newFilterGroups;
 }
 
 export function sortResults(results: IResource[], resultInfo: IResultInfo) {

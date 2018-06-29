@@ -13,7 +13,7 @@ interface ISidebarProps {
 
 export default ({filterGroups, actions}: ISidebarProps) => (
     <div>
-        {filterGroups.map((fg: IFilterGroup) => {
+        {Object.values(filterGroups).map((fg: IFilterGroup) => {
                 if (Object.keys(fg.choices).length) {
                     return (
                         <div class="kbb-sidebargroup">

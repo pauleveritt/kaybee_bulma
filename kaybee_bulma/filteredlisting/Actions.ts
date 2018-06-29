@@ -1,25 +1,25 @@
 import { ActionsType } from "hyperapp";
 
 import { IDbJson, setFilterGroups, setResources, sortResults } from "./dbjson";
-import { IFilterChoice, IFilterGroup, IReference, IResource, IResources, IState } from "./State";
+import { IFilterGroup, IFilterGroups, IReference, IResource, IResources, IState } from "./State";
 
-export function getFilterGroupValues(filterGroups: IFilterGroup[]): Array<[ string, string ]> {
-    const keysValues: Array<[ string, string ]> = [];
-    if (filterGroups) {
-        filterGroups.map((fg: IFilterGroup) => {
-            Object.values(fg.choices).map((fc: IFilterChoice) => {
-                if (fc.checked) {
-                    keysValues.push([ fg.value, fc.value ]);
-                }
-            });
-        });
-    }
-    return keysValues;
-}
+// export function getFilterGroupValues(filterGroups: IFilterGroups): Array<[ string, string ]> {
+//     const keysValues: Array<[ string, string ]> = [];
+//     if (filterGroups) {
+//         filterGroups.map((fg: IFilterGroup) => {
+//             Object.values(fg.choices).map((fc: IFilterChoice) => {
+//                 if (fc.checked) {
+//                     keysValues.push([ fg.value, fc.value ]);
+//                 }
+//             });
+//         });
+//     }
+//     return keysValues;
+// }
 
 export function filterValues(
     results: IResource[],
-    filterKeysValues: Array<[ string, string ]>,
+    filterGroups: IFilterGroups,
     filterParent: string | undefined) {
 
     let filteredResults = [ ...results ];
@@ -34,47 +34,95 @@ export function filterValues(
         );
     }
 
-    if (filterKeysValues.length) {
-        filteredResults = filteredResults.filter((result: IResource) => {
-            let hasMatch = false;
+    const filterGroupValues = Object.values(filterGroups);
+    filteredResults = filteredResults.filter(
+        (result: IResource) => {
+            // Use an AND between filter groups with an OR for choices
+            // within a filter group.
 
-            // For this result, iterate through the "true" filterGroup
-            // values, looking in references, author, etc.
-            filterKeysValues.map(([ reftype, value ]: [ string, string ]) => {
-                // Look in author
-                if (reftype === "author") {
-                    if (result.author && result.author.docname === value) {
-                        hasMatch = true;
-                    } else {
-                        hasMatch = false;
-                    }
-                } else if (reftype === "rtype") {
-                    if (result.rtype === value) {
-                        hasMatch = true;
-                    } else {
-                        hasMatch = false;
-                    }
-                } else {
-                    // Look in references
-                    const resultRefs = result.references;
-                    if (resultRefs) {
-                        resultRefs.map(
-                            (resultRef: IReference) => {
-                                if (resultRef.reftype === reftype &&
-                                    resultRef.docname === value) {
-                                    hasMatch = true;
+            console.log("######### ", result.docname);
+            const accumulator = filterGroupValues.map(
+                (filterGroup: IFilterGroup) => {
+                    // Get the results of all the choices for this FG
+                    const answers = Object.values(filterGroup.choices)
+                        .map(
+                            (choice) => {
+                                // For this filter group choice, first see
+                                // if is checked. If not, we don't care.
+                                if (!choice.checked) {
+                                    return true;
+                                }
+
+                                if (filterGroup.value === "author") {
+                                    return result.author && result.author.docname === choice.value;
+                                } else if (filterGroup.value === "rtype") {
+                                    return result.rtype === choice.value;
+                                } else {
+                                    const resultRefs = result.references;
+                                    if (resultRefs) {
+
+                                        return resultRefs.map(
+                                            (resultRef: IReference) => {
+                                                return resultRef.reftype === filterGroup.value &&
+                                                    resultRef.docname === choice.value;
+                                            }
+                                        ).includes(true);
+                                    }
+                                    return true;
                                 }
                             }
                         );
-                    } else {
-                        hasMatch = false;
-                    }
+                    return answers.includes(true);
                 }
-            });
+            );
+            console.log(2323, accumulator);
+            // const x = accumulator.every(fg => !fg.includes(false));
+            // console.log(2323999, accumulator);
+            // return x;
+        }
+    );
 
-            return hasMatch;
-        });
-    }
+    // if (filterKeysValues.length) {
+    //     filteredResults = filteredResults.filter((result: IResource) => {
+    //         let hasMatch = false;
+    //
+    //         // For this result, iterate through the "true" filterGroup
+    //         // values, looking in references, author, etc.
+    //         filterKeysValues.map(([ reftype, value ]: [ string, string ]) => {
+    //             // Look in author
+    //             if (reftype === "author") {
+    //                 if (result.author && result.author.docname === value) {
+    //                     hasMatch = true;
+    //                 } else {
+    //                     hasMatch = false;
+    //                 }
+    //             } else if (reftype === "rtype") {
+    //                 if (result.rtype === value) {
+    //                     hasMatch = true;
+    //                 } else {
+    //                     hasMatch = false;
+    //                 }
+    //             } else {
+    //                 // Look in references
+    //                 const resultRefs = result.references;
+    //                 if (resultRefs) {
+    //                     resultRefs.map(
+    //                         (resultRef: IReference) => {
+    //                             if (resultRef.reftype === reftype &&
+    //                                 resultRef.docname === value) {
+    //                                 hasMatch = true;
+    //                             }
+    //                         }
+    //                     );
+    //                 } else {
+    //                     hasMatch = false;
+    //                 }
+    //             }
+    //         });
+    //
+    //         return hasMatch;
+    //     });
+    // }
     return filteredResults;
 }
 
@@ -111,10 +159,10 @@ class Actions implements ActionsType<IState, IActions> {
 
         // Now filter based on checkboxes. Start by collecting all set
         // keys/values to filter on
-        const filterKeysValues: Array<[ string, string ]> = getFilterGroupValues(state.filterGroups);
+        // const filterKeysValues: Array<[ string, string ]> = getFilterGroupValues(state.filterGroups);
 
         // Filter results by matching any of the keysValues
-        results = filterValues(results, filterKeysValues, state.filterParent);
+        results = filterValues(results, state.filterGroups, state.filterParent);
 
         // Sort results by some criteria
         results = sortResults(results, state.resultInfo);
@@ -135,7 +183,7 @@ class Actions implements ActionsType<IState, IActions> {
             dbJson.references,
             state.dbUrl as string
         );
-        const filterGroups: IFilterGroup[] = setFilterGroups(
+        const filterGroups: IFilterGroups = setFilterGroups(
             dbJson.references, resources, state.filterParent);
         actions.filterResults();
         return {
@@ -168,7 +216,7 @@ class Actions implements ActionsType<IState, IActions> {
     };
     setFilterTerm = (filterTerm: string) => ({filterTerm});
     setFilterChoice = () => (state: IState) => {
-        const newFilterGroups = [ ...state.filterGroups ];
+        const newFilterGroups = {...state.filterGroups};
         return {filterGroups: newFilterGroups};
     };
 }
