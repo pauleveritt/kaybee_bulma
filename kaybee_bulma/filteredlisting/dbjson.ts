@@ -10,8 +10,7 @@ export interface IDbResource {
     parent_docnames: string[];
     rtype: string;
     props: IDbProps;
-    excerpt: string;
-    published: string;
+    excerpt?: string;
 }
 
 export interface IDbResources {
@@ -105,23 +104,20 @@ export function setResources(
                                 props: {...firstAuthor.props}
                             };
                         }
-                    } else {
-                        // Handle other kinds of references
-                        newResource.references = [];
-                        reflabels.map((reflabel: string) => {
-                            // Get the reference for this label
-                            const refDocname = dbReferences[ reftype ][ reflabel ].docname;
-                            const refResource = dbResources[ refDocname ];
-                            const refResourceHref = dbUrl + "/../" + refResource.docname + ".html";
-                            newResource.references.push({
-                                reftype,
-                                href: refResourceHref,
-                                label: reflabel,
-                                docname: refDocname,
-                                title: refResource.title
-                            });
-                        });
                     }
+                    reflabels.map((reflabel: string) => {
+                        // Get the reference for this label
+                        const refDocname = dbReferences[ reftype ][ reflabel ].docname;
+                        const refResource = dbResources[ refDocname ];
+                        const refResourceHref = dbUrl + "/../" + refResource.docname + ".html";
+                        newResource.references.push({
+                            reftype,
+                            href: refResourceHref,
+                            label: reflabel,
+                            docname: refDocname,
+                            title: refResource.title
+                        });
+                    });
                 });
             newResources[ docname ] = newResource;
         });

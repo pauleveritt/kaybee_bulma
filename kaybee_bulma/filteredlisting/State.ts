@@ -34,8 +34,8 @@ export interface IResource {
     parent_docnames: string[];
     rtype: string;
     props: IProps;
-    excerpt: string;
-    published: string;
+    excerpt?: string;
+    published?: string;
     author?: IAuthor;
     references: IReference[];
     primary_reference?: IPrimaryReference;
