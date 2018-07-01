@@ -3,20 +3,6 @@ import { ActionsType } from "hyperapp";
 import { IDbJson, setFilterGroups, setResources, sortResults } from "./dbjson";
 import { IFilterGroup, IFilterGroups, IReference, IResource, IResources, IState } from "./State";
 
-// export function getFilterGroupValues(filterGroups: IFilterGroups): Array<[ string, string ]> {
-//     const keysValues: Array<[ string, string ]> = [];
-//     if (filterGroups) {
-//         filterGroups.map((fg: IFilterGroup) => {
-//             Object.values(fg.choices).map((fc: IFilterChoice) => {
-//                 if (fc.checked) {
-//                     keysValues.push([ fg.value, fc.value ]);
-//                 }
-//             });
-//         });
-//     }
-//     return keysValues;
-// }
-
 export function filterValues(
     results: IResource[],
     filterGroups: IFilterGroups,

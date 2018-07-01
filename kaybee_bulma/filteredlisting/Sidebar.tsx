@@ -4,10 +4,10 @@ import { IActions } from "./Actions";
 import SidebarCheckbox from "./SidebarCheckbox";
 import SidebarRadio from "./SidebarRadio";
 import SidebarSelect from "./SidebarSelect";
-import { IFilterGroup } from "./State";
+import { IFilterGroup, IFilterGroups } from "./State";
 
 interface ISidebarProps {
-    filterGroups: IFilterGroup[];
+    filterGroups: IFilterGroups;
     actions: IActions;
 }
 
