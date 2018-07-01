@@ -1,76 +1,17 @@
-import { IDbReferences, IDbResources, setFilterGroups, setResources } from "./dbjson";
+import {
+    filterResourceGroup, filterResourceGroups, IReducedFilterGroups, sampleReferences,
+    sampleResources, setFilterGroups, setResources
+} from "./dbjson";
+import { reduceFilterGroups } from "./dbjson";
 import { IFilterChoices, IFilterGroups, IResource, IResources } from "./State";
-
-import catalog from "../../docs/_build/catalog.json";
-
-const dbResources: IDbResources = catalog.resources;
-const dbReferences: IDbReferences = catalog.references;
-
-interface IReducedFilterGroups {
-    [ reftype: string ]: string[];
-}
-
-function reduceFilterGroups(fgs: IFilterGroups): IReducedFilterGroups {
-    const newFilterGroups: any = {};
-    Object.values(fgs)
-        .map(fg => {
-            const trueChoices = Object.values(fg.choices).map(
-                // If the checkbox is checked, keep it. Otherwise, if
-                // not present or checked is false, filter out this choice.
-                choice => choice.checked ? choice.value : false
-            ).filter(v => v);
-            if (trueChoices) {
-                newFilterGroups[ fg.value ] = trueChoices;
-            }
-        });
-
-    return newFilterGroups;
-}
-
-function filterResourceGroup(
-    reducedGroups: IReducedFilterGroups,
-    reftype: string,
-    resource: IResource) {
-
-    // Compare which items are checked against this resource's
-    // references for the reftype
-    const checkedReferences = reducedGroups[ reftype ];
-    if (checkedReferences.length === 0) {
-        // Nothing is checked, so automatically true
-        return true;
-    }
-    const resourceReferences: string[] = resource.references
-        .filter(reference => reference.reftype === reftype)
-        .map(reference => reference.docname);
-
-    return resourceReferences.some((label: string) => checkedReferences.includes(label));
-}
-
-function filterResourceGroups(
-    reducedGroups: IReducedFilterGroups,
-    resource: IResource) {
-
-    // First get the filter reftypes with non-empty selections
-    const nonEmptyFilterGroups: string[] = [];
-    Object.entries(reducedGroups).map(([ k, v ]) => {
-        if (v.length) {
-            nonEmptyFilterGroups.push(k);
-        }
-    });
-    const results: boolean[] = nonEmptyFilterGroups
-        .map(reftype => filterResourceGroup(reducedGroups, reftype, resource));
-
-    const keepResult = !results.includes(false);
-    return keepResult;
-}
 
 describe("Reduce Filter Groups", () => {
     let resources: IResources = {};
     let filterGroups: IFilterGroups = {};
 
     beforeEach(() => {
-        resources = setResources(dbResources, dbReferences, "xxx");
-        filterGroups = setFilterGroups(dbReferences, resources, undefined);
+        resources = setResources(sampleResources, sampleReferences, "xxx");
+        filterGroups = setFilterGroups(sampleReferences, resources, undefined);
     });
 
     it("should reduce originals to be all undefined", () => {
@@ -96,8 +37,8 @@ describe("Select Resources Single Filter Group", () => {
     let filterGroups: IFilterGroups = {};
 
     beforeEach(() => {
-        resources = setResources(dbResources, dbReferences, "xxx");
-        filterGroups = setFilterGroups(dbReferences, resources, undefined);
+        resources = setResources(sampleResources, sampleReferences, "xxx");
+        filterGroups = setFilterGroups(sampleReferences, resources, undefined);
     });
 
     it("should match one group when no checkboxes selected", () => {
@@ -161,8 +102,8 @@ describe("Select Resources All Filter Groups", () => {
     let filterGroups: IFilterGroups = {};
 
     beforeEach(() => {
-        resources = setResources(dbResources, dbReferences, "xxx");
-        filterGroups = setFilterGroups(dbReferences, resources, undefined);
+        resources = setResources(sampleResources, sampleReferences, "xxx");
+        filterGroups = setFilterGroups(sampleReferences, resources, undefined);
     });
 
     it("should match resource when no groups are checked", () => {
@@ -221,5 +162,77 @@ describe("Select Resources All Filter Groups", () => {
         const reducedFilterGroups: IReducedFilterGroups = reduceFilterGroups(filterGroups);
         const results = filterResourceGroups(reducedFilterGroups, resource1);
         expect(results).toBeFalsy();
+    });
+});
+
+describe("Set Resources", () => {
+    let results: IResources = {};
+    let resource: IResource;
+
+    beforeEach(() => {
+        results = setResources(sampleResources, sampleReferences, "xxx");
+        resource = results[ "articles/customizing/resources" ];
+    });
+
+    it("should set a number of resources", () => {
+        expect(Object.keys(results).length).toBe(19);
+    });
+
+    it("should set an href", () => {
+        const href = "xxx/../articles/customizing/resources.html";
+        expect(resource.href).toEqual(href);
+    });
+
+    it("should set a primary reference", () => {
+        const primary_reference = resource.primary_reference;
+        const docname = "categories/angular";
+        if (primary_reference) {
+            expect(primary_reference.docname).toEqual(docname);
+        }
+    });
+
+    it("should set three references", () => {
+        const refs = resource.references;
+        expect(refs.length).toEqual(2);
+        expect(refs[ 0 ].docname).toEqual("categories/react");
+    });
+
+    it("should set a primary reference", () => {
+        const pr = resource.primary_reference;
+        if (pr) {
+            expect(pr.docname).toBe("categories/angular");
+        }
+    });
+
+    it("should reformat props.published", () => {
+        const published = resource.props.published;
+        expect(published).toBe("Sun Oct 01 2017");
+    });
+
+    it("should set a primary author", () => {
+        const pa = resource.author;
+        const url = "xxx/../authors/pauleveritt/index.html/../paul_headshotx24.jpeg";
+        if (pa) {
+            expect(pa.docname).toBe("authors/pauleveritt/index");
+            expect(pa.thumbnailUrl).toBe(url);
+        }
+    });
+
+});
+
+describe("Set Filter Groups", () => {
+    let resources: IResources = {};
+    let results: IFilterGroups = {};
+
+    beforeEach(() => {
+        resources = setResources(sampleResources, sampleReferences, "xxx");
+        results = setFilterGroups(sampleReferences, resources, undefined);
+    });
+
+    it("should set basic filter groups", () => {
+        expect(Object.keys(results)).toEqual([ "rtypes", "category", "author" ]);
+        expect(results.rtypes.choices.article.count).toEqual(7);
+        expect(results.author.choices.pauleveritt.count).toEqual(15);
+        expect(results.category.choices.angular.count).toEqual(3);
     });
 });

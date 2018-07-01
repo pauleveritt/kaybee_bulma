@@ -1,5 +1,14 @@
 import { IFilterGroups, IResource, IResources, IResultInfo } from "./State";
 
+import catalog from "../../docs/_build/catalog.json";
+
+export const sampleResources: IDbResources = catalog.resources;
+export const sampleReferences: IDbReferences = catalog.references;
+
+export interface IReducedFilterGroups {
+    [ reftype: string ]: string[];
+}
+
 export interface IDbProps {
     [ propname: string ]: any;
 }
@@ -128,7 +137,7 @@ export function setResources(
 export function setFilterGroups(
     references: IDbReferences,
     resources: IResources,
-    filterParent: string | undefined) {
+    filterParent: string | undefined): IFilterGroups {
     /* Called from setDb to populate state.filterGroups */
 
     const newFilterGroups: IFilterGroups = {};
@@ -202,19 +211,6 @@ export function setFilterGroups(
             }
         });
 
-    // Now at the end, sort the filter groups by label
-    // const newFilterGroupList = Object.values(newFilterGroups);
-    // newFilterGroupList.sort(
-    //     (a: IFilterGroup, b: IFilterGroup) => {
-    //         if (a.label > b.label) {
-    //             return 1;
-    //         } else if (a.label < b.label) {
-    //             return -1;
-    //         }
-    //         return 0;
-    //     }
-    // );
-
     return newFilterGroups;
 }
 
@@ -235,4 +231,60 @@ export function sortResults(results: IResource[], resultInfo: IResultInfo) {
     newResults.reverse();
 
     return newResults;
+}
+
+export function reduceFilterGroups(fgs: IFilterGroups): IReducedFilterGroups {
+    const newFilterGroups: any = {};
+    Object.values(fgs)
+        .map(fg => {
+            const trueChoices = Object.values(fg.choices).map(
+                // If the checkbox is checked, keep it. Otherwise, if
+                // not present or checked is false, filter out this choice.
+                choice => choice.checked ? choice.value : false
+            ).filter(v => v);
+            if (trueChoices) {
+                newFilterGroups[ fg.value ] = trueChoices;
+            }
+        });
+
+    return newFilterGroups;
+}
+
+export function filterResourceGroup(
+    reducedGroups: IReducedFilterGroups,
+    reftype: string,
+    resource: IResource) {
+
+    // Compare which items are checked against this resource's
+    // references for the reftype
+    const checkedReferences = reducedGroups[ reftype ];
+    if (checkedReferences.length === 0) {
+        // Nothing is checked, so automatically true
+        return true;
+    }
+
+    // Sure wish resource.references was a mapping instead of an array
+    const resourceReferences: string[] = resource.references
+        .filter(reference => reference.reftype === reftype)
+        .map(reference => reference.docname);
+
+    return resourceReferences.some((label: string) => checkedReferences.includes(label));
+}
+
+export function filterResourceGroups(
+    reducedGroups: IReducedFilterGroups,
+    resource: IResource) {
+
+    // First get the filter reftypes with non-empty selections
+    const nonEmptyFilterGroups: string[] = [];
+    Object.entries(reducedGroups).map(([ k, v ]) => {
+        if (v.length) {
+            nonEmptyFilterGroups.push(k);
+        }
+    });
+    const results: boolean[] = nonEmptyFilterGroups
+        .map(reftype => filterResourceGroup(reducedGroups, reftype, resource));
+
+    const keepResult = !results.includes(false);
+    return keepResult;
 }
