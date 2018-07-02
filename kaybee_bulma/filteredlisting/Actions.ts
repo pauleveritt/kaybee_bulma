@@ -1,123 +1,15 @@
 import { ActionsType } from "hyperapp";
 
 import {
-    filterResourceGroups, filterResources,
-    IDbJson, IReducedFilterGroups,
+    filterResources,
+    IDbJson,
+    IReducedFilterGroups,
     reduceFilterGroups,
     setFilterGroups,
     setResources,
     sortResults
 } from "./dbjson";
-import { IFilterGroup, IFilterGroups, IReference, IResource, IResources, IState } from "./State";
-
-export function filterValues(
-    results: IResource[],
-    filterGroups: IFilterGroups,
-    filterParent: string | undefined) {
-
-    let filteredResults = [ ...results ];
-
-    // Start by filtering results based on parent, if state.filterParent
-    // has a docname to filter by
-    if (filterParent) {
-        filteredResults = filteredResults.filter(
-            (result: IResource) => {
-                return result.parent_docnames.includes(filterParent);
-            }
-        );
-    }
-
-    const filterGroupValues = Object.values(filterGroups);
-    filteredResults = filteredResults.filter(
-        (result: IResource) => {
-            // Use an AND between filter groups with an OR for choices
-            // within a filter group.
-
-            console.log("######### ", result.docname);
-            const accumulator = filterGroupValues.map(
-                (filterGroup: IFilterGroup) => {
-                    // Get the results of all the choices for this FG
-                    const answers = Object.values(filterGroup.choices)
-                        .map(
-                            (choice) => {
-                                // For this filter group choice, first see
-                                // if is checked. If not, we don't care.
-                                if (!choice.checked) {
-                                    return true;
-                                }
-
-                                if (filterGroup.value === "author") {
-                                    return result.author && result.author.docname === choice.value;
-                                } else if (filterGroup.value === "rtype") {
-                                    return result.rtype === choice.value;
-                                } else {
-                                    const resultRefs = result.references;
-                                    if (resultRefs) {
-
-                                        return resultRefs.map(
-                                            (resultRef: IReference) => {
-                                                return resultRef.reftype === filterGroup.value &&
-                                                    resultRef.docname === choice.value;
-                                            }
-                                        ).includes(true);
-                                    }
-                                    return true;
-                                }
-                            }
-                        );
-                    return answers.includes(true);
-                }
-            );
-            console.log(2323, accumulator);
-            // const x = accumulator.every(fg => !fg.includes(false));
-            // console.log(2323999, accumulator);
-            // return x;
-        }
-    );
-
-    // if (filterKeysValues.length) {
-    //     filteredResults = filteredResults.filter((result: IResource) => {
-    //         let hasMatch = false;
-    //
-    //         // For this result, iterate through the "true" filterGroup
-    //         // values, looking in references, author, etc.
-    //         filterKeysValues.map(([ reftype, value ]: [ string, string ]) => {
-    //             // Look in author
-    //             if (reftype === "author") {
-    //                 if (result.author && result.author.docname === value) {
-    //                     hasMatch = true;
-    //                 } else {
-    //                     hasMatch = false;
-    //                 }
-    //             } else if (reftype === "rtype") {
-    //                 if (result.rtype === value) {
-    //                     hasMatch = true;
-    //                 } else {
-    //                     hasMatch = false;
-    //                 }
-    //             } else {
-    //                 // Look in references
-    //                 const resultRefs = result.references;
-    //                 if (resultRefs) {
-    //                     resultRefs.map(
-    //                         (resultRef: IReference) => {
-    //                             if (resultRef.reftype === reftype &&
-    //                                 resultRef.docname === value) {
-    //                                 hasMatch = true;
-    //                             }
-    //                         }
-    //                     );
-    //                 } else {
-    //                     hasMatch = false;
-    //                 }
-    //             }
-    //         });
-    //
-    //         return hasMatch;
-    //     });
-    // }
-    return filteredResults;
-}
+import { IFilterGroup, IFilterGroups, IResource, IResources, IState } from "./State";
 
 export interface IActions {
     setFetching: (isFetching: boolean) => { isFetching: boolean };
