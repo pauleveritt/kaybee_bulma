@@ -285,6 +285,39 @@ export function filterResourceGroups(
     const results: boolean[] = nonEmptyFilterGroups
         .map(reftype => filterResourceGroup(reducedGroups, reftype, resource));
 
-    const keepResult = !results.includes(false);
-    return keepResult;
+    return !results.includes(false);
+}
+
+export function filterResources(
+    reducedGroups: IReducedFilterGroups,
+    resources: IResources,
+    filterTerm: string,
+    filterParent: string
+) {
+
+    let results = Object.values(resources);
+
+    // If a filterterm, filter by that
+    if (filterTerm) {
+        results = results.filter(({title, excerpt}) => {
+            const tgt = title + " " + excerpt;
+            return tgt.toLowerCase().includes(filterTerm.toLowerCase());
+        });
+    }
+
+    // If parent_docname, filter by that
+    if (filterParent) {
+        results = results.filter(
+            result => {
+                return result.parent_docnames.includes(filterParent);
+            }
+        );
+    }
+
+    // Now filter by filter groups
+    results = results.filter(
+        resource => filterResourceGroups(reducedGroups, resource)
+    );
+
+    return results;
 }

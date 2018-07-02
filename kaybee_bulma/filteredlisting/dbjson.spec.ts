@@ -1,5 +1,5 @@
 import {
-    filterResourceGroup, filterResourceGroups, IReducedFilterGroups, sampleReferences,
+    filterResourceGroup, filterResourceGroups, filterResources, IReducedFilterGroups, sampleReferences,
     sampleResources, setFilterGroups, setResources
 } from "./dbjson";
 import { reduceFilterGroups } from "./dbjson";
@@ -163,6 +163,78 @@ describe("Select Resources All Filter Groups", () => {
         const results = filterResourceGroups(reducedFilterGroups, resource1);
         expect(results).toBeFalsy();
     });
+});
+
+describe("Filter All Resources Into Results", () => {
+    // This is the top-level one called from actions
+
+    let resources: IResources = {};
+    let filterGroups: IFilterGroups = {};
+
+    beforeEach(() => {
+        resources = setResources(sampleResources, sampleReferences, "xxx");
+        filterGroups = setFilterGroups(sampleReferences, resources, undefined);
+    });
+
+    it("should filter based on searchterm", () => {
+        const reducedFilterGroups: IReducedFilterGroups = reduceFilterGroups(filterGroups);
+        const filterTerm = "the";
+        const results = filterResources(reducedFilterGroups, resources, filterTerm, "");
+        expect(results.length).toEqual(9);
+    });
+
+    it("should not filter based on empty searchterm", () => {
+        const reducedFilterGroups: IReducedFilterGroups = reduceFilterGroups(filterGroups);
+        const filterTerm = "";
+        const results = filterResources(reducedFilterGroups, resources, filterTerm, "");
+        expect(results.length).toEqual(19);
+    });
+
+    it("should filter based on parent_docname", () => {
+        const reducedFilterGroups: IReducedFilterGroups = reduceFilterGroups(filterGroups);
+        const filterParent = "articles/index";
+        const results = filterResources(reducedFilterGroups, resources, "", filterParent);
+        expect(results.length).toEqual(6);
+    });
+
+    it("should not filter based on empty parent_docname", () => {
+        const reducedFilterGroups: IReducedFilterGroups = reduceFilterGroups(filterGroups);
+        const filterParent = "";
+        const results = filterResources(reducedFilterGroups, resources, "", filterParent);
+        expect(results.length).toEqual(19);
+    });
+
+    it("should filter resources with searchterm and filter groups", () => {
+        // Select a category not matching this resource's categories
+        const categoryChoices: IFilterChoices = filterGroups.category.choices;
+        categoryChoices.angular.checked = true;
+
+        const reducedFilterGroups: IReducedFilterGroups = reduceFilterGroups(filterGroups);
+        const filterTerm = "";
+        const results = filterResources(reducedFilterGroups, resources, filterTerm, "");
+        expect(results.length).toEqual(3);
+        results.map(
+            resource => {
+                const category = resource.props.references.category;
+                expect(category.includes("angular")).toBeTruthy();
+            }
+        )
+    });
+
+    it("should filter resources with searchterm, fgs, parent", () => {
+        // Select a category not matching this resource's categories
+        const categoryChoices: IFilterChoices = filterGroups.category.choices;
+        categoryChoices.angular.checked = true;
+
+        const reducedFilterGroups: IReducedFilterGroups = reduceFilterGroups(filterGroups);
+        const filterTerm = "layout";
+        const filterParent = "articles/index";
+        const results = filterResources(reducedFilterGroups, resources, filterTerm, filterParent);
+        expect(results.length).toEqual(1);
+        const category = results[0].props.references.category;
+        expect(category.includes("angular")).toBeTruthy();
+    });
+
 });
 
 describe("Set Resources", () => {

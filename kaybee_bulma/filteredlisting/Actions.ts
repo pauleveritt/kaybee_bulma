@@ -1,6 +1,13 @@
 import { ActionsType } from "hyperapp";
 
-import { IDbJson, setFilterGroups, setResources, sortResults } from "./dbjson";
+import {
+    filterResourceGroups,
+    IDbJson,
+    reduceFilterGroups,
+    setFilterGroups,
+    setResources,
+    sortResults
+} from "./dbjson";
 import { IFilterGroup, IFilterGroups, IReference, IResource, IResources, IState } from "./State";
 
 export function filterValues(
@@ -148,8 +155,9 @@ class Actions implements ActionsType<IState, IActions> {
         // const filterKeysValues: Array<[ string, string ]> = getFilterGroupValues(state.filterGroups);
 
         // Filter results by matching any of the keysValues
-        results = filterValues(results, state.filterGroups, state.filterParent);
-
+        // results = filterValues(results, state.filterGroups, state.filterParent);
+        // const reducedGroups = reduceFilterGroups(state.filterGroups);
+        // results = filterResourceGroups(reducedGroups, )
         // Sort results by some criteria
         results = sortResults(results, state.resultInfo);
 
