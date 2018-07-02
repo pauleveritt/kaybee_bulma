@@ -274,8 +274,7 @@ export function filterResourceGroup(
             .map(reference => reference.docname);
     }
 
-    const x = results.some((label: string) => checkedReferences.includes(label));
-    return x;
+    return results.some((label: string) => checkedReferences.includes(label));
 }
 
 export function filterResourceGroups(
