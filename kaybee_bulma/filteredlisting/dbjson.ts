@@ -1,4 +1,4 @@
-import { IFilterGroups, IResource, IResources, IResultInfo } from "./State";
+import { IFilterGroups, IResource, IResources } from "./State";
 
 import catalog from "../../docs/_build/catalog.json";
 
@@ -214,7 +214,7 @@ export function setFilterGroups(
     return newFilterGroups;
 }
 
-export function sortResults(results: IResource[], resultInfo: IResultInfo) {
+export function sortResults(results: IResource[]) {
     const newResults = [ ...results ];
 
     // First we sort, ending with a reverse
@@ -228,7 +228,6 @@ export function sortResults(results: IResource[], resultInfo: IResultInfo) {
             return 0;
         }
     );
-    newResults.reverse();
 
     return newResults;
 }
@@ -264,8 +263,9 @@ export function filterResourceGroup(
     }
 
     // Sure wish resource.references was a mapping instead of an array
-    const resourceReferences: string[] = resource.references
-        .filter(reference => reference.reftype === reftype)
+    const theseReferences = resource.references
+        .filter(reference => reference.reftype === reftype);
+    const resourceReferences: string[] = theseReferences
         .map(reference => reference.docname);
 
     return resourceReferences.some((label: string) => checkedReferences.includes(label));
@@ -292,7 +292,7 @@ export function filterResources(
     reducedGroups: IReducedFilterGroups,
     resources: IResources,
     filterTerm: string,
-    filterParent: string
+    filterParent?: string
 ) {
 
     let results = Object.values(resources);

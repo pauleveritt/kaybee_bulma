@@ -67,14 +67,26 @@ describe("Select Resources Single Filter Group", () => {
         expect(result).toBeTruthy();
     });
 
-    it("should match one group with one checkbox on and one off", () => {
+    it("should match one group with two selected", () => {
         const categoryChoices: IFilterChoices = filterGroups.category.choices;
         categoryChoices.angular.checked = true;
-        categoryChoices.react.checked = false;
+        categoryChoices.react.checked = true;
         const reducedFilterGroups: IReducedFilterGroups = reduceFilterGroups(filterGroups);
         const resource1 = resources[ "articles/customizing/layout" ];
         const result = filterResourceGroup(reducedFilterGroups, "category", resource1);
         expect(result).toBeTruthy();
+    });
+
+    it("should not match one group with two wrong checkboxes", () => {
+        // Select two checkboxes that do NOT match the resources's references
+        const categoryChoices: IFilterChoices = filterGroups.category.choices;
+        categoryChoices.angular.checked = false;
+        categoryChoices.react.checked = true;
+        categoryChoices.typescript.checked = false;
+        const reducedFilterGroups: IReducedFilterGroups = reduceFilterGroups(filterGroups);
+        const resource1 = resources[ "articles/customizing/layout" ];
+        const result = filterResourceGroup(reducedFilterGroups, "category", resource1);
+        expect(result).toBeFalsy();
     });
 
     it("should match one group with one checkbox off", () => {
@@ -117,6 +129,18 @@ describe("Select Resources All Filter Groups", () => {
         const categoryChoices: IFilterChoices = filterGroups.category.choices;
         categoryChoices.angular.checked = true;
         categoryChoices.react.checked = false;
+        const reducedFilterGroups: IReducedFilterGroups = reduceFilterGroups(filterGroups);
+        const resource1 = resources[ "articles/customizing/layout" ];
+        const result = filterResourceGroups(reducedFilterGroups, resource1);
+        expect(result).toBeTruthy();
+    });
+
+    it("should match resource when good resource type check", () => {
+        expect(filterGroups).toEqual(3);
+        const rtypeChoices: IFilterChoices = filterGroups.rtype.choices;
+        expect(rtypeChoices).toEqual(3348);
+        rtypeChoices.angular.checked = true;
+        rtypeChoices.react.checked = false;
         const reducedFilterGroups: IReducedFilterGroups = reduceFilterGroups(filterGroups);
         const resource1 = resources[ "articles/customizing/layout" ];
         const result = filterResourceGroups(reducedFilterGroups, resource1);

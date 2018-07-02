@@ -1,8 +1,8 @@
 import { ActionsType } from "hyperapp";
 
 import {
-    filterResourceGroups,
-    IDbJson,
+    filterResourceGroups, filterResources,
+    IDbJson, IReducedFilterGroups,
     reduceFilterGroups,
     setFilterGroups,
     setResources,
@@ -140,26 +140,14 @@ class Actions implements ActionsType<IState, IActions> {
     setNotification = (notification: string) => ({notification});
 
     filterResults = () => (state: IState, actions: IActions) => {
-        let results = Object.values(state.resources);
 
-        // If a filterterm, filter by that
-        if (state.filterTerm) {
-            results = results.filter(({title, excerpt}) => {
-                const tgt = title + " " + excerpt;
-                return tgt.toLowerCase().includes(state.filterTerm.toLowerCase());
-            });
-        }
+        const reducedFilterGroups: IReducedFilterGroups = reduceFilterGroups(state.filterGroups);
+        const filterTerm = state.filterTerm;
+        const filterParent = state.filterParent;
+        let results = filterResources(reducedFilterGroups, state.resources, filterTerm, filterParent);
 
-        // Now filter based on checkboxes. Start by collecting all set
-        // keys/values to filter on
-        // const filterKeysValues: Array<[ string, string ]> = getFilterGroupValues(state.filterGroups);
-
-        // Filter results by matching any of the keysValues
-        // results = filterValues(results, state.filterGroups, state.filterParent);
-        // const reducedGroups = reduceFilterGroups(state.filterGroups);
-        // results = filterResourceGroups(reducedGroups, )
         // Sort results by some criteria
-        results = sortResults(results, state.resultInfo);
+        results = sortResults(results);
 
         return {results};
     };
