@@ -142,7 +142,7 @@ export function setFilterGroups(
 
     const newFilterGroups: IFilterGroups = {};
     // Make a filter group for resource types
-    newFilterGroups.rtypes = {
+    newFilterGroups.rtype = {
         label: "resource type",
         value: "rtype",
         control: "checkbox",
@@ -169,14 +169,14 @@ export function setFilterGroups(
     Object.entries(filteredResults)
         .map(([ docname, resource ]: [ string, IResource ]) => {
             // Keep track of the types that we visit
-            if (!newFilterGroups.rtypes.choices[ resource.rtype ]) {
-                newFilterGroups.rtypes.choices[ resource.rtype ] = {
+            if (!newFilterGroups.rtype.choices[ resource.rtype ]) {
+                newFilterGroups.rtype.choices[ resource.rtype ] = {
                     label: resource.rtype,
                     value: resource.rtype,
                     count: 1
                 };
             } else {
-                newFilterGroups.rtypes.choices[ resource.rtype ].count++;
+                newFilterGroups.rtype.choices[ resource.rtype ].count++;
             }
 
             if (resource.props && resource.props.references) {
@@ -262,13 +262,20 @@ export function filterResourceGroup(
         return true;
     }
 
-    // Sure wish resource.references was a mapping instead of an array
-    const theseReferences = resource.references
-        .filter(reference => reference.reftype === reftype);
-    const resourceReferences: string[] = theseReferences
-        .map(reference => reference.docname);
+    let results: string[] = [];
+    if (reftype === "rtype") {
+        // Get results from resource.rtype not resource.references
+        results = [resource.rtype];
+    } else {
+        // Sure wish resource.references was a mapping instead of an array
+        const theseReferences = resource.references
+            .filter(reference => reference.reftype === reftype);
+        results = theseReferences
+            .map(reference => reference.docname);
+    }
 
-    return resourceReferences.some((label: string) => checkedReferences.includes(label));
+    const x = results.some((label: string) => checkedReferences.includes(label));
+    return x;
 }
 
 export function filterResourceGroups(
