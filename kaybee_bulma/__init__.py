@@ -3,7 +3,10 @@ import os
 import importscan
 
 import kaybee_bulma.events
-from kaybee_bulma import filteredlisting
+from kaybee_bulma import (
+    filteredlisting,
+    toctree,
+)
 from kaybee_bulma.siteconfig import SiteConfig
 
 __version__ = "0.2.25"
@@ -30,6 +33,7 @@ def get_path():
 def setup(app):
     app.add_config_value('kaybee_bulma_siteconfig', SiteConfig(), 'html')
     importscan.scan(filteredlisting)
+    importscan.scan(toctree)
 
     return dict(
         version=__version__,
