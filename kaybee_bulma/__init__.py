@@ -9,7 +9,7 @@ from kaybee_bulma import (
 )
 from kaybee_bulma.siteconfig import SiteConfig
 
-__version__ = "0.2.27"
+__version__ = "0.2.28"
 __title__ = "kaybee_bulma"
 __description__ = "Bulma-based theme for Kaybee"
 __uri__ = "https://github.com/pauleveritt/kaybee_bulma"
