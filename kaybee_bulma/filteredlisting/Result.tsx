@@ -12,7 +12,9 @@ interface IResultProps {
 
 export default ({resource}: IResultProps) => {
 
-    const referenceValues = resource.references.map(
+    const referenceValues = resource.references
+        .filter(rf => rf.reftype !== "author")
+        .map(
         (reference: IReference) => (
             {
                 key: reference.docname,
