@@ -25,7 +25,7 @@ class MyToctree(BaseToctree):
 
         resource_references = resource.props.references
         if resource_references:
-            if resource_references['author']:
+            if 'author' in resource_references:
                 pa_label = resource_references['author'][0]
                 pa = references["author"][pa_label]
                 images = pa.props.images
