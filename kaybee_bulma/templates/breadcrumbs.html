@@ -1,0 +1,18 @@
+{% if resource.parents(resources) | length > 2 %}
+{% set breadcrumbs = resource.parents(resources)[:-1]|reverse %}
+<nav class="kbb-breadcrumb breadcrumb has-arrow-separator is-small"
+     aria-label="breadcrumbs"
+     style="margin-bottom: 0">
+    <ul style="margin-left: 0">
+        {% for parent in resource.parents(resources)[:-1]|reverse %}
+            <li>
+                <a href="{{ pathto(parent.docname) }}">{{ parent.title }}</a>
+            </li>
+        {% endfor %}
+        <li class="is-active">
+            <a href="#"
+               aria-current="page">{{ resource.title }}</a>
+        </li>
+    </ul>
+</nav>
+{% endif %}
