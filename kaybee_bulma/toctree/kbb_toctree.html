@@ -1,41 +1,51 @@
 <div class="kbb-fl">
-    {% for resource in listing %}
+    {% for entry in listing %}
         <div class="kbb-fl-result box">
             <article class="media">
                 <div class="media-left">
+                    <!--
+
+                    Handle:
+                    - Author
+
+                    Other:
+                    - Convert datetime to friendly publication date
+                    -
+
+                    -->
                     <figure class="image is-64x64 }">
-                        {% set logo = resource.logo if resource.logo else "https://cdn.worldvectorlogo.com/logos/python-5.svg" %}
+                        {% set logo = entry.logo if entry.logo else "https://cdn.worldvectorlogo.com/logos/python-5.svg" %}
                         <img src="{{ logo }}"/>
                     </figure>
                 </div>
                 <div class="media-content">
                     <div class="content">
                         <p>
-                            <a href="{{ toctree.pathto_docname(resource.href) + '.html' }}">
-                                <strong>{{ resource.title }}</strong>
+                            <a href="{{ toctree.pathto_docname(entry.href) + '.html' }}">
+                                <strong>{{ entry.title }}</strong>
                             </a>
                             <br/>
-                            <span>{{ resource.excerpt }}</span>
+                            <span>{{ entry.excerpt }}</span>
                         </p>
                     </div>
                     <nav class="level is-mobile">
                         <div class="level-left">
-                            {% if resource.author %}
+                            {% if entry.author and entry.rtype != 'author' %}
                                 <a class="level-item kbb-fl-author"
-                                   href="{{ resource.author.href + '.html' }}">
+                                   href="{{ entry.author.href + '.html' }}">
                                     <figure class="image is-rounded is-24x24">
-                                        {% if resource.author.thumbnail_url %}
-                                            <img src="{{ resource.author.thumbnail_url }}"
+                                        {% if entry.author.thumbnail_url %}
+                                            <img src="{{ entry.author.thumbnail_url }}"
                                                  height="24" width="24"/>
                                         {% endif %}
                                     </figure>
-                                    <span>{{ resource.author.title }}</span>
+                                    <span>{{ entry.author.title }}</span>
                                 </a>
                             {% endif %}
-                            {% if resource.references %}
+                            {% if entry.references %}
                                 <span class="level-item">
                                     <div class="tags">
-                                        {% for reference in resource.references %}
+                                        {% for reference in entry.references %}
                                             <span class="tag is-rounded">
                                                 <a href="{{ reference.href + '.html' }}">
                                                     {{ reference.label }}
@@ -47,16 +57,16 @@
                             {% endif %}
                         </div>
                         <div class="level-right is-size-7 has-text-grey">
-                            {% if resource.props.duration %}
+                            {% if entry.props.duration %}
                                 <span class="kbb-fl-duration level-item">
                                     <span class="icon">
                                         <i class="fas fa-video"></i>
                                     </span>
-                                    <span>{{ resource.props.duration }}</span>
+                                    <span>{{ entry.props.duration }}</span>
                                 </span>
                             {% endif %}
                             <span class="level-item">
-                                {{ resource.props.published }}
+                                {{ entry.props.published }}
                             </span>
                         </div>
                     </nav>

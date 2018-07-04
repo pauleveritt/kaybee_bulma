@@ -13,11 +13,20 @@ class MyToctree(BaseToctree):
 
         resource = entry['resource']
         logo = getattr(resource.props, 'logo', None)
+        if resource.rtype == 'author':
+            # When showing an author toctree entry, get the "logo" from
+            # the resource.props.images[0]
+            images = resource.props.images
+            if images and images[1]:
+                fn = images[1].filename
+                logo = self.pathto_docname(resource.docname) + '/../' + fn
+
         flattened_entry = dict(
             href=entry['href'],
             title=resource.title,
+            rtype=resource.rtype,
             excerpt=resource.excerpt,
-            logo=logo ,
+            logo=logo,
             props=dict(
                 published=resource.props.published,
             )
