@@ -3,16 +3,6 @@
         <div class="kbb-fl-result box">
             <article class="media">
                 <div class="media-left">
-                    <!--
-
-                    Handle:
-                    - Author
-
-                    Other:
-                    - Convert datetime to friendly publication date
-                    -
-
-                    -->
                     <figure class="image is-64x64 }">
                         {% set logo = entry.logo if entry.logo else "https://cdn.worldvectorlogo.com/logos/python-5.svg" %}
                         <img src="{{ logo }}"/>
@@ -66,7 +56,7 @@
                                 </span>
                             {% endif %}
                             <span class="level-item">
-                                {{ entry.props.published }}
+                                {{ entry.props.published.strftime('%Y-%m-%d') }}
                             </span>
                         </div>
                     </nav>
