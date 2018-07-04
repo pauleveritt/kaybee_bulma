@@ -58,7 +58,7 @@ export default ({resource}: IResultProps) => {
                                 <Duration duration={resource.props.duration}/>
                             )}
                             <span class="level-item">
-                                {resource.props.published}}
+                                {resource.props.published}
                             </span>
                         </div>
                     </nav>
