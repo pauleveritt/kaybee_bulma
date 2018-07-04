@@ -1,7 +1,22 @@
 {% extends "layout.html" %}
 {% block body %}
     {% set headshot = resource.find_prop_item('images', 'usage', 'icon_128') %}
-    <img src="{{ headshot.filename }}"/>
+
+    <article class="media">
+        <figure class="media-left">
+            <p class="image is-64x64">
+                <img src="{{ headshot.filename }}">
+            </p>
+        </figure>
+        <div class="media-content">
+            <div class="content">
+                <div class="is-size-3">
+                    {{ resource.title }}
+                </div>
+                <p> {{ resource.excerpt }}</p>
+            </div>
+        </div>
+    </article>
 
     {{ body }}
 
@@ -10,7 +25,8 @@
         {% for resource in resource.get_sources(resources) %}
             <li><a
                     class="kb-reference-item"
-                    href="{{ pathto(resource.docname, 1) + '.html'}}">{{ resource.title }}</a></li>
+                    href="{{ pathto(resource.docname, 1) + '.html' }}">{{ resource.title }}</a>
+            </li>
         {% endfor %}
     </ul>
 
