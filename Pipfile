@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+kaybee-bulma = {editable = true, file = "file:///Users/pauleveritt/projects/pauleveritt/kaybee/kaybee_bulma"}
+doctr = "*"
+livereload = "*"
+gitchangelog = "*"
+"bump2version" = "*"
+tox = "*"
+pytest = "*"
+"beautifulsoup4" = "*"
+"html5lib" = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
