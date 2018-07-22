@@ -4,35 +4,18 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description"
+          content="{{ siteconfig.description }}">
     <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
     {% if siteconfig.favicon %}
         <link rel="icon"
               href="{{ pathto('_static/' + siteconfig.favicon, 1) }}"/>
     {% endif %}
-    <link rel="stylesheet" href="{{  pathto('_static/kaybee_bulma.css', 1) }}"/>
-    <script defer src="{{ pathto('_static/kaybee_bulma.js', 1) }}"></script>
+    <link rel="stylesheet" href="{{  pathto('_static/css/bulmaio.css', 1) }}"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
-<body>
-{% set style = resource.acquire(resources, 'style') if resource else None %}
-<section>
-    {% include "navbar.html" %}
-</section>
-<section
-        class="hero {{ 'is-' + style if style else '' }}"
-        style="{% block hero_image %}{% endblock %}">
-    <div class="hero-head">
-    </div>
-    {% block hero %}{% endblock %}
-</section>
-
-<section class="section content {{ resource.rtype if resource }}"
-         id="kbb-sphinx-body">
-    {% block body %}{% endblock %}
-</section>
-
-{% include "footer.html" %}
-{% include "document_settings.html" %}
+<body class="layout-default">
+{% include 'header.html' %}
 
 </body>
 </html>

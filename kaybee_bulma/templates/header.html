@@ -1,0 +1,16 @@
+{% from 'macros/navbar.html' import brand, start, end %}
+<nav id="navbar" class="navbar has-shadow is-spaced">
+    <div class="container">
+        {{ brand(
+        href=pathto('index'),
+        github_url=siteconfig.social_media.github,
+        twitter_url=siteconfig.social_media.twitter,
+        img_file= siteconfig.logo.img_file and pathto('_static/' + siteconfig.logo.img_file, 1) or  siteconfig.logo.img_url,
+        alt='Bulma: a modern CSS framework based on Flexbox'
+                ) }}
+        <div id="navMenuIndex" class="navbar-menu">
+            {{ start(entries=siteconfig.navbar['start']) }}
+            {{ end(links=siteconfig.navbar['end'].links, buttons=siteconfig.navbar['end'].buttons) }}
+        </div>
+    </div>
+</nav>

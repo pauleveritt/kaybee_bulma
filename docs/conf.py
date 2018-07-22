@@ -94,13 +94,24 @@ kaybee_bulma_siteconfig = SiteConfig(
     social_media=dict(
         twitter='xxx',
         github='xxx'
+    ),
+    description='Extensible Knowledge Base for Static Sites',
+    navbar=dict(
+        start=[
+            dict(
+                css_class='documentation',
+                accent='primary',
+                icon='book',
+                label='Documentation',
+                label_narrow='Docs',
+                href='/documentation.html'
+            )
+        ]
     )
 )
-
 
 kaybee_settings = kaybee.KaybeeSettings(
     articles=dict(
         use_toctree=True
     )
 )
-
