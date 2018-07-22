@@ -105,10 +105,66 @@ kaybee_bulma_siteconfig = SiteConfig(
                 label='Documentation',
                 label_narrow='Docs',
                 href='/documentation.html'
-            )
-        ]
+            ),
+            dict(
+                css_class='videos',
+                accent='success',
+                icon='play-circle',
+                label='Videos',
+                href='/videos.html'
+            ),
+            dict(
+                css_class='documentation',
+                accent='primary',
+                icon='book',
+                label='Documentation',
+                label_narrow='Docs',
+                href='/documentation.html'
+            ),
+            dict(
+                css_class='documentation',
+                accent='primary',
+                icon='book',
+                label='Documentation',
+                label_narrow='Docs',
+                href='/documentation.html'
+            ),
+        ],
+        end=dict(
+            links=[
+                dict(
+                    color='333',
+                    href='github',
+                    icon='github-alt',
+                ),
+                dict(
+                    color='55acee',
+                    href='twitter',
+                    icon='twitter',
+                ),
+            ],
+            buttons=[
+                dict(
+                    accent='danger',
+                    href='xxx',
+                    label='Participate'
+                ),
+
+            ]
+        )
     )
 )
+
+'''
+  buttons:
+    - accent: danger
+      href: https://www.patreon.com/jgthms
+      label: Donate
+    - accent: primary
+      href: https://github.com/jgthms/bulma/releases/download/0.7.1/bulma-0.7.1.zip
+      label: Download
+'''
+
 
 kaybee_settings = kaybee.KaybeeSettings(
     articles=dict(

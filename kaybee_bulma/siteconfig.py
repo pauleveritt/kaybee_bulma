@@ -14,7 +14,7 @@ class SocialMedia(BaseModel):
     github: str = None
 
 
-class NavbarEntry(BaseModel):
+class NavbarStartEntry(BaseModel):
     css_class: str
     accent: str
     icon: str
@@ -23,9 +23,26 @@ class NavbarEntry(BaseModel):
     href: str
 
 
+class NavbarEndLink(BaseModel):
+    color: str
+    href: str
+    icon: str
+
+
+class NavbarEndButton(BaseModel):
+    accent: str
+    href: str
+    label: str
+
+
+class NavbarEnd(BaseModel):
+    links: List[NavbarEndLink]
+    buttons: List[NavbarEndButton]
+
+
 class Navbar(BaseModel):
-    start: List[NavbarEntry] = []
-    end: List[NavbarEntry] = []
+    start: List[NavbarStartEntry] = []
+    end: NavbarEnd = None
 
 
 class SiteConfig(BaseModel):
