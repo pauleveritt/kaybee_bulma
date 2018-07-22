@@ -1,17 +1,6 @@
-<footer class="footer{{ ' is-' + style if style else '' }}">
+{% from 'macros/endmatter.html' import links %}
+<footer class="footer">
     <div class="container">
-        <div class="content has-text-centered">
-            <p>
-                Powered by Kaybee, which uses
-                <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>,
-                <a href="http://bulma.io">Bulma</a>,
-                <a href="http://dectate.readthedocs.io/en/latest/">Dectate</a>,
-                <a href="https://pydantic-docs.helpmanual.io">pydantic</a>,
-                and more.
-            </p>
-            <p id="kb-config-copyright">
-                &copy; {{ siteconfig.copyright or 'All Rights Reserved' }}
-            </p>
-        </div>
+        {{ links(columns=siteconfig.footer.links.columns) }}
     </div>
 </footer>

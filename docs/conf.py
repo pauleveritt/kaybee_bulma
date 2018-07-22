@@ -152,19 +152,104 @@ kaybee_bulma_siteconfig = SiteConfig(
 
             ]
         )
+    ),
+    footer=dict(
+        links=dict(
+            columns=[
+                # Column 1
+                dict(
+                    groups=[
+                        # Group 1
+                        dict(
+                            label='Home',
+                            href='/x',
+                        ),
+                        # Group 2
+                        dict(
+                            label='Blog',
+                            href='/x',
+                            more=dict(
+                                label='View all posts',
+                                href='/x'
+                            ),
+                            entries=[
+                                dict(
+                                    label='Automatic variables docs',
+                                    href='/x',
+                                ),
+                                dict(
+                                    label='Migrating to v0.7.0',
+                                    href='/x',
+                                ),
+                                dict(
+                                    label='Website redesign',
+                                    href='/x',
+                                ),
+                            ]
+                        ),
+                    ]
+                ),
+                # Column 2
+                dict(
+                    groups=[
+                        # Group 1
+                        dict(
+                            label='Documentation',
+                            href='/x',
+                            entries=[
+                                dict(
+                                    label='Overview',
+                                    href='/x',
+                                ),
+                                dict(
+                                    label='Customize',
+                                    href='/x',
+                                ),
+                                dict(
+                                    label='Modifiers',
+                                    href='/x',
+                                ),
+                            ]
+                        ),
+                    ]
+                ),
+                # Column 3
+                dict(
+                    fullsize=True,
+                    groups=[
+                        dict(
+                            label='More',
+                            href='/x',
+                            entries=[
+                                dict(
+                                    label='Expo',
+                                    icon='star',
+                                    accent='star',
+                                    subtitle='Official Bulma showcase',
+                                    href='/x'
+                                ),
+                                dict(
+                                    label='Love',
+                                    icon='heart',
+                                    accent='danger',
+                                    subtitle='Fans of Bulma around the world',
+                                    href='/x'
+                                ),
+                                dict(
+                                    label='Bulma start',
+                                    icon='rocket',
+                                    accent='success',
+                                    subtitle='A tiny npm package to get started',
+                                    href='/x'
+                                ),
+                            ]
+                        )
+                    ]
+                ),
+            ]
+        )
     )
 )
-
-'''
-  buttons:
-    - accent: danger
-      href: https://www.patreon.com/jgthms
-      label: Donate
-    - accent: primary
-      href: https://github.com/jgthms/bulma/releases/download/0.7.1/bulma-0.7.1.zip
-      label: Download
-'''
-
 
 kaybee_settings = kaybee.KaybeeSettings(
     articles=dict(

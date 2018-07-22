@@ -45,6 +45,39 @@ class Navbar(BaseModel):
     end: NavbarEnd = None
 
 
+class FooterGroupMore(BaseModel):
+    label: str
+    href: str
+
+
+class FooterEntry(BaseModel):
+    label: str
+    href: str
+    icon: str = None
+    subtitle: str = None
+    accent: str = None
+
+
+class FooterGroup(BaseModel):
+    label: str
+    href: str = None
+    more: FooterGroupMore = None
+    entries: List[FooterEntry] = []
+
+
+class FooterColumn(BaseModel):
+    groups: List[FooterGroup] = None
+    fullsize: bool = False
+
+
+class FooterLinks(BaseModel):
+    columns: List[FooterColumn] = []
+
+
+class Footer(BaseModel):
+    links: FooterLinks = None
+
+
 class SiteConfig(BaseModel):
     logo: Logo = None
     social_media: SocialMedia = None
@@ -54,3 +87,4 @@ class SiteConfig(BaseModel):
     is_debug = False
     description: str = None
     navbar: Navbar = None
+    footer: Footer = None
