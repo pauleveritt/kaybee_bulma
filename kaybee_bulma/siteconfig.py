@@ -48,8 +48,8 @@ class Navbar(BaseModel):
 class SiteConfig(BaseModel):
     logo: Logo = None
     social_media: SocialMedia = None
-    copyright = 'All Rights Reserved'
-    feed_url: str = None
+    copyright: str = 'All Rights Reserved'
+    feed_url: str = ''
     favicon: str = None
     is_debug = False
     description: str = None
