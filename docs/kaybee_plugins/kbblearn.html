@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% from 'macros/article.html' import breadcrumbs, heading, sidebar %}
+{% from 'macros/article.html' import breadcrumbs, heading, subsections, sidebar %}
 {% block body %}
     <main class="bd-main">
         <div class="bd-side-background"></div>
@@ -10,7 +10,7 @@
                                         {{ heading(title=resource.title, subtitle=resource.excerpt) }}
 
                     <div class="bd-content">
-                        <h1>Hello</h1>
+                        {{ subsections(entries=resource.section_entries) }}
                     </div>
                 </div>
                 {{ sidebar(entries=resource.sidebar_entries) }}
