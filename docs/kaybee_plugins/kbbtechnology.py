@@ -103,7 +103,8 @@ class KbbTechnology(BaseArticleReference):
                 if reftype != 'author':
                     for label in labels:
                         this_ref = this_reftype[label]
-                        this_href = relative_uri(resource.docname, this_ref.docname)
+                        this_href = relative_uri(resource.docname,
+                                                 this_ref.docname)
                         these_references.append(
                             dict(
                                 label=label,
@@ -115,7 +116,7 @@ class KbbTechnology(BaseArticleReference):
     def section_entries(self, resources, references):
         results = self.get_sources(resources)
 
-        rr =  [
+        return [
             dict(
                 title=r.title,
                 rtype=r.rtype,
@@ -131,5 +132,3 @@ class KbbTechnology(BaseArticleReference):
             )
             for r in results
         ]
-
-        return rr

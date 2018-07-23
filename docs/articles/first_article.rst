@@ -1,4 +1,4 @@
-.. article::
+.. kbbarticle::
     published: 2015-01-02 12:01
     weight: 20
     references:
