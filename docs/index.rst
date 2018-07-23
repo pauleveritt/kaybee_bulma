@@ -59,6 +59,7 @@ Contents
 
     learn
     about
+    technologies/index
     blog/index
     articles/index
     features/index
