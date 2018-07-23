@@ -99,12 +99,12 @@ kaybee_bulma_siteconfig = SiteConfig(
     description='Extensible Knowledge Base for Static Sites',
     navbar=dict(
         start=[
-            dict(
-                css_class='documentation',
-                accent='primary',
-                label='PyCharm Guide',
-                href='/'
-            ),
+            # dict(
+            #     css_class='documentation',
+            #     accent='primary',
+            #     label='PyCharm Guide',
+            #     href='/'
+            # ),
             dict(
                 css_class='documentation',
                 accent='primary',
