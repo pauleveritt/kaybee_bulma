@@ -3,6 +3,7 @@ from kaybee.plugins.articles.base_article_reference import \
     (
     BaseArticleReference, BaseArticleReferenceModel
 )
+from kaybee.plugins.queries.service import Query
 
 from ruamel.yaml import load, Loader
 
@@ -68,6 +69,21 @@ class KbbTopic(BaseArticleReference):
             ),
         ]
 
-    @property
-    def section_entries(self):
-        return content['sections']
+    def section_entries(self, resources):
+        query = self.props.sidebar_entries
+        results = Query.filter_collection(
+            resources,
+            rtype='kbbtechnology',
+            sort_value='title',
+        )
+
+        return [
+            dict(
+                label=r.title,
+                subheading=r.subheading,
+                docname=r.docname,
+                accent='primary',
+                icon='fas fa-eye'
+            )
+            for r in results
+        ]

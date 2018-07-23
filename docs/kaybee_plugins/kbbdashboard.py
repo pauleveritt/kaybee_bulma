@@ -1,5 +1,6 @@
 from kaybee.app import kb
 from kaybee.plugins.articles.base_article import BaseArticle, BaseArticleModel
+from kaybee.plugins.queries.service import Query
 from ruamel.yaml import load, Loader
 
 content = load('''
@@ -47,9 +48,23 @@ class KbbDashboardModel(BaseArticleModel):
 class KbbDashboardResource(BaseArticle):
     props: KbbDashboardModel
 
-    @property
-    def dashboard_entries(self):
-        return content['dashboards']
+    def section_entries(self, resources):
+        results = Query.filter_collection(
+            resources,
+            rtype='kbbtechnology',
+            sort_value='title',
+        )
+
+        return [
+            dict(
+                label=r.title,
+                subheading=r.excerpt,
+                docname=r.docname,
+                accent='primary',
+                icon='fas fa-eye'
+            )
+            for r in results
+        ]
 
     def sidebar_entries(self, resources):
         return []

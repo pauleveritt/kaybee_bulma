@@ -58,7 +58,7 @@ def theme_into_html_context(
             label=r.title,
             docname=r.docname,
             is_active=r.sidebar_is_active(pagename, resources),
-            entries=r.sidebar_entries(resources_values),
+            entries=r.sidebar_entries(resources),
         )
         for r in resources_values if
         getattr(r.props, 'sidebar_order', False)

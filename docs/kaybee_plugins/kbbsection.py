@@ -53,10 +53,6 @@ class KbbSectionResource(BaseArticle):
     def breadcrumb_entries(self, resources):
         return []
 
-    @property
-    def section_entries(self):
-        return content['sections']
-
     def sidebar_entries(self, resources):
         query = self.props.sidebar_entries
         results = Query.filter_collection(
@@ -71,6 +67,25 @@ class KbbSectionResource(BaseArticle):
             dict(
                 label=r.title,
                 docname=r.docname
+            )
+            for r in results
+        ]
+
+    def section_entries(self, resources):
+        query = self.props.sidebar_entries
+        results = Query.filter_collection(
+            resources,
+            rtype=query.rtype,
+            sort_value=query.sort_value,
+        )
+
+        return [
+            dict(
+                label=r.title,
+                subheading=r.title,
+                docname=r.docname,
+                accent='primary',
+                icon='fas fa-eye'
             )
             for r in results
         ]

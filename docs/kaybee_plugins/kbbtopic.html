@@ -15,7 +15,8 @@
                             website=resource.props.website) }}
 
                     <div class="bd-content">
-                        {{ subsections(entries=resource.section_entries) }}
+                        {{ subsections(
+                        entries=resource.section_entries(resources), pathto=pathto) }}
                     </div>
                 </div>
                 {{ sidebar(entries=sidebar_entries, pathto=pathto) }}

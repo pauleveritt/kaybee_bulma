@@ -5,7 +5,6 @@
     sidebar_order: 20
     sidebar_entries:
       rtype: kbbtechnology
-      limit: 5
 
 ============
 Technologies

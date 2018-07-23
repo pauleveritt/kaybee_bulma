@@ -74,12 +74,12 @@
     {% endif %}
 {% endmacro %}
 
-{% macro subsections (entries) %}
+{% macro subsections (entries, pathto) %}
     {% if entries %}
         <nav class="bd-links">
             {% for entry in entries %}
                 <a class="bd-link"
-                   href="{{ entry.href }}">
+                   href="{{ pathto(entry.docname, 0) }}">
 
                     <h2 class="bd-link-name">
                         <figure class="bd-link-figure">
