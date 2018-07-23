@@ -40,7 +40,7 @@ sections:
 
 
 class KbbSectionModel(BaseArticleModel):
-    pass
+    sidebar_order: int
 
 
 @kb.resource('kbbsection')
@@ -53,3 +53,14 @@ class KbbSectionResource(BaseArticle):
     @property
     def section_entries(self):
         return content['sections']
+
+    def sidebar_entries(self, resources):
+        return [
+            dict(
+                label='Django (23)',
+                href='/x'
+            )
+        ]
+
+    def sidebar_is_active(self, pagename):
+        return self.docname in pagename

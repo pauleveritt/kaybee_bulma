@@ -2,13 +2,12 @@ import inspect
 import os
 from operator import attrgetter
 
-import kaybee_bulma
 from kaybee import SphinxEvent
 from kaybee.app import kb
 from sphinx.application import Sphinx
 from sphinx.jinja2glue import SphinxFileSystemLoader
 
-from docs.kaybee_plugins.shared import sidebar
+import kaybee_bulma
 
 
 @kb.event(SphinxEvent.BI, scope='kaybee_bulma')
