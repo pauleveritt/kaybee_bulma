@@ -8,6 +8,8 @@ from kaybee.app import kb
 from sphinx.application import Sphinx
 from sphinx.jinja2glue import SphinxFileSystemLoader
 
+from docs.kaybee_plugins.shared import sidebar
+
 
 @kb.event(SphinxEvent.BI, scope='kaybee_bulma')
 def handle_builderinit(kb_app: kb, sphinx_app):
@@ -33,11 +35,6 @@ def theme_into_html_context(
         templatename: str,
         context,
         doctree):
-    class Site:
-        def __init__(self):
-            self.config = sphinx_app.config.kaybee_bulma_siteconfig
-
-    # context['site'] = Site()
 
     context['siteconfig'] = sphinx_app.config.kaybee_bulma_siteconfig
 
@@ -51,3 +48,20 @@ def theme_into_html_context(
                                 key=lambda x: (
                                     x.props.weight, attrgetter('title')(x))
                                 )
+
+    # TODO After the great refactoring, move this out into a component
+    # instead of calculating this whether it is needed or not on the
+    # current page
+
+    sidebar_entries = [
+        dict(
+            label=r.title,
+            docname=r.docname,
+            is_active=r.sidebar_is_active(pagename),
+            entries=r.sidebar_entries(resources),
+        )
+        for r in sphinx_app.env.resources.values() if
+        getattr(r.props, 'sidebar_order', False)
+    ]
+
+    context['sidebar_entries'] = sidebar_entries

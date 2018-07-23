@@ -53,11 +53,9 @@ Contents
 --------
 
 .. toctree::
-    :maxdepth: 2
     :hidden:
-    :caption: Contents:
 
-    learn
+    learn/index
     about
     technologies/index
     blog/index

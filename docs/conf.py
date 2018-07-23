@@ -110,7 +110,7 @@ kaybee_bulma_siteconfig = SiteConfig(
                 accent='primary',
                 icon='book',
                 label='Learn',
-                href='/learn.html'
+                href='/learn/'
             ),
             dict(
                 css_class='blog',

@@ -2,8 +2,6 @@ from kaybee.app import kb
 from kaybee.plugins.articles.base_article import BaseArticle, BaseArticleModel
 from ruamel.yaml import load, Loader
 
-from docs.kaybee_plugins.shared import sidebar
-
 content = load('''
 sections:
     - label: Angular
@@ -51,10 +49,6 @@ class KbbSectionResource(BaseArticle):
 
     def breadcrumb_entries(self, resources):
         return []
-
-    @property
-    def sidebar_entries(self):
-        return sidebar
 
     @property
     def section_entries(self):

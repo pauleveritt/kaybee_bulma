@@ -1,16 +1,12 @@
 from kaybee.app import kb
-from kaybee.plugins.articles.base_article_reference import \
-    (
-    BaseArticleReference, BaseArticleReferenceModel
-)
-
+from kaybee.plugins.articles.base_article import BaseArticle, BaseArticleModel
 from ruamel.yaml import load, Loader
 
 content = load('''
-sections:
+dashboards:
     - label: Angular
       subheading:  An overview of useful sublistings... new, favorites, etc.
-      href: /documentation_overview.html
+      href: /technologies/angular.html
       accent: primary
       icon: fas fa-eye
     - label: Django
@@ -43,31 +39,20 @@ sections:
 ''', Loader=Loader)
 
 
-class KbbTechnologyModel(BaseArticleReferenceModel):
-    website: str
+class KbbDashboardModel(BaseArticleModel):
+    sidebar_order: int
 
 
-@kb.resource('kbbtechnology')
-class KbbTechnology(BaseArticleReference):
-    props: KbbTechnologyModel
-
-    def breadcrumb_entries(self, resources):
-        return [
-            dict(
-                label='Home',
-                href='/'
-            ),
-            dict(
-                label='Technologies',
-                href='/technologies/'
-            ),
-            dict(
-                label='Angular',
-                href='/technologies/angular.html',
-                is_active=True
-            ),
-        ]
+@kb.resource('kbbdashboard')
+class KbbDashboardResource(BaseArticle):
+    props: KbbDashboardModel
 
     @property
-    def section_entries(self):
-        return content['sections']
+    def dashboard_entries(self):
+        return content['dashboards']
+
+    def sidebar_entries(self, resources):
+        return []
+
+    def sidebar_is_active(self, pagename):
+        return self.docname in pagename

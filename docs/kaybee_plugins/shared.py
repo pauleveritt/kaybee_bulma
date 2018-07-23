@@ -3,7 +3,7 @@ from ruamel.yaml import load, Loader
 sidebar = load('''
 sidebar:
   - label: Dashboard
-    href: /dashboard.html
+    href: /learn/dashboard.html
   - label: Technologies
     href: /technologies/
     is_active: true

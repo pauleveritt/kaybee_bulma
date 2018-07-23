@@ -7,3 +7,8 @@
 Learn
 =====
 
+
+.. toctree::
+    :hidden:
+
+    dashboard
