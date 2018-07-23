@@ -106,7 +106,7 @@
     </nav>
 {% endmacro %}
 
-{% macro sidebar (entries) %}
+{% macro sidebar (entries, pathto) %}
     {% if entries %}
         <aside class="bd-side">
             <nav id="categories" class="bd-categories">
@@ -119,7 +119,7 @@
                                 </span>
                             </a>
                             <a class="bd-category-name "
-                               href="{{ topentry.href }}">
+                               href="{{ pathto(topentry.docname, 0) }}">
                                 <strong>{{ topentry.label }}</strong>
                                 {% if topentry.is_new %}
                                     <span class="tag is-success">
@@ -133,15 +133,15 @@
                             <ul class="bd-category-list">
                                 {% for subentry in topentry.entries %}
                                     <li>
-                                        <a href="{{ subentry.href }}">
+                                        <a href="{{ pathto(subentry.docname, 0) }}">
                                             {{ subentry.label }}
                                         </a>
                                     </li>
                                 {% endfor %}
-                                {% if topentry.more %}
+                                {% if topentry.entries | length %}
                                     <li>
-                                        <a href="{{ topentry.more.href }}">
-                                            {{ topentry.more.label }}
+                                        <a href="{{ pathto(topentry.docname, 0) }}">
+                                            All...
                                         </a>
                                     </li>
                                 {% endif %}

@@ -54,5 +54,5 @@ class KbbDashboardResource(BaseArticle):
     def sidebar_entries(self, resources):
         return []
 
-    def sidebar_is_active(self, pagename):
+    def sidebar_is_active(self, pagename, resources):
         return self.docname in pagename

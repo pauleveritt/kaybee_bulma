@@ -7,13 +7,13 @@
             <div class="bd-duo">
                 <div class="bd-lead">
                     {{ breadcrumbs(entries=resource.breadcrumb_entries(resources)) }}
-                                        {{ heading(title=resource.title, subtitle=resource.excerpt) }}
+                    {{ heading(title=resource.title, subtitle=resource.excerpt) }}
 
                     <div class="bd-content">
                         {{ subsections(entries=resource.section_entries) }}
                     </div>
                 </div>
-                {{ sidebar(entries=resource.sidebar_entries) }}
+                {{ sidebar(entries=sidebar_entries, pathto=pathto) }}
             </div>
         </div>
     </main>

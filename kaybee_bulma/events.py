@@ -38,12 +38,13 @@ def theme_into_html_context(
     context['siteconfig'] = sphinx_app.config.kaybee_bulma_siteconfig
 
     resources = sphinx_app.env.resources
-    resources = [r for r in resources.values() if
+    resources_values = sphinx_app.env.resources.values()
+    filtered_resources = [r for r in resources_values if
                  getattr(r.props, 'in_nav', False) and
                  r.props.in_nav and r.is_published]
 
     # Sort first by title, then by "weight"
-    context['navmenu'] = sorted(resources,
+    context['navmenu'] = sorted(filtered_resources,
                                 key=lambda x: (
                                     x.props.weight, attrgetter('title')(x))
                                 )
@@ -56,10 +57,10 @@ def theme_into_html_context(
         dict(
             label=r.title,
             docname=r.docname,
-            is_active=r.sidebar_is_active(pagename),
-            entries=r.sidebar_entries(resources),
+            is_active=r.sidebar_is_active(pagename, resources),
+            entries=r.sidebar_entries(resources_values),
         )
-        for r in sphinx_app.env.resources.values() if
+        for r in resources_values if
         getattr(r.props, 'sidebar_order', False)
     ]
 
