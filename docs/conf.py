@@ -85,13 +85,13 @@ html_static_path = ['_static']
 
 # kaybee config
 kaybee_bulma_siteconfig = SiteConfig(
-    title='kaybee-bulma',
+    title='PyCharm Guide',
     logo=dict(
-        img_file='kaybee_logo.png',
+        img_file='PyCharm_Logo.svg.png',
         alt='Kaybee Logo Alt'
     ),
     copyright='2018, All Rights Reserved',
-    favicon='kaybee_logo.png',
+    favicon='jetbrains_favicon.ico',
     social_media=dict(
         twitter='xxx',
         github='xxx'
@@ -102,7 +102,7 @@ kaybee_bulma_siteconfig = SiteConfig(
             dict(
                 css_class='documentation',
                 accent='primary',
-                label='kaybee-bulma',
+                label='PyCharm Guide',
                 href='/'
             ),
             dict(
