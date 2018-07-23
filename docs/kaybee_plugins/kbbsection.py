@@ -82,10 +82,11 @@ class KbbSectionResource(BaseArticle):
         return [
             dict(
                 label=r.title,
-                subheading=r.title,
+                subheading=r.excerpt,
                 docname=r.docname,
                 accent='primary',
-                icon='fas fa-eye'
+                icon='fas fa-eye',
+                logo=r.props.logo
             )
             for r in results
         ]

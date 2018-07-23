@@ -15,31 +15,35 @@
 {% endmacro %}
 
 {% macro heading (title, subtitle, logo, website) %}
-    {% if logo %}
-        <article class="media">
-            {% if logo %}
-                <figure class="media-left">
-                    <p class="image is-128x128">
-                        <img src="{{ logo }}">
-                    </p>
-                </figure>
-            {% endif %}
-            <div class="media-content">
-                <div class="content">
-                    <div class="title is-2">
-                        {{ title }}
-                    </div>
-                    <p> {{ subtitle }}</p>
-                    {% if website %}
-                        <p>
-                            <a href="{{ website }}">Website</a>
+    <header class="bd-header">
+
+        {% if logo %}
+            <article class="media">
+                {% if logo %}
+                    <figure class="media-left">
+                        <p class="image is-64x64">
+                            <img src="{{ logo }}">
                         </p>
-                    {% endif %}
+                    </figure>
+                {% endif %}
+                <div class="media-content">
+                    <div class="content">
+                        <div class="title is-2">
+                            {{ title }}
+                        </div>
+                        <p>
+                            {{ subtitle }}
+
+                        </p>
+                        {% if website %}
+                            <p>
+                                <a href="{{ website }}">Website</a>
+                            </p>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
-        </article>
-    {% else %}
-        <header class="bd-header">
+            </article>
+        {% else %}
             <div class="bd-header-titles">
                 <h1 class="title">
                     {{ title }}
@@ -51,9 +55,8 @@
                 </p>
 
             </div>
-
-        </header>
-    {% endif %}
+        {% endif %}
+    </header>
 {% endmacro %}
 
 {% macro tabs (entries) %}
@@ -83,11 +86,13 @@
 
                     <h2 class="bd-link-name">
                         <figure class="bd-link-figure">
-
-                            <span class="bd-link-icon has-text-{{ entry.accent }}">
-                                <i class="{{ entry.icon }}"></i>
-                            </span>
-
+                            {% if entry.logo %}
+                                <img src="{{ entry.logo }}">
+                            {% else %}
+                                <span class="bd-link-icon has-text-{{ entry.accent }}">
+                                    <i class="{{ entry.icon }}"></i>
+                                </span>
+                            {% endif %}
                         </figure>
                         {{ entry.label }}
                     </h2>

@@ -79,7 +79,7 @@ class KbbTechnology(BaseArticleReference):
                 subheading=r.excerpt,
                 docname=r.docname,
                 accent='primary',
-                icon='fas fa-eye'
+                icon='fas fa-eye',
             )
             for r in results
         ]
