@@ -1,5 +1,9 @@
 from kaybee.app import kb
-from kaybee.plugins.articles.base_article import BaseArticle, BaseArticleModel
+from kaybee.plugins.articles.base_article_reference import \
+    (
+    BaseArticleReference, BaseArticleReferenceModel
+)
+
 from ruamel.yaml import load, Loader
 
 from docs.kaybee_plugins.shared import sidebar
@@ -8,7 +12,7 @@ content = load('''
 sections:
     - label: Angular
       subheading:  An overview of useful sublistings... new, favorites, etc.
-      href: /technologies/angular.html
+      href: /documentation_overview.html
       accent: primary
       icon: fas fa-eye
     - label: Django
@@ -41,16 +45,30 @@ sections:
 ''', Loader=Loader)
 
 
-class KbbSectionModel(BaseArticleModel):
-    pass
+class KbbTechnologyModel(BaseArticleReferenceModel):
+    website: str
 
 
-@kb.resource('kbbsection')
-class KbbSectionResource(BaseArticle):
-    props: KbbSectionModel
+@kb.resource('kbbtechnology')
+class KbbTechnology(BaseArticleReference):
+    props: KbbTechnologyModel
 
     def breadcrumb_entries(self, resources):
-        return []
+        return [
+            dict(
+                label='Home',
+                href='/'
+            ),
+            dict(
+                label='Technologies',
+                href='/technologies/'
+            ),
+            dict(
+                label='Angular',
+                href='/technologies/angular.html',
+                is_active=True
+            ),
+        ]
 
     @property
     def sidebar_entries(self):

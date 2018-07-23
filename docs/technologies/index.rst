@@ -6,3 +6,9 @@
 ============
 Technologies
 ============
+
+.. toctree::
+    :glob:
+    :hidden:
+
+    *

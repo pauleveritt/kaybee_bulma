@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% from 'macros/article.html' import breadcrumbs, heading, subsections, sidebar %}
+{% block body %}
+    <main class="bd-main">
+        <div class="bd-side-background"></div>
+        <div class="bd-main-container container">
+            <div class="bd-duo">
+                <div class="bd-lead">
+                    {{ breadcrumbs(entries=resource.breadcrumb_entries(resources)) }}
+                                        {{ heading(title=resource.title, subtitle=resource.excerpt) }}
+
+                    <div class="bd-content">
+                        {{ subsections(entries=resource.section_entries) }}
+                    </div>
+                </div>
+                {{ sidebar(entries=resource.sidebar_entries) }}
+            </div>
+        </div>
+    </main>
+{% endblock %}
