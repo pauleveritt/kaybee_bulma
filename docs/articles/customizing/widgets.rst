@@ -2,9 +2,9 @@
 Customizing Widgets
 ===================
 
-.. article::
+.. kbbarticle::
     published: 2017-10-01 00:00
-    primary_reference: categories/typescript
+    primary_reference: technologies/typescript
     references:
         author:
             - pauleveritt

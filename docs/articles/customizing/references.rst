@@ -2,15 +2,12 @@
 Customizing References
 ======================
 
-.. article::
+.. kbbarticle::
     published: 2017-10-01 00:00
-    primary_reference: categories/react
+    primary_reference: technologies/react
     references:
         kbbtechnology:
             - ansible
-            - angular
-        category:
-            - react
             - angular
         author:
             - pauleveritt

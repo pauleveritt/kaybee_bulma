@@ -1,9 +1,9 @@
-.. article::
+.. kbbarticle::
     published: 2017-10-01 00:00
     excerpt:
         The templating and CSS features for Kaybee, in detail.
     references:
-        category:
+        kbbtechnology:
             - typescript
             - react
         author:

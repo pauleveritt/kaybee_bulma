@@ -232,7 +232,7 @@
     {% endfor %}
 {% endmacro %}
 
-{% macro article_sidebar (resource, references, pathto) %}
+{% macro article_sidebar (resource, resources, references, prev, next, steps, pathto) %}
     <aside class="bd-side kbb-sidenav">
 
         <div id="kb-sidenav-published-heading">
@@ -282,6 +282,66 @@
                 </ul>
             {% endif %}
         </div>
+
+        {% if prev %}
+            <p class="menu-label">
+                Previous
+            </p>
+            <ul class="menu-list">
+                <a href="{{ prev.link|e }}"
+                   title="{{ _('previous chapter') }}">{{ prev.title }}</a>
+            </ul>
+        {% endif %}
+
+        {% if next %}
+            <p class="menu-label">
+                Next
+            </p>
+            <ul class="menu-list">
+                <a href="{{ next.link|e }}"
+                   title="{{ _('next chapter') }}">{{ next.title }}</a>
+            </ul>
+        {% endif %}
+
+
+
+
+        {% for reference_label in resource.props.references.keys() %}
+            {% if reference_label != 'author' %}
+                <p class="menu-label">
+                    <span style="text-transform: uppercase">{{ reference_label }}</span>
+                </p>
+                <p>
+                    {% for reference in references.resource_references(resource)[reference_label] %}
+                        <a href="{{ pathto(reference.docname, 0) }}">
+                            <span class="tag">{{ reference.props.label }}</span>
+                        </a>
+                    {% endfor %}
+                </p>
+            {% endif %}
+        {% endfor %}
+
+
+        {% if steps %}
+            <p class="menu-label">
+                Tutorial Steps
+            </p>
+
+            <ul class="steps is-vertical is-small menu-list">
+                {% for step_docname in steps %}
+                    {% set step = resources[step_docname] %}
+                    {% set is_active = step_docname ==  resource.docname %}
+                    {% set marker = 'is-info' if is_active else 'is-primary' %}
+                    <li class="steps-segment">
+                        <span href="{{ pathto(step_docname) }}"
+                              class="steps-marker {{ marker }}">{{ loop.index }}</span>
+                        <div class="steps-content">
+                            <a href="{{ pathto(step_docname) }}">{{ step.title }}</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
 
     </aside>

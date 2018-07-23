@@ -113,6 +113,15 @@ class KbbTechnology(BaseArticleReference):
                         )
             return these_references
 
+    def _get_logo(self, resource, resources):
+        # Find the primary_reference logo
+        primary_reference = resource.props.primary_reference
+        if not primary_reference:
+            return PYTHON_LOGO
+        reference_resource = resources[primary_reference]
+        logo = reference_resource.props.logo
+        return logo if logo else PYTHON_LOGO
+
     def section_entries(self, resources, references):
         results = self.get_sources(resources)
 
@@ -128,7 +137,7 @@ class KbbTechnology(BaseArticleReference):
                 icon='fas fa-eye',
                 author=self._get_author(r, references),
                 references=self._get_references(r, references),
-                logo=r.props.logo if hasattr(r.props, 'logo') else PYTHON_LOGO
+                logo=self._get_logo(r, resources)
             )
             for r in results
         ]

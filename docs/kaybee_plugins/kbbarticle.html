@@ -19,7 +19,14 @@
                         {{ body }}
                     </div>
                 </div>
-                {{ article_sidebar(resource, references, pathto) }}
+                {{ article_sidebar(
+                    resource,
+                    resources,
+                    references,
+                    prev,
+                    next,
+                    resource.steps(resources),
+                    pathto) }}
             </div>
         </div>
     </main>

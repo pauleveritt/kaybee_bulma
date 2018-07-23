@@ -2,14 +2,12 @@
 Customizing Resources
 =====================
 
-.. article::
+.. kbbarticle::
     published: 2017-10-01 00:00
-    primary_reference: categories/angular
+    primary_reference: technologies/angular
     references:
         kbbtechnology:
             - ansible
-            - react
-        category:
             - react
         author:
             - pauleveritt

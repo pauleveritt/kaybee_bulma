@@ -26,3 +26,5 @@ class KbbArticleResource(BaseArticle):
             label=self.title, docname=self.docname, is_active=True))
         return entries
 
+    def steps(self, resources):
+        return self.parents(resources)[0].toctree
