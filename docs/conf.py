@@ -85,6 +85,7 @@ html_static_path = ['_static']
 
 # kaybee config
 kaybee_bulma_siteconfig = SiteConfig(
+    title='kaybee-bulma',
     logo=dict(
         img_file='kaybee_logo.png',
         alt='Kaybee Logo Alt'
@@ -101,10 +102,8 @@ kaybee_bulma_siteconfig = SiteConfig(
             dict(
                 css_class='documentation',
                 accent='primary',
-                icon='book',
-                label='Documentation',
-                label_narrow='Docs',
-                href='/documentation.html'
+                label='kaybee-bulma',
+                href='/'
             ),
             dict(
                 css_class='videos',

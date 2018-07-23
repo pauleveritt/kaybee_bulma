@@ -8,9 +8,8 @@
     <div class="navbar-brand">
         <a class="navbar-item" href="{{ href }}">
             <img src="{{ img_file }}"
-                 alt={{ alt }} >
+                 alt={{ alt }}>
         </a>
-
         <a class="navbar-item is-hidden-desktop"
            href="{{ github_url }}" target="_blank">
             <span class="icon" style="color: #333;">
@@ -48,9 +47,7 @@
                         {% for subentry in entry.submenu %}
                             <a class="navbar-item " href="{{ subentry.href }}">
                                 <span>
-                                    <span class="icon has-text-{{ subentry.accent }}">
-                                        <i class="fas fa-{{ subentry.icon }}"></i>
-                                    </span>
+                                    {{ entry_icon(subentry.accent, subentry.icon) }}
                                     <strong>{{ subentry.label }}</strong>
                                     {% if subentry.description %}
                                         <br>
@@ -68,9 +65,8 @@
             {% else %}
                 <a class="navbar-item bd-navbar-item-{{ entry.css_class }}"
                    href="{{ entry.href }}">
-                    <span class="icon has-text-{{ entry.accent }}">
-                        <i class="fas fa-{{ entry.icon }}"></i>
-                    </span>
+                    {% from 'macros/navbar.html' import entry_icon %}
+                    {{ entry_icon(entry.accent, entry.icon) }}
                     {% if entry.label_narrow %}
                         <span class="is-hidden-touch is-hidden-widescreen">
                             {{ entry.label_narrow }}
@@ -88,6 +84,13 @@
     </div>
 {% endmacro %}
 
+{% macro entry_icon(accent, icon) %}
+    {% if icon %}
+        <span class="icon has-text-{{ accent }}">
+            <i class="fas fa-{{ icon }}"></i>
+        </span>
+    {% endif %}
+{% endmacro %}
 
 {% macro end(links, buttons) %}
     <div class="navbar-end">

@@ -17,7 +17,7 @@ class SocialMedia(BaseModel):
 class NavbarStartEntry(BaseModel):
     css_class: str
     accent: str
-    icon: str
+    icon: str = None
     label: str
     label_narrow: str = None
     href: str
@@ -80,6 +80,7 @@ class Footer(BaseModel):
 
 class SiteConfig(BaseModel):
     logo: Logo = None
+    title: str = None
     social_media: SocialMedia = None
     copyright: str = 'All Rights Reserved'
     feed_url: str = ''
