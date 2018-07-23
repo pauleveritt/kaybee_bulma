@@ -113,6 +113,13 @@
                                         </a>
                                     </li>
                                 {% endfor %}
+                                {% if topentry.more %}
+                                    <li>
+                                        <a href="{{ topentry.more.href }}">
+                                            {{ topentry.more.label }}
+                                        </a>
+                                    </li>
+                                {% endif %}
                             </ul>
                         {% endif %}
                     </div>

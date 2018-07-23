@@ -1,11 +1,14 @@
 {% extends 'layout.html' %}
-{% from 'macros/article.html' import sidebar %}
+{% from 'macros/article.html' import breadcrumbs, heading, sidebar %}
 {% block body %}
     <main class="bd-main">
         <div class="bd-side-background"></div>
         <div class="bd-main-container container">
             <div class="bd-duo">
                 <div class="bd-lead">
+                    {{ breadcrumbs(entries=resource.breadcrumb_entries(resources)) }}
+                                        {{ heading(title=resource.title, subtitle=resource.excerpt) }}
+
                     <div class="bd-content">
                         <h1>Hello</h1>
                     </div>

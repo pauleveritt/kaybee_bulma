@@ -118,15 +118,7 @@ kaybee_bulma_siteconfig = SiteConfig(
                 icon='rss',
                 label='News',
                 href='/news.html'
-            ),
-            dict(
-                css_class='documentation',
-                accent='primary',
-                icon='book',
-                label='Documentation',
-                label_narrow='Docs',
-                href='/documentation.html'
-            ),
+            )
         ],
         end=dict(
             links=[

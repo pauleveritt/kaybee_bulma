@@ -9,6 +9,9 @@ sidebar:
     href: /learn.html
   - label: Technologies
     is_active: true
+    more:
+        label: All Technologies...
+        href: /x
     entries:
       - label: Django (32)
         href: /documentation_overview_start.html
@@ -38,6 +41,9 @@ class KbbLearnModel(BaseArticleModel):
 @kb.resource('kbblearn')
 class KbbLearnResource(BaseArticle):
     props: KbbLearnModel
+
+    def breadcrumb_entries(self, resources):
+        return []
 
     @property
     def sidebar_entries(self):
