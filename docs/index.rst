@@ -57,6 +57,7 @@ Contents
     :hidden:
     :caption: Contents:
 
+    learn
     about
     blog/index
     articles/index

@@ -106,19 +106,18 @@ kaybee_bulma_siteconfig = SiteConfig(
                 href='/'
             ),
             dict(
-                css_class='videos',
-                accent='success',
-                icon='play-circle',
-                label='Videos',
-                href='/videos.html'
-            ),
-            dict(
                 css_class='documentation',
                 accent='primary',
                 icon='book',
-                label='Documentation',
-                label_narrow='Docs',
-                href='/documentation.html'
+                label='Learn',
+                href='/learn.html'
+            ),
+            dict(
+                css_class='blog',
+                accent='rss',
+                icon='rss',
+                label='News',
+                href='/news.html'
             ),
             dict(
                 css_class='documentation',
@@ -143,6 +142,11 @@ kaybee_bulma_siteconfig = SiteConfig(
                 ),
             ],
             buttons=[
+                dict(
+                    accent='primary',
+                    href='xxx',
+                    label='Search'
+                ),
                 dict(
                     accent='danger',
                     href='xxx',

@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% from 'macros/article.html' import sidebar %}
+{% block body %}
+    <main class="bd-main">
+        <div class="bd-side-background"></div>
+        <div class="bd-main-container container">
+            <div class="bd-duo">
+                <div class="bd-lead">
+                    <div class="bd-content">
+                        <h1>Hello</h1>
+                    </div>
+                </div>
+                {{ sidebar(entries=resource.sidebar_entries) }}
+            </div>
+        </div>
+    </main>
+{% endblock %}
