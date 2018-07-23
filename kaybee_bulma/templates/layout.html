@@ -11,16 +11,16 @@
         <link rel="icon"
               href="{{ pathto('_static/' + siteconfig.favicon, 1) }}"/>
     {% endif %}
-    <link rel="stylesheet" href="{{  pathto('_static/css/bulmaio.css', 1) }}"/>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link rel="stylesheet" href="{{  pathto('_static/kaybee_bulma.css', 1) }}"/>
+    <script defer src="{{ pathto('_static/kaybee_bulma.js', 1) }}"></script>
+    <script defer
+            src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
-<body class="layout-default">
+<body>
 {% include 'header.html' %}
 
 {% block body %}{% endblock %}
 
 {% include 'footer.html' %}
-<script defer src="{{  pathto('_static/js/bulmaio.js', 1) }}"></script>
 </body>
 </html>
-

@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% from 'macros/article.html' import breadcrumbs, heading %}
 {% block body %}
-    <main class="bd-main">
+    <main class="bd-main kbb-article">
 
         <div class="bd-side-background"></div>
         <div class="bd-main-container container">
@@ -13,7 +13,7 @@
                             ) }}
                     {{ heading(title=resource.title, subtitle=resource.excerpt) }}
 
-                    <div class="bd-content">
+                    <div class="bd-content content">
                         {{ body }}
                     </div>
                 </div>

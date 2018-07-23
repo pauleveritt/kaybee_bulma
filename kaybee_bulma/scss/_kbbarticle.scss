@@ -1,0 +1,14 @@
+.kbb-article {
+  div.section > h1:first-child {
+    // Sphinx inserts the page title in a way that we'd like to control,
+    // so let's hide it. This is tricky to get just the one we want.
+    display: none;
+  }
+
+  .bd-content.content > .section {
+    // Sphinx sticks a "section" into the top node, which combines
+    // with Bulma to give padding. Erase it.
+    padding: 0;
+  }
+}
+
