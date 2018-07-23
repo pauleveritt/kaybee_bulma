@@ -6,6 +6,9 @@ Customizing Resources
     published: 2017-10-01 00:00
     primary_reference: categories/angular
     references:
+        kbbtechnology:
+            - ansible
+            - react
         category:
             - react
         author:

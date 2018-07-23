@@ -16,7 +16,6 @@
 
 {% macro heading (title, subtitle, logo, website) %}
     <header class="bd-header">
-
         {% if logo %}
             <article class="media">
                 {% if logo %}
@@ -33,7 +32,6 @@
                         </div>
                         <p>
                             {{ subtitle }}
-
                         </p>
                         {% if website %}
                             <p>
@@ -49,11 +47,8 @@
                     {{ title }}
                 </h1>
                 <p class="subtitle is-4">
-
                     {{ subtitle | safe }}
-
                 </p>
-
             </div>
         {% endif %}
     </header>

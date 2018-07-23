@@ -6,6 +6,9 @@ Customizing Layout
     published: 2017-10-01 00:00
     primary_reference: categories/angular
     references:
+        kbbtechnology:
+            - ansible
+            - angular
         category:
             - angular
             - typescript

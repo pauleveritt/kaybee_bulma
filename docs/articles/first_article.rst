@@ -2,9 +2,9 @@
     published: 2015-01-02 12:01
     weight: 20
     references:
-        category:
-            - typescript
-            - react
+        kbbtechnology:
+            - ansible
+            - angular
         author:
             - pauleveritt
     primary_reference: categories/typescript

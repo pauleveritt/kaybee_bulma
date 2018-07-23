@@ -3,7 +3,6 @@ from kaybee.plugins.articles.base_article_reference import \
     (
     BaseArticleReference, BaseArticleReferenceModel
 )
-from kaybee.plugins.queries.service import Query
 
 from ruamel.yaml import load, Loader
 
@@ -67,11 +66,7 @@ class KbbTechnology(BaseArticleReference):
         return entries
 
     def section_entries(self, resources):
-        results = Query.filter_collection(
-            resources,
-            rtype='kbbtechnology',
-            sort_value='title',
-        )
+        results = self.get_sources(resources)
 
         return [
             dict(
