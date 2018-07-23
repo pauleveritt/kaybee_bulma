@@ -1,4 +1,4 @@
-{% macro breadcrumbs (entries, pathto) %}
+{% macro breadcrumbs (entries, prev, next, pathto) %}
     {% if entries %}
         <div class="bd-breadcrumb">
             <nav class="breadcrumb" aria-label="breadcrumbs">
@@ -9,6 +9,21 @@
                         </li>
                     {% endfor %}
                 </ul>
+            </nav>
+            <nav class="bd-prev-next">
+                {% if prev %}
+                    <a href="{{ prev.link }}"
+                       title="{{ prev.title }}">
+                        ←
+                    </a>
+                {% endif %}
+
+                {% if next %}
+                    <a href="{{ next.link }}"
+                       title="{{ next.title }}">
+                        →
+                    </a>
+                {% endif %}
             </nav>
         </div>
     {% endif %}
@@ -101,11 +116,6 @@
     {% endif %}
 {% endmacro %}
 
-{% macro prevnext () %}
-    <nav class="bd-prev-next-bis">
-    </nav>
-{% endmacro %}
-
 {% macro sidebar (entries, pathto) %}
     {% if entries %}
         <aside class="bd-side">
@@ -179,7 +189,7 @@
                                 <a class="level-item kbb-fl-author"
                                    href="{{ entry.author.href + '.html' }}">
                                     <figure class="image is-rounded is-24x24"
-                                    style="margin-right: 0.2em">
+                                            style="margin-right: 0.2em">
                                         {% if entry.author.thumbnail_url %}
                                             <img src="{{ entry.author.thumbnail_url }}"
                                                  height="24" width="24"/>
@@ -220,4 +230,59 @@
             </article>
         </div>
     {% endfor %}
+{% endmacro %}
+
+{% macro article_sidebar (resource, references, pathto) %}
+    <aside class="bd-side kbb-sidenav">
+
+        <div id="kb-sidenav-published-heading">
+            {% set authors = references.resource_references(resource)['author'] %}
+
+            {% if resource.is_published %}
+                <p class="menu-label">
+                    Published
+                </p>
+                <ul class="menu-list">
+                    <li>
+                        Published
+                        {{ resource.props.published.strftime('%Y-%m-%d') }}
+                        {% if authors %}
+                            by:
+                            {% for author in authors %}
+                                <a href="{{ pathto(author.docname) }}">
+                                    <article class="media"
+                                             style="margin-top: 0.5em; ">
+                                        <figure class="media-left image is-rounded is-24x24"
+                                                style="margin-right: 0.5em">
+                                            <p class="image is-24x24">
+                                                <img src="{{ pathto(author.headshot_thumbnail('icon_24'), 1) }}">
+                                            </p>
+                                        </figure>
+                                        <div class="media-content">
+                                            <span style="display: inline-block; vertical-align: sub">{{ author.title }}</span>
+                                        </div>
+                                    </article>
+
+                                </a>
+                            {% endfor %}
+                        {% endif %}
+                    </li>
+                </ul>
+            {% else %}
+                <p class="menu-label">
+                    Draft
+                </p>
+                <ul class="menu-list">
+                    <li>
+                        <a href="#">
+                            This article does not have a
+                            current published date.
+                        </a>
+                    </li>
+                </ul>
+            {% endif %}
+        </div>
+
+
+    </aside>
 {% endmacro %}

@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% from 'macros/article.html' import breadcrumbs, heading %}
+{% from 'macros/article.html' import breadcrumbs, prevnext, heading, article_sidebar %}
 {% block body %}
     <main class="bd-main kbb-article">
 
@@ -8,8 +8,10 @@
             <div class="bd-duo">
                 <div class="bd-lead">
                     {{ breadcrumbs(
-                    entries=resource.breadcrumb_entries(resources),
-                            pathto=pathto
+                        entries=resource.breadcrumb_entries(resources),
+                        prev=prev,
+                        next=next,
+                        pathto=pathto
                             ) }}
                     {{ heading(title=resource.title, subtitle=resource.excerpt) }}
 
@@ -17,6 +19,7 @@
                         {{ body }}
                     </div>
                 </div>
+                {{ article_sidebar(resource, references, pathto) }}
             </div>
         </div>
     </main>
