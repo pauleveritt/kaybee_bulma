@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% from 'macros/article.html' import breadcrumbs, heading, subsections, sidebar %}
+{% from 'macros/article.html' import breadcrumbs, heading, resultbox, sidebar %}
 {% block body %}
     <main class="bd-main">
 
@@ -16,8 +16,8 @@
                             website=resource.props.website) }}
 
                     <div class="bd-content">
-                        {{ subsections(
-                        entries=resource.section_entries(resources), pathto=pathto
+                        {{ resultbox(
+                        entries=resource.section_entries(resources, references), pathto=pathto
                         ) }}
                     </div>
                 </div>

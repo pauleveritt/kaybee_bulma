@@ -154,3 +154,70 @@
     {% endif %}
 {% endmacro %}
 
+{% macro resultbox(entries, pathto) %}
+    {% for entry in entries %}
+        <div class="kbb-fl-result box">
+            <article class="media">
+                <div class="media-left">
+                    <figure class="image is-64x64 }">
+                        <img src="{{ entry.logo }}"/>
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <a href="{{ pathto(entry.docname, 0) }}">
+                                <strong>{{ entry.title }}</strong>
+                            </a>
+                            <br/>
+                            <span>{{ entry.excerpt }}</span>
+                        </p>
+                    </div>
+                    <nav class="level is-mobile">
+                        <div class="level-left">
+                            {% if entry.author and entry.rtype != 'author' %}
+                                <a class="level-item kbb-fl-author"
+                                   href="{{ entry.author.href + '.html' }}">
+                                    <figure class="image is-rounded is-24x24"
+                                    style="margin-right: 0.2em">
+                                        {% if entry.author.thumbnail_url %}
+                                            <img src="{{ entry.author.thumbnail_url }}"
+                                                 height="24" width="24"/>
+                                        {% endif %}
+                                    </figure>
+                                    <span>{{ entry.author.title }}</span>
+                                </a>
+                            {% endif %}
+                            {% if entry.references %}
+                                <span class="level-item">
+                                    <div class="tags">
+                                        {% for reference in entry.references %}
+                                            <span class="tag is-rounded">
+                                                <a href="{{ reference.href + '.html' }}">
+                                                    {{ reference.label }}
+                                                </a>
+                                            </span>
+                                        {% endfor %}
+                                    </div>
+                                </span>
+                            {% endif %}
+                        </div>
+                        <div class="level-right is-size-7 has-text-grey">
+                            {% if entry.duration %}
+                                <span class="kbb-fl-duration level-item">
+                                    <span class="icon">
+                                        <i class="fas fa-video"></i>
+                                    </span>
+                                    <span>{{ entry.duration }}</span>
+                                </span>
+                            {% endif %}
+                            <span class="level-item">
+                                {{ entry.published.strftime('%Y-%m-%d') }}
+                            </span>
+                        </div>
+                    </nav>
+                </div>
+            </article>
+        </div>
+    {% endfor %}
+{% endmacro %}

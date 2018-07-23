@@ -5,6 +5,7 @@ from kaybee.plugins.articles.base_article_reference import \
 )
 
 from ruamel.yaml import load, Loader
+from sphinx.util import relative_uri
 
 content = load('''
 sections:
@@ -47,6 +48,9 @@ class KbbTechnologyModel(BaseArticleReferenceModel):
     website: str
 
 
+PYTHON_LOGO = 'https://cdn.worldvectorlogo.com/logos/python-5.svg'
+
+
 @kb.resource('kbbtechnology')
 class KbbTechnology(BaseArticleReference):
     props: KbbTechnologyModel
@@ -58,23 +62,74 @@ class KbbTechnology(BaseArticleReference):
                 docname=r.docname
             )
             for r in self.parents(resources)[:-1]
-            ]
+        ]
         entries.reverse()
         entries.insert(0, dict(label='Home', docname='/index'))
         entries.append(dict(
             label=self.title, docname=self.docname, is_active=True))
         return entries
 
-    def section_entries(self, resources):
+    def _get_author(self, resource, references):
+        # Used by section_entries to make the listing of links resources
+        # as "tags"
+        resource_references = resource.props.references
+        if resource_references:
+            if 'author' in resource_references:
+                pa_label = resource_references['author'][0]
+                pa = references["author"][pa_label]
+                images = pa.props.images
+                first_image = images[0].filename if images else None
+                author_href = relative_uri(resource.docname, pa.docname)
+                thumbnail_url = author_href + '/../' + first_image
+                author = dict(
+                    title=pa.title,
+                    href=author_href,
+                    thumbnail_url=thumbnail_url,
+                )
+                return author
+
+    def _get_references(self, resource, references):
+        # Used by section_entries to make the listing of links resources
+        # as "tags"
+        # Used by section_entries to make the listing of links resources
+        # as "tags"
+
+        resource_references = resource.props.references
+        if resource_references:
+            # Handle all non-author references for tag-like links
+            these_references = []
+            for reftype, labels in resource_references.items():
+                this_reftype = references[reftype]
+                if reftype != 'author':
+                    for label in labels:
+                        this_ref = this_reftype[label]
+                        this_href = relative_uri(resource.docname, this_ref.docname)
+                        these_references.append(
+                            dict(
+                                label=label,
+                                href=this_href,
+                            )
+                        )
+            return these_references
+
+    def section_entries(self, resources, references):
         results = self.get_sources(resources)
 
-        return [
+        rr =  [
             dict(
-                label=r.title,
-                subheading=r.excerpt,
+                title=r.title,
+                rtype=r.rtype,
+                excerpt=r.excerpt,
                 docname=r.docname,
+                duration=r.props.duration,
+                published=r.props.published,
                 accent='primary',
                 icon='fas fa-eye',
+                author=self._get_author(r, references),
+                references=self._get_references(r, references),
+                logo=r.props.logo if hasattr(r.props, 'logo') else PYTHON_LOGO
             )
             for r in results
         ]
+
+        return rr
