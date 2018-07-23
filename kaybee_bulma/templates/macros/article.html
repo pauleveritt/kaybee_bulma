@@ -1,11 +1,11 @@
-{% macro breadcrumbs (entries) %}
+{% macro breadcrumbs (entries, pathto) %}
     {% if entries %}
         <div class="bd-breadcrumb">
             <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                     {% for entry in entries %}
                         <li class="{{ 'is-active' if entry.is_active else '' }}">
-                            <a href="{{ entry.href }}">{{ entry.label }}</a>
+                            <a href="{{ pathto(entry.docname, 0) }}">{{ entry.label }}</a>
                         </li>
                     {% endfor %}
                 </ul>

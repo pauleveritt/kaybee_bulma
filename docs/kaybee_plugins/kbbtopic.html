@@ -2,15 +2,17 @@
 {% from 'macros/article.html' import breadcrumbs, heading, subsections, sidebar %}
 {% block body %}
     <main class="bd-main">
+
         <div class="bd-side-background"></div>
         <div class="bd-main-container container">
             <div class="bd-duo">
                 <div class="bd-lead">
-                    {{ breadcrumbs(
-                    entries=resource.breadcrumb_entries(resources),
+                    {{ breadcrumbs(entries=resource.breadcrumb_entries(resources),
                             pathto=pathto
                             ) }}
-                    {{ heading(title=resource.title, subtitle=resource.excerpt) }}
+                    {{ heading(title=resource.title, subtitle=resource.excerpt,
+                            logo=resource.props.logo,
+                            website=resource.props.website) }}
 
                     <div class="bd-content">
                         {{ subsections(entries=resource.section_entries) }}

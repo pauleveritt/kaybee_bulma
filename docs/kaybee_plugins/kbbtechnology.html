@@ -7,7 +7,10 @@
         <div class="bd-main-container container">
             <div class="bd-duo">
                 <div class="bd-lead">
-                    {{ breadcrumbs(entries=resource.breadcrumb_entries(resources)) }}
+                    {{ breadcrumbs(
+                    entries=resource.breadcrumb_entries(resources),
+                            pathto=pathto
+                            ) }}
                     {{ heading(title=resource.title, subtitle=resource.excerpt,
                             logo=resource.props.logo,
                             website=resource.props.website) }}

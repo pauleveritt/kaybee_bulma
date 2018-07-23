@@ -43,27 +43,30 @@ sections:
 ''', Loader=Loader)
 
 
-class KbbTechnologyModel(BaseArticleReferenceModel):
+class KbbTopicModel(BaseArticleReferenceModel):
     website: str
 
 
-@kb.resource('kbbtechnology')
-class KbbTechnology(BaseArticleReference):
-    props: KbbTechnologyModel
+@kb.resource('kbbtopic')
+class KbbTopic(BaseArticleReference):
+    props: KbbTopicModel
 
     def breadcrumb_entries(self, resources):
-        entries = [
+        return [
             dict(
-                label=r.title,
-                docname=r.docname
-            )
-            for r in self.parents(resources)[:-1]
-            ]
-        entries.reverse()
-        entries.insert(0, dict(label='Home', docname='/index'))
-        entries.append(dict(
-            label=self.title, docname=self.docname, is_active=True))
-        return entries
+                label='Home',
+                href='/'
+            ),
+            dict(
+                label='Technologies',
+                href='/technologies/'
+            ),
+            dict(
+                label='Angular',
+                href='/technologies/angular.html',
+                is_active=True
+            ),
+        ]
 
     @property
     def section_entries(self):
