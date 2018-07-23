@@ -14,21 +14,46 @@
     {% endif %}
 {% endmacro %}
 
-{% macro heading (title, subtitle) %}
-    <header class="bd-header">
-        <div class="bd-header-titles">
-            <h1 class="title">
-                {{ title }}
-            </h1>
-            <p class="subtitle is-4">
+{% macro heading (title, subtitle, logo, website) %}
+    {% if logo %}
+        <article class="media">
+            {% if logo %}
+                <figure class="media-left">
+                    <p class="image is-128x128">
+                        <img src="{{ logo }}">
+                    </p>
+                </figure>
+            {% endif %}
+            <div class="media-content">
+                <div class="content">
+                    <div class="title is-2">
+                        {{ title }}
+                    </div>
+                    <p> {{ subtitle }}</p>
+                    {% if website %}
+                        <p>
+                            <a href="{{ website }}">Website</a>
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </article>
+    {% else %}
+        <header class="bd-header">
+            <div class="bd-header-titles">
+                <h1 class="title">
+                    {{ title }}
+                </h1>
+                <p class="subtitle is-4">
 
-                {{ subtitle | safe }}
+                    {{ subtitle | safe }}
 
-            </p>
+                </p>
 
-        </div>
+            </div>
 
-    </header>
+        </header>
+    {% endif %}
 {% endmacro %}
 
 {% macro tabs (entries) %}
