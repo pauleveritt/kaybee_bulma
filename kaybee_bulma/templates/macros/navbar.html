@@ -1,4 +1,5 @@
 {% macro brand(
+    title,
     img_file,
     href,
     github_url,
@@ -9,6 +10,11 @@
         <a class="navbar-item" href="{{ href }}">
             <img src="{{ img_file }}"
                  alt={{ alt }}>
+        </a>
+        <a class="navbar-item bd-navbar-item-documentation"
+           style="margin-left: -1em; margin-right: 1em"
+           href="{{ href }}">
+            <span>{{ title }}</span>
         </a>
         <a class="navbar-item is-hidden-desktop"
            href="{{ github_url }}" target="_blank">
@@ -36,11 +42,6 @@
 
 {% macro start(entries) %}
     <div class="navbar-start">
-        <a class="navbar-item bd-navbar-item-documentation"
-           style="margin-left: -1em; margin-right: 1em"
-           href="/">
-            <span>PyCharm Guide</span>
-        </a>
         {% for entry in entries %}
             {% if entry.submenu %}
                 <div class="navbar-item has-dropdown is-hoverable">
