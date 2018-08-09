@@ -1,14 +1,10 @@
 # Now
 
-- Get rid of 3 warnings in Sphinx generation
+- Topics and Technologies
 
-- Eliminate use of "content" in kblearn.py
-
-- Make a checkin
-
-- Commit
-
-- Merge
+    - Common base class
+    
+    - Breadcrumbs working
 
 # Next
 

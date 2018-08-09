@@ -10,7 +10,4 @@ Resources
 =========
 
 .. toctree::
-    :glob:
     :hidden:
-
-    *

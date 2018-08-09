@@ -11,7 +11,4 @@ IDEs
 ======
 
 .. toctree::
-    :glob:
     :hidden:
-
-    *

@@ -10,7 +10,5 @@ Topics
 ======
 
 .. toctree::
-    :glob:
     :hidden:
 
-    *
