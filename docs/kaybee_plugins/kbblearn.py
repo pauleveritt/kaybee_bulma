@@ -1,3 +1,4 @@
+from kaybee.plugins.queries.service import Query
 from ruamel.yaml import load, Loader
 
 from kaybee.app import kb
@@ -57,4 +58,20 @@ class KbbLearnResource(BaseArticle):
         return sidebar
 
     def section_entries(self, resources):
-        return content['sections']
+        results = Query.filter_collection(
+            resources,
+            rtype='kbbsection',
+            sort_value='sidebar_order',
+        )
+
+        return [
+            dict(
+                label=r.title,
+                subheading=r.excerpt,
+                docname=r.docname,
+                accent='primary',
+                icon='fas fa-eye'
+            )
+            for r in results
+        ]
+

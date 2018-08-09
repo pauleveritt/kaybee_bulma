@@ -1,11 +1,8 @@
-.. section::
-    style: warning
-    in_nav: True
-    weight: 70
+.. kbbsection::
     published: 2018-01-01 12:23
-    acquireds:
-        all:
-            style: warning
+    sidebar_order: 60
+    sidebar_entries:
+      rtype: kbbauthor
 
 =======
 Authors

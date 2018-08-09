@@ -63,6 +63,9 @@ Contents
     features/index
     categories/index
     authors/index
+    topics/index
+    ide/index
+    resources/index
     README
 
 .. querylist::

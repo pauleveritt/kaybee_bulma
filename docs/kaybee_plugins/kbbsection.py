@@ -43,7 +43,7 @@ sections:
 
 class KbbSectionModel(BaseArticleModel):
     sidebar_order: int
-    sidebar_entries: BaseQueryModel
+    sidebar_entries: BaseQueryModel = None
 
 
 @kb.resource('kbbsection')
@@ -55,6 +55,8 @@ class KbbSectionResource(BaseArticle):
 
     def sidebar_entries(self, resources):
         query = self.props.sidebar_entries
+        if query is None:
+            return []
         results = Query.filter_collection(
             resources,
             rtype=query.rtype,
@@ -72,12 +74,19 @@ class KbbSectionResource(BaseArticle):
         ]
 
     def section_entries(self, resources):
-        query = self.props.sidebar_entries
-        results = Query.filter_collection(
-            resources,
-            rtype=query.rtype,
-            sort_value=query.sort_value,
-        )
+        if self.docname == 'learn/dashboard':
+            results = Query.filter_collection(
+                resources,
+                rtype='kbbsection',
+                sort_value='sidebar_order',
+            )
+        else:
+            query = self.props.sidebar_entries
+            results = Query.filter_collection(
+                resources,
+                rtype=query.rtype,
+                sort_value=query.sort_value,
+            )
 
         return [
             dict(
@@ -86,7 +95,7 @@ class KbbSectionResource(BaseArticle):
                 docname=r.docname,
                 accent='primary',
                 icon='fas fa-eye',
-                logo=r.props.logo
+                logo=getattr(r.props, 'logo', None)
             )
             for r in results
         ]
