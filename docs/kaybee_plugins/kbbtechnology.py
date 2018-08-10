@@ -1,9 +1,9 @@
 from kaybee.app import kb
 from kaybee.plugins.articles.base_article_reference import \
-    BaseArticleReferenceModel
+    (
+    BaseArticleReferenceModel, BaseArticleReference
+)
 from sphinx.util import relative_uri
-
-from kaybee_bulma.base_resource import KbbBaseArticle
 
 
 class KbbTechnologyModel(BaseArticleReferenceModel):
@@ -14,7 +14,7 @@ PYTHON_LOGO = 'https://cdn.worldvectorlogo.com/logos/python-5.svg'
 
 
 @kb.resource('kbbtechnology')
-class KbbTechnology(KbbBaseArticle):
+class KbbTechnology(BaseArticleReference):
     props: KbbTechnologyModel
 
     def _get_author(self, resource, references):

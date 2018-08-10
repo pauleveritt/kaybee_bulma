@@ -50,9 +50,6 @@ class KbbSectionModel(BaseArticleModel):
 class KbbSectionResource(BaseArticle):
     props: KbbSectionModel
 
-    def breadcrumb_entries(self, resources):
-        return []
-
     def sidebar_entries(self, resources):
         query = self.props.sidebar_entries
         if query is None:

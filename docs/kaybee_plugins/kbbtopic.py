@@ -14,23 +14,6 @@ class KbbTopicModel(BaseArticleReferenceModel):
 class KbbTopic(BaseArticleReference):
     props: KbbTopicModel
 
-    def breadcrumb_entries(self, resources):
-        return [
-            dict(
-                label='Home',
-                href='/'
-            ),
-            dict(
-                label='Technologies',
-                href='/technologies/'
-            ),
-            dict(
-                label='Angular',
-                href='/technologies/angular.html',
-                is_active=True
-            ),
-        ]
-
     def section_entries(self, resources):
         query = self.props.sidebar_entries
         results = Query.filter_collection(

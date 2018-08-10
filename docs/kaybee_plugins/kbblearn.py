@@ -13,9 +13,6 @@ class KbbLearnModel(BaseArticleModel):
 class KbbLearnResource(BaseArticle):
     props: KbbLearnModel
 
-    def breadcrumb_entries(self, resources):
-        return []
-
     @property
     def sidebar_entries(self):
         return sidebar
@@ -37,4 +34,3 @@ class KbbLearnResource(BaseArticle):
             )
             for r in results
         ]
-
