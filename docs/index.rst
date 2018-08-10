@@ -61,11 +61,11 @@ Contents
     blog/index
     articles/index
     features/index
-    categories/index
     authors/index
     topics/index
     ide/index
     resources/index
+    tips/index
     README
 
 .. querylist::

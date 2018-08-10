@@ -1,11 +1,11 @@
 .. section::
     published: 2017-04-04 00:00
-    primary_reference: categories/react
+    primary_reference: technologies/react
     excerpt: This section is about customizing. Meaning, customizing this
         package. The section is a subsection of the articles section, which
         has some other content in it.
     references:
-        category:
+        kbbtechnology:
             - typescript
             - angular
         author:

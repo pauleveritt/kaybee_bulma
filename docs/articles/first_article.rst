@@ -7,7 +7,7 @@
             - angular
         author:
             - pauleveritt
-    primary_reference: categories/typescript
+    primary_reference: technologies/typescript
     excerpt:
         A fine article, about all kinds of things. One can never tell
         the kinds of things that it is about.
@@ -21,9 +21,9 @@ The article body is here.
 
 Two kinds of references:
 
-- :ref:`category-react` uses the target as the link title
+- :ref:`kbbtechnology-react` uses the target as the link title
 
-- :ref:`Link title <category-react>` makes a new link title
+- :ref:`Link title <kbbtechnology-react>` makes a new link title
 
 .. note::
 
