@@ -1,10 +1,9 @@
 from kaybee.app import kb
 from kaybee.plugins.articles.base_article_reference import \
-    (
-    BaseArticleReference, BaseArticleReferenceModel
-)
-
+    BaseArticleReferenceModel
 from sphinx.util import relative_uri
+
+from kaybee_bulma.base_resource import KbbBaseArticle
 
 
 class KbbTechnologyModel(BaseArticleReferenceModel):
@@ -15,22 +14,8 @@ PYTHON_LOGO = 'https://cdn.worldvectorlogo.com/logos/python-5.svg'
 
 
 @kb.resource('kbbtechnology')
-class KbbTechnology(BaseArticleReference):
+class KbbTechnology(KbbBaseArticle):
     props: KbbTechnologyModel
-
-    def breadcrumb_entries(self, resources):
-        entries = [
-            dict(
-                label=r.title,
-                docname=r.docname
-            )
-            for r in self.parents(resources)[:-1]
-        ]
-        entries.reverse()
-        entries.insert(0, dict(label='Home', docname='/index'))
-        entries.append(dict(
-            label=self.title, docname=self.docname, is_active=True))
-        return entries
 
     def _get_author(self, resource, references):
         # Used by section_entries to make the listing of links resources

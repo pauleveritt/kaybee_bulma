@@ -8,8 +8,6 @@
 
 # Next
 
-- Remove basic.css then clean out all the workarounds
-
 - Get pauleveritt author image directory doesn't exist bug fixed
 
 - Group nav into menus that might be drop-down
@@ -18,6 +16,12 @@
 
 - Extra sections on home page
 
+- Decrease the number of files in ``templates``, instead, have types with 
+  templates
+
+- Move most of kaybee_plugins logic back to either kaybee (e.g. authors and 
+  references lookups) or kaybee_bulma
+    
 - Date formatter
 
 - Authors, with author info in the sidenav
