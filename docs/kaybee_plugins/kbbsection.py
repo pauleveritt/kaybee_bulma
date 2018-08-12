@@ -25,8 +25,8 @@ class KbbSectionResource(BaseArticle):
                 label=r.title,
                 subheading=r.excerpt,
                 docname=r.docname,
-                accent='primary',
-                icon='fas fa-eye',
+                accent=r.props.accent,
+                icon=r.props.icon,
                 logo=getattr(r.props, 'logo', None)
             )
             for r in results

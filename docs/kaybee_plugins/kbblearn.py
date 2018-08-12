@@ -18,8 +18,8 @@ class KbbLearnResource(Navpage):
                 label=r.title,
                 subheading=r.excerpt,
                 docname=r.docname,
-                accent='primary',
-                icon='fas fa-eye'
+                accent=r.props.accent,
+                icon=r.props.icon,
             )
             for r in query_results
         ]
