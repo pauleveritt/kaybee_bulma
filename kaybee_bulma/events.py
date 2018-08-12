@@ -10,6 +10,15 @@ from sphinx.jinja2glue import SphinxFileSystemLoader
 import kaybee_bulma
 
 
+# TODO this needs to go somewhere
+def sidebar_is_active(docname, pagename, resources):
+    if docname == pagename:
+        return True
+    page = resources.get(pagename)
+    if page:
+        return docname == page.parent
+
+
 @kb.event(SphinxEvent.BI, scope='kaybee_bulma')
 def handle_builderinit(kb_app: kb, sphinx_app):
     """ Load the resources, types, etc. from the registry
@@ -34,14 +43,13 @@ def theme_into_html_context(
         templatename: str,
         context,
         doctree):
-
     context['siteconfig'] = sphinx_app.config.kaybee_bulma_siteconfig
 
     resources = sphinx_app.env.resources
     resources_values = sphinx_app.env.resources.values()
     filtered_resources = [r for r in resources_values if
-                 getattr(r.props, 'in_nav', False) and
-                 r.props.in_nav and r.is_published]
+                          getattr(r.props, 'in_nav', False) and
+                          r.props.in_nav and r.is_published]
 
     # Sort first by title, then by "weight"
     context['navmenu'] = sorted(filtered_resources,
@@ -53,7 +61,22 @@ def theme_into_html_context(
     # instead of calculating this whether it is needed or not on the
     # current page
 
-    sidebar_entries = [
+    # We store the default "navpage" on the homepage props.
+    default_navpage_docname = resources['index'].props.default_navpage
+    if default_navpage_docname:
+        default_navpage = resources[default_navpage_docname]
+        sidebar_entries = default_navpage.entries(resources,
+                                                  sphinx_app.env.references)
+        # Set the active sidebar section
+        for sidebar_entry in sidebar_entries:
+            sidebar_entry['is_active'] = sidebar_is_active(
+                sidebar_entry['docname'],
+                pagename,
+                resources
+            )
+    else:
+        sidebar_entries = []
+    xxx_sidebar_entries = [
         dict(
             label=r.title,
             docname=r.docname,

@@ -1,16 +1,10 @@
-.. homepage::
-
-    in_nav: False
+.. kbbhomepage::
     published: 2009-10-21 12:23
-    heading: Kaybee
-    subheading: Extensible Knowledge Base for Static Sites
-    hero_image: library.jpg
-    style: dark
+    default_navpage: learn/index
 
 =======================================
 Kaybee: Knowledge Base for Static Sites
 =======================================
-
 
 .. filteredlisting::
     name: kbbfl
