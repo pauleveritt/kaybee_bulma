@@ -14,7 +14,7 @@ class KbbLearnResource(Navpage):
         results = Query.filter_collection(
             resources,
             rtype='kbbsection',
-            sort_value='sidebar_order',
+            sort_value='title',
         )
 
         return [

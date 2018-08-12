@@ -5,7 +5,6 @@ from kaybee.plugins.queries.service import Query
 
 
 class KbbSectionModel(BaseArticleModel):
-    sidebar_order: int
     sidebar_entries: BaseQueryModel = None
 
 

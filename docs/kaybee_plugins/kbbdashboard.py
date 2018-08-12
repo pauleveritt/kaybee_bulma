@@ -1,15 +1,10 @@
 from kaybee.app import kb
-from kaybee.plugins.articles.base_article import BaseArticle, BaseArticleModel
+from kaybee.plugins.articles.base_article import BaseArticle
 from kaybee.plugins.queries.service import Query
-
-
-class KbbDashboardModel(BaseArticleModel):
-    sidebar_order: int
 
 
 @kb.resource('kbbdashboard')
 class KbbDashboardResource(BaseArticle):
-    props: KbbDashboardModel
 
     def section_entries(self, resources):
         results = Query.filter_collection(

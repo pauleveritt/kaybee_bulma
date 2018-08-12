@@ -76,15 +76,5 @@ def theme_into_html_context(
             )
     else:
         sidebar_entries = []
-    xxx_sidebar_entries = [
-        dict(
-            label=r.title,
-            docname=r.docname,
-            is_active=r.sidebar_is_active(pagename, resources),
-            entries=r.sidebar_entries(resources),
-        )
-        for r in resources_values if
-        getattr(r.props, 'sidebar_order', False)
-    ]
 
     context['sidebar_entries'] = sidebar_entries
