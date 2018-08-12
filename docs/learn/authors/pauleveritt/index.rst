@@ -7,6 +7,8 @@
     images:
         - usage: icon_24
           filename: paul_headshotx24.jpeg
+        - usage: icon_96
+          filename: paul_headshotx96.jpeg
         - usage: icon_128
           filename: paul_headshotx128.jpeg
 

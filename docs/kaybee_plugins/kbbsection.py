@@ -14,20 +14,26 @@ class KbbSectionResource(BaseArticle):
 
     def section_entries(self, resources):
         query = self.props.section_entries
-        results = Query.filter_collection(
+        query_results = Query.filter_collection(
             resources,
             rtype=query.rtype,
             sort_value=query.sort_value,
         )
 
-        return [
-            dict(
+        results = []
+        for r in query_results:
+            result = dict(
                 label=r.title,
                 subheading=r.excerpt,
                 docname=r.docname,
                 accent=r.props.accent,
                 icon=r.props.icon,
-                logo=getattr(r.props, 'logo', None)
+                logo=getattr(r.props, 'logo', None),
             )
-            for r in results
-        ]
+            if getattr(r.props, 'images', False):
+                headshot_thumbnail = r.headshot_thumbnail('icon_96')
+                if headshot_thumbnail:
+                    result['headshot_thumbnail'] = headshot_thumbnail
+            results.append(result)
+
+        return results
