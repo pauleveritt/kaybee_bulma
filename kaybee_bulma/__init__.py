@@ -6,6 +6,13 @@ import kaybee_bulma.events
 from kaybee_bulma import (
     filteredlisting,
     toctree,
+    kbbarticle,
+    kbbauthor,
+    kbbhomepage,
+    kbblearn,
+    kbbsection,
+    kbbtechnology,
+    kbbtopic,
 )
 from kaybee_bulma.siteconfig import SiteConfig
 

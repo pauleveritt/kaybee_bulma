@@ -14,10 +14,11 @@ from kaybee_bulma.siteconfig import SiteConfig
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 
-extensions = ['sphinx.ext.intersphinx',
-              'kaybee',
-              'kaybee_bulma',
-              ]
+extensions = [
+    # 'sphinx.ext.intersphinx',
+    'kaybee',
+    'kaybee_bulma',
+]
 
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates'] + kaybee_bulma.get_html_templates_path()
@@ -234,7 +235,8 @@ kaybee_bulma_siteconfig = SiteConfig(
                                     label='Bulma start',
                                     icon='rocket',
                                     accent='success',
-                                    subtitle='A tiny npm package to get started',
+                                    subtitle='A tiny npm package to get '
+                                             'started',
                                     href='/x'
                                 ),
                             ]
