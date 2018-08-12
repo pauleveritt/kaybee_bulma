@@ -3,14 +3,10 @@ from kaybee.plugins.articles.base_article_reference import \
     (
     BaseArticleReferenceModel, BaseArticleReference
 )
-from sphinx.util import relative_uri
 
 
 class KbbTechnologyModel(BaseArticleReferenceModel):
     website: str
-
-
-PYTHON_LOGO = 'https://cdn.worldvectorlogo.com/logos/python-5.svg'
 
 
 @kb.resource('kbbtechnology')
