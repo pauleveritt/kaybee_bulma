@@ -11,6 +11,3 @@ class KbbArticleModel(BaseArticleModel):
 @kb.resource('kbbarticle')
 class KbbArticleResource(BaseArticle):
     props: KbbArticleModel
-
-    def steps(self, resources):
-        return self.parents(resources)[0].toctree
