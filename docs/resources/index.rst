@@ -11,3 +11,5 @@ Resources
 
 .. toctree::
     :hidden:
+
+    webinar

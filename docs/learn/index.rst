@@ -9,6 +9,9 @@
              limit: 5
         - docname: ide/index
         - docname: resources/index
+          query:
+             parent_name: resources/index
+             limit: 5
         - docname: technologies/index
           query:
              rtype: kbbtechnology
