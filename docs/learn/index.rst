@@ -2,7 +2,7 @@
     published: 2017-10-01 00:00
     excerpt: Browse resources using any of the category schemes.
     entries:
-        - docname: learn/dashboard
+        - docname: learn/overview
         - docname: authors/index
           query:
              rtype: author
@@ -29,4 +29,4 @@ Learn
 .. toctree::
     :hidden:
 
-    dashboard
+    overview

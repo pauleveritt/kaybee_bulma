@@ -13,19 +13,12 @@ class KbbSectionResource(BaseArticle):
     props: KbbSectionModel
 
     def section_entries(self, resources):
-        if self.docname == 'learn/dashboard':
-            results = Query.filter_collection(
-                resources,
-                rtype='kbbsection',
-                sort_value='sidebar_order',
-            )
-        else:
-            query = self.props.section_entries
-            results = Query.filter_collection(
-                resources,
-                rtype=query.rtype,
-                sort_value=query.sort_value,
-            )
+        query = self.props.section_entries
+        results = Query.filter_collection(
+            resources,
+            rtype=query.rtype,
+            sort_value=query.sort_value,
+        )
 
         return [
             dict(

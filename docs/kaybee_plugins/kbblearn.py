@@ -7,13 +7,13 @@ from kaybee.plugins.queries.service import Query
 class KbbLearnResource(Navpage):
 
     def section_entries(self, resources):
-        results = Query.filter_collection(
+        query_results = Query.filter_collection(
             resources,
             rtype='kbbsection',
             sort_value='title',
         )
 
-        return [
+        results = [
             dict(
                 label=r.title,
                 subheading=r.excerpt,
@@ -21,5 +21,17 @@ class KbbLearnResource(Navpage):
                 accent='primary',
                 icon='fas fa-eye'
             )
-            for r in results
+            for r in query_results
         ]
+
+        overview = resources['learn/overview']
+        results.insert(0, dict(
+            label=overview.title,
+            subheading=overview.excerpt,
+            docname=overview.docname,
+            accent='primary',
+            icon='fas fa-eye'
+        )
+                       )
+
+        return results
