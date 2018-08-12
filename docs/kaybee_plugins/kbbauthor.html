@@ -14,6 +14,9 @@
                             ) }}
 
                     <div class="bd-content">
+                        {{ resultbox(
+                        entries=resource.section_entries(resources, references), pathto=pathto
+                        ) }}
                     </div>
                 </div>
                 {{ sidebar(entries=sidebar_entries, pathto=pathto) }}
