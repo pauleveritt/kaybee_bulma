@@ -29,17 +29,15 @@
     {% endif %}
 {% endmacro %}
 
-{% macro heading (title, subtitle, logo, website) %}
+{% macro heading (title, subtitle, logo, website, headshot_thumbnail=None, pathto=None) %}
     <header class="bd-header">
         {% if logo %}
             <article class="media">
-                {% if logo %}
-                    <figure class="media-left">
-                        <p class="image is-64x64">
-                            <img src="{{ logo }}">
-                        </p>
-                    </figure>
-                {% endif %}
+                <figure class="media-left">
+                    <p class="image is-64x64">
+                        <img src="{{ logo }}">
+                    </p>
+                </figure>
                 <div class="media-content">
                     <div class="content">
                         <div class="title is-2">
@@ -53,6 +51,24 @@
                                 <a href="{{ website }}">Website</a>
                             </p>
                         {% endif %}
+                    </div>
+                </div>
+            </article>
+        {% elif headshot_thumbnail %}
+            <article class="media">
+                <figure class="image media-left is-rounded is-96x96">
+                    <p class="image">
+                        <img src="{{ pathto(headshot_thumbnail, 1) }}">
+                    </p>
+                </figure>
+                <div class="media-content">
+                    <div class="content">
+                        <div class="title is-2">
+                            {{ title }}
+                        </div>
+                        <p>
+                            {{ subtitle }}
+                        </p>
                     </div>
                 </div>
             </article>
