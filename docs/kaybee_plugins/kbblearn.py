@@ -6,10 +6,6 @@ from kaybee.plugins.queries.service import Query
 @kb.resource('kbblearn')
 class KbbLearnResource(Navpage):
 
-    # @property
-    # def sidebar_entries(self):
-    #     return sidebar
-
     def section_entries(self, resources):
         results = Query.filter_collection(
             resources,

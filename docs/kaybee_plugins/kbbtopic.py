@@ -15,7 +15,6 @@ class KbbTopic(BaseArticleReference):
     props: KbbTopicModel
 
     def section_entries(self, resources):
-        query = self.props.sidebar_entries
         results = Query.filter_collection(
             resources,
             rtype='kbbtechnology',

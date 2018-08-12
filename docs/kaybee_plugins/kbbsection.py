@@ -12,26 +12,6 @@ class KbbSectionModel(BaseArticleModel):
 class KbbSectionResource(BaseArticle):
     props: KbbSectionModel
 
-    def sidebar_entries(self, resources):
-        query = self.props.sidebar_entries
-        if query is None:
-            return []
-        results = Query.filter_collection(
-            resources,
-            rtype=query.rtype,
-            sort_value=query.sort_value,
-            limit=query.limit,
-            reverse=query.reverse
-        )
-
-        return [
-            dict(
-                label=r.title,
-                docname=r.docname
-            )
-            for r in results
-        ]
-
     def section_entries(self, resources):
         if self.docname == 'learn/dashboard':
             results = Query.filter_collection(
@@ -58,10 +38,3 @@ class KbbSectionResource(BaseArticle):
             )
             for r in results
         ]
-
-    def sidebar_is_active(self, pagename, resources):
-        if self.docname == pagename:
-            return True
-        page = resources.get(pagename)
-        if page:
-            return self.docname == page.parent
