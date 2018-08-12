@@ -5,7 +5,7 @@ from kaybee.plugins.queries.service import Query
 
 
 class KbbSectionModel(BaseArticleModel):
-    sidebar_entries: BaseQueryModel = None
+    section_entries: BaseQueryModel = None
 
 
 @kb.resource('kbbsection')
@@ -20,7 +20,7 @@ class KbbSectionResource(BaseArticle):
                 sort_value='sidebar_order',
             )
         else:
-            query = self.props.sidebar_entries
+            query = self.props.section_entries
             results = Query.filter_collection(
                 resources,
                 rtype=query.rtype,

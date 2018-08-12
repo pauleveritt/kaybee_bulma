@@ -14,20 +14,22 @@ class KbbTopicModel(BaseArticleReferenceModel):
 class KbbTopic(BaseArticleReference):
     props: KbbTopicModel
 
-    def section_entries(self, resources):
-        results = Query.filter_collection(
-            resources,
-            rtype='kbbtechnology',
-            sort_value='title',
-        )
+    def section_entries(self, resources, references):
+        results = self.get_sources(resources)
 
         return [
             dict(
-                label=r.title,
-                subheading=r.subheading,
+                title=r.title,
+                rtype=r.rtype,
+                excerpt=r.excerpt,
                 docname=r.docname,
+                duration=r.props.duration,
+                published=r.props.published,
                 accent='primary',
-                icon='fas fa-eye'
+                icon='fas fa-eye',
+                author=r.get_author(references),
+                references=r.get_references(references),
+                logo=r.get_logo(resources)
             )
             for r in results
         ]
