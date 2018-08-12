@@ -8,7 +8,7 @@
         kbbtechnology:
             - typescript
             - angular
-        author:
+        kbbauthor:
             - pauleveritt
 
 ===========

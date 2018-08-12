@@ -4,7 +4,7 @@
     style: info
     subheading: Brief survey of what Kaybee is good for
     references:
-        author:
+        kbbauthor:
             - pauleveritt
     acquireds:
         all:

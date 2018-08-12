@@ -9,7 +9,7 @@ Customizing References
         kbbtechnology:
             - ansible
             - angular
-        author:
+        kbbauthor:
             - pauleveritt
     excerpt:
         References let you make a taxonomy scheme and link content.

@@ -3,7 +3,7 @@
     accent: warning
     icon: fas fa-users
     section_entries:
-      rtype: author
+      rtype: kbbauthor
 
 =======
 Authors

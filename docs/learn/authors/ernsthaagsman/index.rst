@@ -1,8 +1,8 @@
-.. author::
+.. kbbauthor::
     label: ernsthaagsman
     published: 2018-01-02 12:01
     references:
-        author:
+        kbbauthor:
             - pauleveritt
     images:
         - usage: icon_24

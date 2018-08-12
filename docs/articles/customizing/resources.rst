@@ -9,7 +9,7 @@ Customizing Resources
         kbbtechnology:
             - ansible
             - react
-        author:
+        kbbauthor:
             - pauleveritt
     excerpt:
         All the ways to make your own resources, from simple

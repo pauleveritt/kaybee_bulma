@@ -5,7 +5,7 @@
         kbbtechnology:
             - ansible
             - angular
-        author:
+        kbbauthor:
             - pauleveritt
     primary_reference: learn/technologies/typescript
     excerpt:

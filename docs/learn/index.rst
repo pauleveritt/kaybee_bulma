@@ -5,7 +5,7 @@
         - docname: learn/overview
         - docname: learn/authors/index
           query:
-             rtype: author
+             rtype: kbbauthor
              limit: 5
         - docname: learn/ide/index
         - docname: learn/resources/index

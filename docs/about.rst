@@ -12,7 +12,7 @@
         kbbtechnology:
             - typescript
             - react
-        author:
+        kbbauthor:
             - ernsthaagsman
 
 =====

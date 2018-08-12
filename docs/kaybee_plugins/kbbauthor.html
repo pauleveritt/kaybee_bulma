@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% from 'macros/article.html' import breadcrumbs, prevnext, heading, article_sidebar %}
+{% block body %}
+    <main class="bd-main kbb-article">
+
+        <div class="bd-side-background"></div>
+        <div class="bd-main-container container">
+            <div class="bd-duo">
+                <div class="bd-lead">
+                    {{ breadcrumbs(
+                        entries=resource.breadcrumbs(resources),
+                        prev=prev,
+                        next=next,
+                        pathto=pathto
+                            ) }}
+                    {{ heading(title=resource.title, subtitle=resource.excerpt) }}
+
+                    <div class="bd-content content">
+                        {{ body }}
+                    </div>
+                </div>
+                {{ article_sidebar(
+                    resource,
+                    resources,
+                    references,
+                    prev,
+                    next,
+                    resource.steps(resources),
+                    pathto) }}
+            </div>
+        </div>
+    </main>
+{% endblock %}

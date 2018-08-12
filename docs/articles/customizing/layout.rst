@@ -5,7 +5,7 @@
         kbbtechnology:
             - ansible
             - angular
-        author:
+        kbbauthor:
             - pauleveritt
     excerpt:
         Change the look of a single page, a class of pages,

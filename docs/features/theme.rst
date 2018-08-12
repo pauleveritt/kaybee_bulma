@@ -6,7 +6,7 @@
         kbbtechnology:
             - typescript
             - react
-        author:
+        kbbauthor:
             - pauleveritt
 
 ==============
