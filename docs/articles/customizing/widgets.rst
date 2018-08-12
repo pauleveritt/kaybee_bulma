@@ -4,7 +4,7 @@ Customizing Widgets
 
 .. kbbarticle::
     published: 2017-10-01 00:00
-    primary_reference: technologies/typescript
+    primary_reference: learn/technologies/typescript
     references:
         author:
             - pauleveritt

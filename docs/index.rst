@@ -51,14 +51,9 @@ Contents
 
     learn/index
     about
-    technologies/index
     blog/index
     articles/index
     features/index
-    authors/index
-    topics/index
-    ide/index
-    resources/index
     tips/index
     README
 

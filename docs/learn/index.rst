@@ -3,20 +3,20 @@
     excerpt: Browse resources using any of the category schemes.
     entries:
         - docname: learn/overview
-        - docname: authors/index
+        - docname: learn/authors/index
           query:
              rtype: author
              limit: 5
-        - docname: ide/index
-        - docname: resources/index
+        - docname: learn/ide/index
+        - docname: learn/resources/index
           query:
-             parent_name: resources/index
+             parent_name: learn/resources/index
              limit: 5
-        - docname: technologies/index
+        - docname: learn/technologies/index
           query:
              rtype: kbbtechnology
              limit: 5
-        - docname: topics/index
+        - docname: learn/topics/index
           query:
              rtype: kbbtopic
              limit: 5
@@ -30,3 +30,8 @@ Learn
     :hidden:
 
     overview
+    authors/index
+    ide/index
+    resources/index
+    technologies/index
+    topics/index

@@ -7,7 +7,7 @@
             - angular
         author:
             - pauleveritt
-    primary_reference: technologies/typescript
+    primary_reference: learn/technologies/typescript
     excerpt:
         A fine article, about all kinds of things. One can never tell
         the kinds of things that it is about.

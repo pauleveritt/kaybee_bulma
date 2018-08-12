@@ -4,7 +4,7 @@ Customizing Layout
 
 .. kbbarticle::
     published: 2017-10-01 00:00
-    primary_reference: technologies/angular
+    primary_reference: learn/technologies/angular
     references:
         kbbtechnology:
             - ansible
