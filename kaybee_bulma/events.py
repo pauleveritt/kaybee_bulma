@@ -28,11 +28,14 @@ def handle_builderinit(kb_app: kb, sphinx_app):
     project.
     """
 
-    # Add the root of this theme
+    # Add the root of this theme, plus macros
     template_bridge = sphinx_app.builder.templates
-    f = os.path.join(os.path.dirname(inspect.getfile(kaybee_bulma)),
+    t = os.path.join(os.path.dirname(inspect.getfile(kaybee_bulma)),
                      'templates')
-    template_bridge.loaders.append(SphinxFileSystemLoader(f))
+    template_bridge.loaders.append(SphinxFileSystemLoader(t))
+    m = os.path.join(os.path.dirname(inspect.getfile(kaybee_bulma)),
+                     'templates/macros')
+    template_bridge.loaders.append(SphinxFileSystemLoader(m))
 
 
 @kb.event(SphinxEvent.HPC, scope='kaybee_bulma')
