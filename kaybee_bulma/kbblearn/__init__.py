@@ -11,6 +11,7 @@ class KbbLearnResource(Navpage):
             resources,
             rtype='kbbsection',
             sort_value='title',
+            parent_name=self.docname
         )
 
         results = [

@@ -3,11 +3,10 @@ from kaybee.plugins.articles.base_article_reference import \
     (
     BaseArticleReference, BaseArticleReferenceModel
 )
-from kaybee.plugins.queries.service import Query
 
 
 class KbbTopicModel(BaseArticleReferenceModel):
-    website: str
+    website: str = None
 
 
 @kb.resource('kbbtopic')
